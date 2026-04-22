@@ -7,9 +7,16 @@
 :root {
   /* Brand colors */
   --wa-ink: #0B0F14;
-  --wa-blue: #3B82F6;
-  --wa-blue-light: #93C5FD;
+  --wa-blue-300: #93C5FD;
+  --wa-blue-500: #3B82F6;
+  --wa-blue-600: #2563EB;
   --wa-blue-glow: rgba(59, 130, 246, 0.35);
+  --wa-success-500: #22C55E;
+  
+  /* Backgrounds */
+  --bg-0: #0B0F14;
+  --bg-1: #10151C;
+  --bg-2: #161C25;
   
   /* Surfaces */
   --wa-surface-1: #10151C;
@@ -19,10 +26,20 @@
   --wa-border-strong: #2A3340;
   
   /* Foreground */
-  --wa-fg-1: #F7F9FC;
-  --wa-fg-2: #C7D0DC;
-  --wa-fg-3: #8A94A6;
-  --wa-fg-4: #5A6576;
+  --fg-1: #F7F9FC;
+  --fg-2: #C7D0DC;
+  --fg-3: #8A94A6;
+  --fg-4: #5A6576;
+  --fg-accent: #3B82F6;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --inset-hairline: inset 0 1px 0 rgba(255,255,255,0.04);
+  --inset-hairline-strong: inset 0 1px 0 rgba(255,255,255,0.08);
+  
+  /* Easing */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   
   /* Semantic */
   --background: #0B0F14;
@@ -101,20 +118,20 @@
 
 /* Case card cover gradients */
 .cover-blue {
-  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #1D4ED8, #3B82F6);
 }
 .cover-ink {
-  background: linear-gradient(135deg, #1f2937 0%, #0B0F14 100%);
+  background: linear-gradient(135deg, #0B0F14, #1F2732 60%, #3B82F6);
 }
 .cover-navy {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #1E3A8A, #3B82F6);
 }
 .cover-slate {
-  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #334155, #1e293b);
 }
 .cover-deep {
-  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #1e1b4b, #0f172a);
 }
 .cover-teal {
-  background: linear-gradient(135deg, #134e4a 0%, #0f172a 100%);
+  background: linear-gradient(135deg, #134e4a, #0f172a);
 }

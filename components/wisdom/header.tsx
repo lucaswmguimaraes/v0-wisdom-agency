@@ -20,22 +20,22 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-20 w-full border-b border-[var(--wa-border)] bg-[rgba(11,15,20,0.85)] backdrop-blur-[10px]">
+      <div className="mx-auto max-w-[1200px] px-8">
+        <div className="flex h-[72px] items-center gap-8">
           <Link href="/" className="flex-shrink-0">
             <Logo />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 flex-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-foreground",
-                  pathname === item.href ? "text-foreground" : "text-muted-foreground"
+                  "text-sm font-medium transition-colors duration-[120ms] ease-[var(--ease-standard)] hover:text-[var(--fg-1)]",
+                  pathname === item.href ? "text-[var(--fg-1)]" : "text-[var(--fg-2)]"
                 )}
               >
                 {item.label}

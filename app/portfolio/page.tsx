@@ -267,18 +267,18 @@ export default function PortfolioPage() {
             </div>
             
             {/* Metrics */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 rounded-2xl border border-border bg-[var(--bg-2)] overflow-hidden shadow-[var(--shadow-md),var(--inset-hairline)]">
               {[
                 { icon: TrendingUp, value: "+329%", label: "Leads YoY, median client" },
                 { icon: DollarSign, value: "+85%", label: "Revenue growth, FY25" },
                 { icon: BarChart3, value: "$1M+", label: "Managed monthly spend" },
                 { icon: Star, value: "14", label: "Active B2B + DTC clients" },
-              ].map((metric) => (
-                <div key={metric.label} className="flex items-start gap-3 p-4 rounded-xl bg-card/50 border border-border">
-                  <metric.icon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+              ].map((metric, idx) => (
+                <div key={metric.label} className={cn("flex items-center gap-3.5 p-6", idx < 3 && "border-r border-border")}>
+                  <metric.icon className="h-5 w-5 text-[var(--wa-blue-300)] opacity-80 flex-shrink-0" />
                   <div>
-                    <div className="text-xl font-bold text-foreground">{metric.value}</div>
-                    <div className="text-sm text-muted-foreground">{metric.label}</div>
+                    <div className="text-2xl font-bold text-foreground tracking-tight">{metric.value}</div>
+                    <div className="text-xs text-muted-foreground tracking-wide">{metric.label}</div>
                   </div>
                 </div>
               ))}
@@ -297,17 +297,17 @@ export default function PortfolioPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {SERVICES.map((service) => (
-                <div key={service.title} className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors">
-                  <div className="p-2 rounded-lg bg-primary/10 w-fit mb-4">
-                    <service.icon className="h-5 w-5 text-primary" />
+                <div key={service.title} className="bg-[var(--bg-2)] border border-border rounded-xl p-7 shadow-[var(--shadow-sm),var(--inset-hairline)] hover:border-[var(--wa-border-strong)] transition-all flex flex-col gap-3">
+                  <div className="w-11 h-11 rounded-[10px] bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.25)] flex items-center justify-center mb-1">
+                    <service.icon className="h-5 w-5 text-[var(--wa-blue-300)]" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{service.desc}</p>
-                  <a href="#" className="inline-flex items-center text-sm text-primary hover:underline">
+                  <h3 className="text-lg font-semibold text-foreground tracking-tight">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">{service.desc}</p>
+                  <a href="#" className="inline-flex items-center text-sm text-primary font-medium hover:text-[var(--wa-blue-300)] transition-colors gap-1.5">
                     Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
+                    <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
               ))}
@@ -371,12 +371,12 @@ export default function PortfolioPage() {
               <h2 className="text-3xl font-bold text-foreground">How we work.</h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
               {PROCESS.map((step) => (
-                <div key={step.n} className="relative">
-                  <div className="text-5xl font-bold text-primary/20 mb-4">{step.n}</div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.desc}</p>
+                <div key={step.n} className="bg-[var(--bg-2)] border border-border rounded-xl p-6 shadow-[var(--inset-hairline)] flex flex-col gap-2.5">
+                  <span className="font-mono text-sm text-[var(--wa-blue-300)] tracking-wide">{step.n}</span>
+                  <h3 className="text-base font-semibold text-foreground">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -386,15 +386,16 @@ export default function PortfolioPage() {
         {/* Testimonial Section */}
         <section className="py-20 border-t border-border bg-card/30">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="bg-card border border-border rounded-2xl p-8 md:p-12">
-              <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed">
+            <div className="relative bg-[var(--bg-2)] border border-border rounded-2xl p-10 md:p-14 shadow-[var(--shadow-md),var(--inset-hairline)] overflow-hidden">
+              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(500px_260px_at_100%_0%,rgba(59,130,246,0.12),transparent_60%)]" />
+              <blockquote className="relative text-xl md:text-2xl text-foreground leading-snug font-medium tracking-tight mb-8">
                 {`"They rebuilt our ad account in two weeks and doubled our pipeline in two months. The Slack channel alone is worth the retainer — every question answered within the hour by someone senior."`}
               </blockquote>
-              <div className="mt-8 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20" />
+              <div className="relative flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#3B82F6] border border-[var(--wa-border-strong)]" />
                 <div>
-                  <div className="font-semibold text-foreground">Maya Chen</div>
-                  <div className="text-sm text-muted-foreground">VP Growth - Northwind SaaS</div>
+                  <div className="text-sm font-semibold text-foreground">Maya Chen</div>
+                  <div className="text-xs text-muted-foreground">VP Growth - Northwind SaaS</div>
                 </div>
               </div>
             </div>
