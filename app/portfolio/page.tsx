@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, TrendingUp, DollarSign, BarChart3, Star, Target, Bot, Layers, Check, Play } from "lucide-react"
+import { ArrowRight, TrendingUp, DollarSign, BarChart3, Star, Target, Bot, Layers, Check, Play, ChevronLeft } from "lucide-react"
 import { Header } from "@/components/wisdom/header"
 import { Footer } from "@/components/wisdom/footer"
 import { Badge } from "@/components/wisdom/badge"
@@ -14,8 +14,8 @@ const CASES = [
     id: 1, 
     client: "Northwind SaaS", 
     industry: "B2B SaaS", 
-    headline: "Cut CPL 62% in 90 days", 
-    desc: "Restructured LinkedIn and Google search accounts, layered in GPT-generated ad variants, rebuilt attribution. $280k/mo spend.", 
+    headline: "Redução de 62% no CPL em 90 dias", 
+    desc: "Reestruturamos contas do LinkedIn e Google, adicionamos variantes de anúncios geradas por GPT, reconstruímos a atribuição. R$1,4M/mês de investimento.", 
     metrics: [["−62%", "CPL"], ["+140%", "MQLs"], ["3.4x", "ROAS"]], 
     hue: "blue" 
   },
@@ -23,18 +23,18 @@ const CASES = [
     id: 2, 
     client: "Fernhaus DTC", 
     industry: "Skincare", 
-    headline: "+214% revenue in 6 months", 
-    desc: "Meta + Google creative refresh, Performance Max rebuild, lifecycle email integration. $180k/mo spend.", 
-    metrics: [["+214%", "Revenue"], ["4.2x", "ROAS"], ["−38%", "CAC"]], 
+    headline: "+214% de receita em 6 meses", 
+    desc: "Renovação criativa no Meta + Google, rebuild do Performance Max, integração com email lifecycle. R$900k/mês de investimento.", 
+    metrics: [["+214%", "Receita"], ["4.2x", "ROAS"], ["−38%", "CAC"]], 
     hue: "ink" 
   },
   { 
     id: 3, 
     client: "Orbital Fintech", 
     industry: "Fintech", 
-    headline: "Scaled from $50k to $400k/mo", 
-    desc: "Paid search foundation, then layered Meta and LinkedIn. AI outbound workflow drove 40% of SQLs.", 
-    metrics: [["8x", "Spend"], ["+329%", "Leads"], ["2.9x", "ROAS"]], 
+    headline: "Escala de R$250k para R$2M/mês", 
+    desc: "Fundação em paid search, depois adicionamos Meta e LinkedIn. Workflow de outbound com IA gerou 40% dos SQLs.", 
+    metrics: [["8x", "Investimento"], ["+329%", "Leads"], ["2.9x", "ROAS"]], 
     hue: "navy" 
   },
 ]
@@ -42,26 +42,26 @@ const CASES = [
 const SERVICES = [
   { 
     icon: Target, 
-    title: "Paid media management", 
-    desc: "Google Ads, Meta Ads, LinkedIn, TikTok. Account structure, creative testing, bid strategy, budget pacing. Weekly syncs, always-on Slack." 
+    title: "Gestão de mídia paga", 
+    desc: "Google Ads, Meta Ads, LinkedIn, TikTok. Estrutura de conta, testes de criativos, estratégia de lances, pacing de budget. Syncs semanais, Slack sempre ativo." 
   },
   { 
     icon: Bot, 
-    title: "AI workflows", 
-    desc: "We embed GPT-4 and Claude into your campaign ops — creative generation, performance summaries, outbound personalization. Workflows you own." 
+    title: "Workflows de IA", 
+    desc: "Integramos GPT-4 e Claude nas suas operações de campanha — geração de criativos, resumos de performance, personalização de outbound. Workflows que são seus." 
   },
   { 
     icon: Layers, 
-    title: "Full-funnel strategy", 
-    desc: "Ads are the last mile. We map your offer, landing experience, lifecycle, and attribution so paid actually compounds instead of leaking." 
+    title: "Estratégia full-funnel", 
+    desc: "Anúncios são a última milha. Mapeamos sua oferta, experiência de landing, lifecycle e atribuição para que paid realmente componha em vez de vazar." 
   },
 ]
 
 const PROCESS = [
-  { n: "01", title: "Audit week", desc: "Full account + funnel audit. By end of week 1, you have a written diagnosis and a 90-day plan." },
-  { n: "02", title: "Rebuild", desc: "Account structure, creative system, measurement. We don't optimize broken foundations." },
-  { n: "03", title: "Scale", desc: "Weekly experiments, monthly strategic reviews. Clear win/kill criteria on every test." },
-  { n: "04", title: "Compound", desc: "Quarterly roadmap tied to your revenue targets. Every dollar either earns or gets cut." },
+  { n: "01", title: "Semana de auditoria", desc: "Auditoria completa de conta + funil. Até o fim da semana 1, você tem um diagnóstico escrito e um plano de 90 dias." },
+  { n: "02", title: "Reconstrução", desc: "Estrutura de conta, sistema de criativos, mensuração. Não otimizamos fundações quebradas." },
+  { n: "03", title: "Escala", desc: "Experimentos semanais, revisões estratégicas mensais. Critérios claros de win/kill em cada teste." },
+  { n: "04", title: "Compor", desc: "Roadmap trimestral ligado às suas metas de receita. Cada real ou gera retorno ou é cortado." },
 ]
 
 function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: () => void }) {
@@ -69,10 +69,10 @@ function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: (
     <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <button 
         onClick={onBack}
-        className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
+        className="flex items-center gap-1 text-[13px] text-[var(--fg-3)] hover:text-[var(--fg-1)] transition-colors mb-8 bg-transparent border-none cursor-pointer font-sans"
       >
-        <ArrowRight className="h-4 w-4 rotate-180" />
-        Back to case studies
+        <ChevronLeft className="h-3.5 w-3.5" />
+        Voltar para cases
       </button>
       
       <div className="flex items-center gap-3 mb-4">
@@ -100,21 +100,21 @@ function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: (
       </div>
       
       <div className="prose prose-invert max-w-none">
-        <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">The brief</h2>
+        <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">O briefing</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          A Series B team with strong organic growth but a paid account that had been on auto-pilot for 18 months. Performance Max was cannibalizing branded search; Meta creative hadn&apos;t been refreshed since H1.
+          Um time Series B com forte crescimento orgânico mas uma conta de anúncios no piloto automático por 18 meses. Performance Max estava canibalizando busca de marca; criativos do Meta não eram atualizados desde o primeiro semestre.
         </p>
         
-        <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">What we did</h2>
+        <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">O que fizemos</h2>
         <ol className="list-decimal list-inside space-y-2 text-muted-foreground mb-4">
-          <li>Rebuilt Google account into a clean brand / non-brand / Pmax split with negative lists between them.</li>
-          <li>Launched a weekly creative sprint powered by a GPT-4 variant-ranking prompt tuned to their voice.</li>
-          <li>Replaced last-click attribution with a simple first-touch + position-based blend in GA4 + BigQuery.</li>
+          <li>Reconstruímos a conta Google em uma divisão limpa: marca / não-marca / Pmax com listas negativas entre elas.</li>
+          <li>Lançamos um sprint de criativos semanal com um prompt de ranking GPT-4 ajustado à voz da marca.</li>
+          <li>Substituímos atribuição last-click por um blend simples de first-touch + position-based no GA4 + BigQuery.</li>
         </ol>
         
-        <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">Where we landed</h2>
+        <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">Onde chegamos</h2>
         <p className="text-muted-foreground leading-relaxed">
-          90 days in, CPL was down 62% and MQL volume more than doubled. We&apos;ve been on retainer for 14 months.
+          Em 90 dias, o CPL caiu 62% e o volume de MQL mais que dobrou. Estamos em retainer há 14 meses.
         </p>
       </div>
     </article>
@@ -122,7 +122,7 @@ function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: (
 }
 
 function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", spend: "$50k – $250k", message: "" })
+  const [form, setForm] = useState({ name: "", email: "", spend: "R$250k – R$1M", message: "" })
   const [sent, setSent] = useState(false)
   
   const handleSubmit = (e: React.FormEvent) => {
@@ -135,16 +135,16 @@ function ContactForm() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">{"Let's talk"}</p>
-            <h2 className="text-3xl font-bold text-foreground mb-4">Book a 30-min intro.</h2>
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Vamos conversar</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">Agende uma call de 30 min.</h2>
             <p className="text-muted-foreground mb-6">
-              Tell us about your account. If we&apos;re a fit, we&apos;ll send a written audit proposal within 48 hours. If we&apos;re not, we&apos;ll point you to someone who is.
+              Conte-nos sobre sua conta. Se formos um fit, enviamos uma proposta de auditoria escrita em 48h. Se não formos, indicamos alguém que seja.
             </p>
             <ul className="space-y-3">
               {[
-                "Senior operator on every call",
-                "No templated decks",
-                "Response within 1 business day"
+                "Operador sênior em toda call",
+                "Sem decks de template",
+                "Resposta em 1 dia útil"
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-muted-foreground">
                   <Check className="h-4 w-4 text-primary" />
@@ -160,55 +160,55 @@ function ContactForm() {
                 <div className="inline-flex p-3 rounded-full bg-green-500/10 mb-4">
                   <Check className="h-6 w-6 text-green-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">Got it.</h3>
-                <p className="text-muted-foreground">You&apos;ll hear from us within one business day.</p>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Recebido.</h3>
+                <p className="text-muted-foreground">Você terá notícias nossas em um dia útil.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Your name</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">Seu nome</label>
                   <Input
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Sarah Patel"
+                    placeholder="Maria Silva"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Work email</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">E-mail corporativo</label>
                   <Input
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="sarah@company.com"
+                    placeholder="maria@empresa.com"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Monthly ad spend</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">Investimento mensal em anúncios</label>
                   <select
                     value={form.spend}
                     onChange={(e) => setForm({ ...form, spend: e.target.value })}
                     className="w-full h-9 rounded-md border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                   >
-                    <option>$10k – $50k</option>
-                    <option>$50k – $250k</option>
-                    <option>$250k – $1M</option>
-                    <option>$1M+</option>
+                    <option>R$50k – R$250k</option>
+                    <option>R$250k – R$1M</option>
+                    <option>R$1M – R$5M</option>
+                    <option>R$5M+</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">What are you trying to solve?</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">O que você está tentando resolver?</label>
                   <textarea
                     rows={4}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="CPA is up 40% since the iOS update, and Performance Max is eating branded search..."
+                    placeholder="CPA subiu 40% desde a atualização do iOS, e Performance Max está comendo busca de marca..."
                     className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
                   />
                 </div>
                 <Button type="submit" className="w-full">
-                  Send it
+                  Enviar
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>
@@ -245,23 +245,23 @@ export default function PortfolioPage() {
           <div className="aurora" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
             <div className="max-w-3xl">
-              <Badge tone="info">Accepting 3 new clients - Q3 2026</Badge>
+              <Badge tone="info">Aceitando 3 novos clientes - Q3 2026</Badge>
               <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                Paid media, done right.
+                Mídia paga, feita do jeito certo.
               </h1>
               <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-                {"We're a small, senior team managing "}<strong className="text-foreground">$1M+/month</strong>{" in ad spend for B2B and DTC brands. No junior hand-offs. No 40-slide decks. Just compounding returns."}
+                Somos um time pequeno e sênior gerenciando <strong className="text-foreground">+R$5M/mês</strong> em investimento de anúncios para marcas B2B e DTC. Sem hand-offs para juniores. Sem decks de 40 slides. Apenas retornos compostos.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button size="lg" asChild>
                   <a href="#contact">
-                    Book a 30-min intro
+                    Agende uma call de 30 min
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>
                 <Button variant="outline" size="lg">
                   <Play className="mr-2 h-4 w-4" />
-                  Watch a case study
+                  Assistir um case study
                 </Button>
               </div>
             </div>
@@ -269,10 +269,10 @@ export default function PortfolioPage() {
             {/* Metrics */}
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 rounded-2xl border border-border bg-[var(--bg-2)] overflow-hidden shadow-[var(--shadow-md),var(--inset-hairline)]">
               {[
-                { icon: TrendingUp, value: "+329%", label: "Leads YoY, median client" },
-                { icon: DollarSign, value: "+85%", label: "Revenue growth, FY25" },
-                { icon: BarChart3, value: "$1M+", label: "Managed monthly spend" },
-                { icon: Star, value: "14", label: "Active B2B + DTC clients" },
+                { icon: TrendingUp, value: "+329%", label: "Leads YoY, mediana dos clientes" },
+                { icon: DollarSign, value: "+85%", label: "Crescimento de receita, FY25" },
+                { icon: BarChart3, value: "R$5M+", label: "Investimento mensal gerenciado" },
+                { icon: Star, value: "14", label: "Clientes ativos B2B + DTC" },
               ].map((metric, idx) => (
                 <div key={metric.label} className={cn("flex items-center gap-3.5 p-6", idx < 3 && "border-r border-border")}>
                   <metric.icon className="h-5 w-5 text-[var(--wa-blue-300)] opacity-80 flex-shrink-0" />
@@ -290,10 +290,10 @@ export default function PortfolioPage() {
         <section className="py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-12">
-              <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Services</p>
-              <h2 className="text-3xl font-bold text-foreground">Three things. Done to a high standard.</h2>
+              <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Serviços</p>
+              <h2 className="text-3xl font-bold text-foreground">Três coisas. Feitas com alto padrão.</h2>
               <p className="mt-3 text-muted-foreground">
-                {"We deliberately don't do SEO, social media management, influencer, or PR. It keeps us sharp."}
+                Deliberadamente não fazemos SEO, gestão de redes sociais, influencer ou PR. Isso nos mantém afiados.
               </p>
             </div>
             
@@ -306,7 +306,7 @@ export default function PortfolioPage() {
                   <h3 className="text-lg font-semibold text-foreground tracking-tight">{service.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1">{service.desc}</p>
                   <a href="#" className="inline-flex items-center text-sm text-primary font-medium hover:text-[var(--wa-blue-300)] transition-colors gap-1.5">
-                    Learn more
+                    Saiba mais
                     <ArrowRight className="h-4 w-4" />
                   </a>
                 </div>
@@ -319,8 +319,8 @@ export default function PortfolioPage() {
         <section id="cases" className="py-20 border-t border-border bg-card/30">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-12">
-              <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Case studies</p>
-              <h2 className="text-3xl font-bold text-foreground">Proof, not promises.</h2>
+              <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Cases</p>
+              <h2 className="text-3xl font-bold text-foreground">Provas, não promessas.</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -353,7 +353,7 @@ export default function PortfolioPage() {
                       ))}
                     </div>
                     <div className="mt-4 flex items-center text-sm text-primary">
-                      Read the case study
+                      Ver o case completo
                       <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -367,8 +367,8 @@ export default function PortfolioPage() {
         <section className="py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-12">
-              <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Process</p>
-              <h2 className="text-3xl font-bold text-foreground">How we work.</h2>
+              <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Processo</p>
+              <h2 className="text-3xl font-bold text-foreground">Como trabalhamos.</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -389,13 +389,13 @@ export default function PortfolioPage() {
             <div className="relative bg-[var(--bg-2)] border border-border rounded-2xl p-10 md:p-14 shadow-[var(--shadow-md),var(--inset-hairline)] overflow-hidden">
               <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(500px_260px_at_100%_0%,rgba(59,130,246,0.12),transparent_60%)]" />
               <blockquote className="relative text-xl md:text-2xl text-foreground leading-snug font-medium tracking-tight mb-8">
-                {`"They rebuilt our ad account in two weeks and doubled our pipeline in two months. The Slack channel alone is worth the retainer — every question answered within the hour by someone senior."`}
+                {`"Eles reconstruíram nossa conta de anúncios em duas semanas e dobraram nosso pipeline em dois meses. Só o canal do Slack já vale o retainer — toda pergunta respondida em menos de uma hora por alguém sênior."`}
               </blockquote>
               <div className="relative flex items-center gap-3.5">
                 <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#3B82F6] border border-[var(--wa-border-strong)]" />
                 <div>
                   <div className="text-sm font-semibold text-foreground">Maya Chen</div>
-                  <div className="text-xs text-muted-foreground">VP Growth - Northwind SaaS</div>
+                  <div className="text-xs text-muted-foreground">VP de Growth - Northwind SaaS</div>
                 </div>
               </div>
             </div>

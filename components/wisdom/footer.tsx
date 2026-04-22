@@ -11,17 +11,17 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-4 text-muted-foreground max-w-sm">
-              Performance marketing, engineered.
+              Marketing de performance, engenheirado.
             </p>
           </div>
           
           <div className="md:text-right">
             <h3 className="text-xl font-semibold text-foreground mb-4">
-              {"Let's talk about Q3."}
+              Vamos falar sobre o Q3.
             </h3>
             <Button asChild>
               <Link href="/portfolio#contact">
-                Book a 30-min intro
+                Agendar call de 30 min
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -30,7 +30,7 @@ export function Footer() {
         
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <span>&copy; 2026 Wisdom Agency</span>
-          <span>Sao Paulo - Remote-first</span>
+          <span>São Paulo - Remote-first</span>
         </div>
       </div>
     </footer>

@@ -19,7 +19,7 @@ export default function LandingPage() {
                 Wisdom Agency
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-                Simplificando IA e Paid Media para marcas B2B e DTC que querem crescer de verdade.
+                Simplificando IA e Mídia Paga para marcas B2B e DTC que querem crescer de verdade.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button asChild size="lg">
@@ -30,7 +30,7 @@ export default function LandingPage() {
                 </Button>
                 <Button variant="outline" size="lg" asChild>
                   <Link href="/content">
-                    Ver Conteudos
+                    Ver Conteúdos
                   </Link>
                 </Button>
               </div>
@@ -47,13 +47,13 @@ export default function LandingPage() {
                 className="group p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
               >
                 <h2 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                  Portfolio
+                  Portfólio
                 </h2>
                 <p className="mt-3 text-muted-foreground">
-                  Veja nossos cases de sucesso, servicos e como trabalhamos com clientes B2B e DTC.
+                  Veja nossos cases de sucesso, serviços e como trabalhamos com clientes B2B e DTC.
                 </p>
                 <div className="mt-4 flex items-center text-primary">
-                  <span className="text-sm font-medium">Ver portfolio</span>
+                  <span className="text-sm font-medium">Ver portfólio</span>
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -63,10 +63,10 @@ export default function LandingPage() {
                 className="group p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
               >
                 <h2 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                  Conteudo
+                  Conteúdo
                 </h2>
                 <p className="mt-3 text-muted-foreground">
-                  Artigos, guias e insights sobre paid media, IA para marketing e estrategia de crescimento.
+                  Artigos, guias e insights sobre mídia paga, IA para marketing e estratégia de crescimento.
                 </p>
                 <div className="mt-4 flex items-center text-primary">
                   <span className="text-sm font-medium">Ver artigos</span>
