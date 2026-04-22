@@ -24,7 +24,7 @@ export function Header() {
       <div className="mx-auto max-w-[1200px] px-8">
         <div className="flex h-[72px] items-center gap-8">
           <Link href="/" className="flex-shrink-0">
-            <Logo />
+            <Logo className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
