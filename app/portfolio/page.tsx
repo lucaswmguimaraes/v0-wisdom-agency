@@ -15,7 +15,7 @@ const CASES = [
     client: "Fintech B2B",
     industry: "Fintech",
     headline: "+329% de leads em 90 dias",
-    desc: "Reestruturamos a conta Google com segmentação limpa entre marca, não-marca e Pmax. Adicionamos sprint semanal de criativos com GPT-4. R$1M+/mês de investimento.",
+    desc: "Reestruturamos a conta Google com segmentação limpa entre marca, não-marca e Pmax. Automatizamos os relatórios de performance com Apps Script. R$1M+/mês de investimento.",
     metrics: [["+329%", "Leads"], ["-65%", "CPL"], ["2.9x", "ROAS"]],
     hue: "navy",
   },
@@ -34,9 +34,7 @@ const CASES = [
     industry: "B2B SaaS",
     headline: "+30.000 leads/mês integrando paid + orgânico",
     desc: "Estrutura de funil completo: paid search, Meta, LinkedIn + email lifecycle. Workflows de IA para qualificação de leads e personalização de outbound.",
-    metrics: ["+30k", "+30.000", "Leads/mês"].length > 0
-      ? [["+30k", "Leads/mês"], ["3 canais", "Integrados"], ["R$1M+", "Gerenciados"]]
-      : [],
+    metrics: [["+30k", "Leads/mês"], ["3 canais", "Integrados"], ["R$1M+", "Gerenciados"]],
     hue: "ink",
   },
 ]
@@ -50,7 +48,7 @@ const SERVICES = [
   {
     icon: Bot,
     title: "Workflows de IA",
-    desc: "Integro GPT-4 e Claude nas suas operações de campanha — geração de criativos, resumos de performance, personalização de outbound. Workflows que são seus.",
+    desc: "Automatizo relatórios de campanhas e mídia com Apps Script e construo automações de operação com Claude — do report de performance ao outbound personalizado. Workflows que são seus.",
   },
   {
     icon: Layers,
@@ -106,7 +104,7 @@ function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: (
         <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">O que fizemos</h2>
         <ol className="list-decimal list-inside space-y-2 text-muted-foreground mb-4">
           <li>Reconstruímos a conta com segmentação limpa: marca / não-marca / Pmax com listas negativas entre elas.</li>
-          <li>Lançamos sprint de criativos semanal com ranking de prompt GPT-4 ajustado à voz da marca.</li>
+          <li>Lançamos sprint de criativos semanal com automações em Apps Script para geração e classificação de variantes.</li>
           <li>Substituímos atribuição last-click por blend de first-touch + position-based no GA4.</li>
         </ol>
         <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">Onde chegamos</h2>
@@ -120,12 +118,25 @@ function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: (
 }
 
 function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", spend: "R$250k – R$1M", message: "" })
+  const [form, setForm] = useState({ name: "", email: "", spend: "R$1k – R$20k", message: "" })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSent(true)
+    setLoading(true)
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+    } catch {
+      // silent fail
+    } finally {
+      setLoading(false)
+      setSent(true)
+    }
   }
 
   return (
@@ -199,6 +210,8 @@ function ContactForm() {
                     onChange={(e) => setForm({ ...form, spend: e.target.value })}
                     className="w-full h-9 rounded-md border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                   >
+                    <option>R$1k – R$20k</option>
+                    <option>R$20k – R$50k</option>
                     <option>R$50k – R$250k</option>
                     <option>R$250k – R$1M</option>
                     <option>R$1M – R$5M</option>
@@ -215,8 +228,8 @@ function ContactForm() {
                     className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Enviar
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? "Enviando..." : "Enviar"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>
@@ -253,12 +266,12 @@ export default function PortfolioPage() {
           <div className="aurora" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
             <div className="max-w-3xl">
-              <Badge tone="info">Aceitando novos clientes — Q3 2026</Badge>
+              <Badge tone="info">Aceitando novos clientes agora</Badge>
               <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
                 Mídia paga, feita do jeito certo.
               </h1>
               <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-                Especialista sênior gerenciando{" "}
+                Especialista sênior com experiência de{" "}
                 <strong className="text-foreground">R$1M+/mês</strong> em investimento de anúncios
                 para marcas B2B e DTC. Atendo cada conta pessoalmente — sem hand-offs, sem decks
                 genéricos.
