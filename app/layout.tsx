@@ -6,16 +6,24 @@ import './globals.css'
 const inter = Inter({ 
   subsets: ["latin"],
   variable: '--font-inter',
+  weight: ['400', '500', '600', '700', '800'],
 })
 
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ["latin"],
   variable: '--font-jetbrains',
+  weight: ['400', '500'],
 })
 
 export const metadata: Metadata = {
-  title: 'Wisdom Agency - Paid Media, Done Right',
-  description: 'Performance marketing engineered by a small, senior team managing $1M+/month in ad spend for B2B and DTC brands.',
+  title: 'Wisdom Agency — Performance Marketing & IA Aplicada',
+  description: 'Gestão de mídia paga para empresas B2B e DTC. R$1M+/mês gerenciados. Cases reais: +329% leads, +85% receita. Lucas Guimarães — Growth Marketing Specialist.',
+  openGraph: {
+    title: 'Wisdom Agency — Performance Marketing & IA Aplicada',
+    description: 'Gestão de mídia paga para empresas B2B e DTC. R$1M+/mês gerenciados.',
+    type: 'website',
+    locale: 'pt_BR',
+  },
 }
 
 export default function RootLayout({

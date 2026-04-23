@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 interface LogoProps {
   variant?: "mark" | "lockup"
   className?: string
@@ -7,41 +5,84 @@ interface LogoProps {
 
 export function Logo({ variant = "lockup", className }: LogoProps) {
   if (variant === "mark") {
-    return (
-      <Image 
-        src="/logo-mark.svg" 
-        alt="Wisdom Agency" 
-        width={48} 
-        height={48} 
-        className={className}
-      />
-    )
+    return <LogoMark className={className} />
   }
-  
+
   return (
-    <Image 
-      src="/logo-lockup.svg" 
-      alt="Wisdom Agency" 
-      width={220} 
-      height={48} 
+    <svg
+      viewBox="0 0 260 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       className={className}
-      priority
-    />
+      role="img"
+      aria-label="Wisdom Agency"
+    >
+      <rect width="48" height="48" rx="10" fill="#0B0F14" />
+      <rect x="0.5" y="0.5" width="47" height="47" rx="9.5" stroke="#2A3340" />
+      <path
+        d="M10 14 L17 34 L24 20 L31 34 L38 14"
+        stroke="#F7F9FC"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M31 34 L38 14"
+        stroke="#3B82F6"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <text
+        x="60"
+        y="32"
+        fontFamily="Inter, system-ui, sans-serif"
+        fontSize="22"
+        fontWeight="700"
+        letterSpacing="-0.44"
+        fill="#F7F9FC"
+      >
+        Wisdom
+      </text>
+      <text
+        x="152"
+        y="32"
+        fontFamily="Inter, system-ui, sans-serif"
+        fontSize="22"
+        fontWeight="400"
+        letterSpacing="-0.22"
+        fill="#8A94A6"
+      >
+        Agency
+      </text>
+    </svg>
   )
 }
 
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg 
-      viewBox="0 0 48 48" 
-      fill="none" 
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <rect width="48" height="48" rx="10" fill="#0B0F14"/>
-      <rect x="0.5" y="0.5" width="47" height="47" rx="9.5" stroke="#2A3340"/>
-      <path d="M10 14 L17 34 L24 20 L31 34 L38 14" stroke="#F7F9FC" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M31 34 L38 14" stroke="#3B82F6" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/>
+      <rect width="48" height="48" rx="10" fill="#0B0F14" />
+      <rect x="0.5" y="0.5" width="47" height="47" rx="9.5" stroke="#2A3340" />
+      <path
+        d="M10 14 L17 34 L24 20 L31 34 L38 14"
+        stroke="#F7F9FC"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M31 34 L38 14"
+        stroke="#3B82F6"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   )
 }
