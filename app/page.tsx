@@ -21,7 +21,7 @@ export default function LandingPage() {
                 consegue medir.
               </h1>
               <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Gerencio <strong className="text-foreground">R$1M+/mês</strong> em mídia paga e
+                Já gerenciei <strong className="text-foreground">R$1M+/mês</strong> em mídia paga e
                 compartilho o que realmente funciona — com dados, sem enrolação.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
