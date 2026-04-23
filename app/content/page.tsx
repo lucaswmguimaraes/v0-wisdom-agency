@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, Clock, Mail, Target, Bot, BarChart3, BookOpen, Search, Play, ChevronLeft, Sparkles, Check } from "lucide-react"
+import { ArrowRight, Clock, Target, Bot, BarChart3, BookOpen, Play, ChevronLeft, Sparkles, Check } from "lucide-react"
 import { Header } from "@/components/wisdom/header"
 import { Footer } from "@/components/wisdom/footer"
 import { Badge } from "@/components/wisdom/badge"
@@ -10,59 +10,59 @@ import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 
 const ARTICLES = [
-  { 
-    id: 1, 
-    title: "As três alavancas que toda conta de mídia paga tem", 
-    excerpt: "Estrutura, criativo, sinal — e por que novos profissionais sempre escolhem a errada primeiro.", 
-    category: "Mídia Paga", 
-    hue: "blue", 
-    readTime: 6, 
-    date: "18 Abr" 
+  {
+    id: 1,
+    title: "Meta Advantage+ em 2026: o que mudou e o que estamos ajustando nas contas",
+    excerpt: "O novo painel de controle de audience chegou. Três ajustes que fizemos esta semana — e os resultados que estamos vendo no CPL.",
+    category: "Mídia Paga",
+    hue: "blue",
+    readTime: 6,
+    date: "22 Abr",
   },
-  { 
-    id: 2, 
-    title: "Um prompt de GPT-4 que classifica seus criativos do Meta", 
-    excerpt: "Usamos isso semanalmente para filtrar mais de 40 variantes. Copie, ajuste e publique anúncios melhores.", 
-    category: "IA para Marketing", 
-    hue: "ink", 
-    readTime: 4, 
-    date: "15 Abr" 
+  {
+    id: 2,
+    title: "Como uso Claude para automatizar a operação de campanhas no dia a dia",
+    excerpt: "Relatórios de performance, alertas de anomalia e briefings de criativo — o que deleguei para IA e o que ainda faço na mão.",
+    category: "IA para Marketing",
+    hue: "ink",
+    readTime: 5,
+    date: "21 Abr",
   },
-  { 
-    id: 3, 
-    title: "Atribuição pós-iOS — o que ainda funciona de verdade", 
-    excerpt: "O debate MMM/MTA é uma distração. Veja o que rastreamos no Q2 2026 e por quê.", 
-    category: "Funil e Analytics", 
-    hue: "slate", 
-    readTime: 8, 
-    date: "11 Abr" 
+  {
+    id: 3,
+    title: "Performance Max em abril: novos controles e o que os dados estão dizendo",
+    excerpt: "Google liberou novos search themes e brand exclusions. Testamos nas contas e os resultados surpreenderam — nem sempre para melhor.",
+    category: "Mídia Paga",
+    hue: "slate",
+    readTime: 8,
+    date: "20 Abr",
   },
-  { 
-    id: 4, 
-    title: "ROAS, CAC, LTV — os três números explicados de forma simples", 
-    excerpt: "Para quem já concordou em uma reunião e pesquisou as definições depois. Sem vergonha.", 
-    category: "Fundamentos", 
-    hue: "deep", 
-    readTime: 5, 
-    date: "8 Abr" 
+  {
+    id: 4,
+    title: "Apps Script + Google Ads API: automatizamos 5h semanais de relatórios",
+    excerpt: "O script que roda toda segunda de manhã e entrega um resumo de performance direto no Sheets — com alertas de CPL e ROAS fora da faixa.",
+    category: "IA para Marketing",
+    hue: "teal",
+    readTime: 7,
+    date: "19 Abr",
   },
-  { 
-    id: 5, 
-    title: "Automatizando revisões semanais de campanhas com n8n + GPT", 
-    excerpt: "Substitua seu ritual de relatórios de segunda-feira por um resumo no Slack que captura mais do que você.", 
-    category: "IA para Marketing", 
-    hue: "teal", 
-    readTime: 7, 
-    date: "4 Abr" 
+  {
+    id: 5,
+    title: "Atribuição em 2026: o que ainda funciona depois do fim dos cookies",
+    excerpt: "MMM leve, first-party data e o blend de modelos que estamos usando nas contas com mais de R$200k/mês de investimento.",
+    category: "Funil e Analytics",
+    hue: "deep",
+    readTime: 9,
+    date: "18 Abr",
   },
-  { 
-    id: 6, 
-    title: "Estrutura de conta Google Ads para marcas DTC", 
-    excerpt: "A combinação Performance Max + busca de marca que está carregando a maioria das contas silenciosamente.", 
-    category: "Mídia Paga", 
-    hue: "navy", 
-    readTime: 9, 
-    date: "1 Abr" 
+  {
+    id: 6,
+    title: "ROAS caindo? As três causas mais comuns em contas B2B e como corrigir",
+    excerpt: "Fadiga de criativo, saturação de audiência ou problema de atribuição — como diferenciar e o que fazer em cada cenário.",
+    category: "Fundamentos",
+    hue: "navy",
+    readTime: 6,
+    date: "17 Abr",
   },
 ]
 
@@ -75,7 +75,7 @@ const TOPICS = [
 
 function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClick: () => void }) {
   return (
-    <article 
+    <article
       onClick={onClick}
       className="group cursor-pointer bg-[var(--bg-2)] border border-[var(--wa-border)] rounded-xl overflow-hidden shadow-[var(--shadow-sm),var(--inset-hairline)] hover:border-[var(--wa-border-strong)] hover:shadow-[var(--shadow-md),var(--inset-hairline)] transition-all duration-200"
     >
@@ -104,14 +104,14 @@ function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClic
 function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBack: () => void }) {
   return (
     <article className="max-w-[720px] mx-auto px-8 py-12">
-      <button 
+      <button
         onClick={onBack}
         className="flex items-center gap-1 text-[13px] text-[var(--fg-3)] hover:text-[var(--fg-1)] transition-colors mb-8 bg-transparent border-none cursor-pointer font-sans"
       >
         <ChevronLeft className="h-3.5 w-3.5" />
         Voltar
       </button>
-      
+
       <div className="flex flex-col gap-4 mb-8">
         <Badge tone="info">{article.category}</Badge>
         <h1 className="text-[44px] font-bold tracking-[-0.025em] leading-[1.1] text-[var(--fg-1)]">
@@ -125,14 +125,14 @@ function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBac
           </div>
         </div>
       </div>
-      
+
       <div className={cn("h-[280px] rounded-xl mb-8 border border-[var(--wa-border)]", `cover-${article.hue}`)} />
-      
+
       <div className="reader-body">
         <p className="text-[19px] leading-[1.6] text-[var(--fg-2)] mb-6">
           {article.excerpt}
         </p>
-        
+
         <h2 className="text-2xl font-semibold tracking-[-0.015em] text-[var(--fg-1)] mt-8 mb-3">O framework das três alavancas</h2>
         <p className="text-base leading-[1.7] text-[var(--fg-2)] mb-4">
           Toda conta de mídia paga — Google, Meta, TikTok — tem as mesmas três alavancas. Quando o desempenho estagna, você quase sempre está super-indexando em uma e ignorando as outras duas.
@@ -142,14 +142,14 @@ function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBac
           <li className="mb-2.5"><strong className="text-[var(--fg-1)] font-semibold">Criativo.</strong> Os anúncios reais — visual, copy, gancho. A IA ajuda mais aqui, não nos ajustes de lance.</li>
           <li className="mb-2.5"><strong className="text-[var(--fg-1)] font-semibold">Sinal.</strong> Quais dados você alimenta o algoritmo. Qualidade de conversão supera quantidade de conversão sempre.</li>
         </ol>
-        
+
         <div className="flex gap-3 p-[18px] bg-[rgba(59,130,246,0.08)] border border-[rgba(59,130,246,0.25)] rounded-[10px] my-6 text-sm leading-[1.55] text-[var(--fg-2)]">
           <Sparkles className="h-[18px] w-[18px] text-[var(--wa-blue-300)] mt-0.5 flex-shrink-0" />
           <div>
-            <strong className="text-[var(--fg-1)]">Workflow de IA.</strong> Use o GPT-4 para gerar 15 variantes de criativos, depois classifique-as com um prompt de pontuação ajustado à voz da sua marca. Publique as 3 melhores.
+            <strong className="text-[var(--fg-1)]">Workflow de IA.</strong> Use o Claude para gerar e revisar variantes de criativos, depois classifique-as com um prompt de pontuação ajustado à voz da sua marca. Publique as 3 melhores.
           </div>
         </div>
-        
+
         <h2 className="text-2xl font-semibold tracking-[-0.015em] text-[var(--fg-1)] mt-8 mb-3">Onde iniciantes travam</h2>
         <p className="text-base leading-[1.7] text-[var(--fg-2)]">
           A maioria dos novos profissionais de marketing gasta 80% do tempo ajustando lances e 20% em criativo. Inverta isso. O algoritmo de lance é melhor do que você; seu criativo não é.
@@ -177,9 +177,9 @@ export default function ContentPage() {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
-          <ArticleReader 
-            article={selectedArticle} 
-            onBack={() => setSelectedArticle(null)} 
+          <ArticleReader
+            article={selectedArticle}
+            onBack={() => setSelectedArticle(null)}
           />
         </main>
         <Footer />
@@ -190,7 +190,7 @@ export default function ContentPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
+
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-24 px-8">
@@ -205,7 +205,7 @@ export default function ContentPage() {
               Playbooks práticos, workflows de IA e análises de campanhas para profissionais de marketing que preferem entregar do que teorizar. Escrito por operadores gerenciando +R$5M/mês em investimento em anúncios.
             </p>
             <div className="flex gap-3">
-              <Button 
+              <Button
                 className="bg-[var(--wa-blue-500)] hover:bg-[var(--wa-blue-600)] text-white shadow-[0_0_0_1px_#2A3340,0_6px_20px_rgba(59,130,246,0.3),var(--inset-hairline-strong)]"
                 onClick={() => setSelectedArticle(ARTICLES[0])}
               >
@@ -249,9 +249,9 @@ export default function ContentPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {ARTICLES.map((article) => (
-              <ArticleCard 
-                key={article.id} 
-                article={article} 
+              <ArticleCard
+                key={article.id}
+                article={article}
                 onClick={() => {
                   setSelectedArticle(article)
                   window.scrollTo(0, 0)
@@ -271,7 +271,7 @@ export default function ContentPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {TOPICS.map((topic) => (
-              <div 
+              <div
                 key={topic.name}
                 className="bg-[var(--bg-2)] border border-[var(--wa-border)] rounded-xl p-6 shadow-[var(--shadow-sm),var(--inset-hairline)] hover:border-[var(--wa-border-strong)] hover:shadow-[var(--shadow-md),var(--inset-hairline)] transition-all cursor-pointer flex flex-col gap-3"
               >
@@ -294,9 +294,9 @@ export default function ContentPage() {
               <div className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--fg-accent)] mb-2">The Wisdom Letter</div>
               <h2 className="text-[30px] font-bold tracking-[-0.02em] text-[var(--fg-1)] mb-2">Um playbook. Toda terça. Sem enrolação.</h2>
               <p className="text-[15px] text-[var(--fg-3)] leading-[1.5] mb-5">
-                Junte-se a mais de 12.400 profissionais de marketing recebendo um playbook prático de IA + mídia paga na caixa de entrada. Cancele em um clique.
+                Receba um playbook prático de IA + mídia paga na caixa de entrada toda terça-feira. Cancele em um clique.
               </p>
-              
+
               {subscribed ? (
                 <div className="inline-flex items-center gap-1.5 text-[13px] text-[#86EFAC]">
                   <Check className="h-3.5 w-3.5" />
@@ -312,7 +312,7 @@ export default function ContentPage() {
                     className="flex-1 bg-[var(--wa-surface-1)] border-[var(--wa-border)] text-[var(--fg-1)] placeholder:text-[var(--fg-4)] focus:border-[var(--wa-blue-500)] focus:ring-[3px] focus:ring-[rgba(59,130,246,0.35)]"
                     required
                   />
-                  <Button 
+                  <Button
                     type="submit"
                     className="bg-[var(--wa-blue-500)] hover:bg-[var(--wa-blue-600)] text-white shadow-[0_0_0_1px_#2A3340,0_6px_20px_rgba(59,130,246,0.3),var(--inset-hairline-strong)]"
                   >
