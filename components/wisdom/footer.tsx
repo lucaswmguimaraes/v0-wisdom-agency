@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Linkedin } from "lucide-react"
+import { ArrowRight, Linkedin, Instagram } from "lucide-react"
 import { Logo } from "./logo"
 import { Button } from "@/components/ui/button"
 
@@ -24,6 +24,15 @@ export function Footer() {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
+              <a
+                href="https://instagram.com/wisdomagency"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Instagram @wisdomagency"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -33,10 +42,10 @@ export function Footer() {
             </h3>
             <p className="text-sm text-muted-foreground mb-4">Aceitando novos clientes.</p>
             <Button asChild>
-              <Link href="/portfolio#contact">
+              <a href="/#contact">
                 Agendar call de 30 min
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </a>
             </Button>
           </div>
         </div>

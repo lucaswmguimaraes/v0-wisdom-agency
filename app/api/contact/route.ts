@@ -1,22 +1,24 @@
 import { NextRequest, NextResponse } from "next/server"
-import { createClient } from "@supabase/supabase-js"
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!
-)
 
 export async function POST(req: NextRequest) {
-  const { name, email, spend, message } = await req.json()
+  try {
+    const { name, email, company } = await req.json()
 
-  const { error } = await supabase
-    .from("leads")
-    .insert([{ name, email, spend, message }])
+    if (!name || !email) {
+      return NextResponse.json({ error: "Nome e email são obrigatórios" }, { status: 400 })
+    }
 
-  if (error) {
-    console.error("Supabase insert error:", error.message)
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: "Email inválido" }, { status: 400 })
+    }
+
+    // TODO: integrar com serviço de email (Resend, Nodemailer, etc.)
+    // Por enquanto loga para verificar o funcionamento
+    console.log("[contact] novo lead:", { name, email, company, timestamp: new Date().toISOString() })
+
+    return NextResponse.json({ ok: true })
+  } catch {
+    return NextResponse.json({ error: "Erro interno" }, { status: 500 })
   }
-
-  return NextResponse.json({ success: true })
 }
