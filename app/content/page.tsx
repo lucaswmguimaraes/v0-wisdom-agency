@@ -4,72 +4,23 @@ import { useState } from "react"
 import { ArrowRight, Clock, Target, Bot, BarChart3, BookOpen, Play, ChevronLeft, Sparkles, Check } from "lucide-react"
 import { Header } from "@/components/wisdom/header"
 import { Footer } from "@/components/wisdom/footer"
-import { Badge } from "@/components/wisdom/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 
 const ARTICLES = [
-  {
-    id: 1,
-    title: "Meta Advantage+ em 2026: o que mudou e o que estamos ajustando nas contas",
-    excerpt: "O novo painel de controle de audience chegou. Três ajustes que fizemos esta semana — e os resultados que estamos vendo no CPL.",
-    category: "Mídia Paga",
-    hue: "blue",
-    readTime: 6,
-    date: "22 Abr",
-  },
-  {
-    id: 2,
-    title: "Como uso Claude para automatizar a operação de campanhas no dia a dia",
-    excerpt: "Relatórios de performance, alertas de anomalia e briefings de criativo — o que deleguei para IA e o que ainda faço na mão.",
-    category: "IA para Marketing",
-    hue: "ink",
-    readTime: 5,
-    date: "21 Abr",
-  },
-  {
-    id: 3,
-    title: "Performance Max em abril: novos controles e o que os dados estão dizendo",
-    excerpt: "Google liberou novos search themes e brand exclusions. Testamos nas contas e os resultados surpreenderam — nem sempre para melhor.",
-    category: "Mídia Paga",
-    hue: "slate",
-    readTime: 8,
-    date: "20 Abr",
-  },
-  {
-    id: 4,
-    title: "Apps Script + Google Ads API: automatizamos 5h semanais de relatórios",
-    excerpt: "O script que roda toda segunda de manhã e entrega um resumo de performance direto no Sheets — com alertas de CPL e ROAS fora da faixa.",
-    category: "IA para Marketing",
-    hue: "teal",
-    readTime: 7,
-    date: "19 Abr",
-  },
-  {
-    id: 5,
-    title: "Atribuição em 2026: o que ainda funciona depois do fim dos cookies",
-    excerpt: "MMM leve, first-party data e o blend de modelos que estamos usando nas contas com mais de R$200k/mês de investimento.",
-    category: "Funil e Analytics",
-    hue: "deep",
-    readTime: 9,
-    date: "18 Abr",
-  },
-  {
-    id: 6,
-    title: "ROAS caindo? As três causas mais comuns em contas B2B e como corrigir",
-    excerpt: "Fadiga de criativo, saturação de audiência ou problema de atribuição — como diferenciar e o que fazer em cada cenário.",
-    category: "Fundamentos",
-    hue: "navy",
-    readTime: 6,
-    date: "17 Abr",
-  },
+  { id: 1, title: "Meta Advantage+ em 2026: o que mudou e o que estamos ajustando nas contas", excerpt: "O novo painel de controle de audience chegou. Três ajustes que fizemos esta semana — e os resultados que estamos vendo no CPL.", category: "Mídia Paga", hue: "blue", readTime: 6, date: "22 Abr" },
+  { id: 2, title: "Como usamos Claude para automatizar a operação de campanhas", excerpt: "Relatórios de performance, alertas de anomalia e briefings de criativo — o que delegamos para IA e o que ainda fazemos na mão.", category: "IA para Marketing", hue: "ink", readTime: 5, date: "21 Abr" },
+  { id: 3, title: "Performance Max em abril: novos controles e o que os dados estão dizendo", excerpt: "Google liberou novos search themes e brand exclusions. Testamos nas contas e os resultados surpreenderam.", category: "Mídia Paga", hue: "slate", readTime: 8, date: "20 Abr" },
+  { id: 4, title: "Apps Script + Google Ads API: automatizamos 5h semanais de relatórios", excerpt: "O script que roda toda segunda e entrega um resumo de performance no Sheets — com alertas de CPL e ROAS fora da faixa.", category: "IA para Marketing", hue: "teal", readTime: 7, date: "19 Abr" },
+  { id: 5, title: "Atribuição em 2026: o que ainda funciona depois do fim dos cookies", excerpt: "MMM leve, first-party data e o blend de modelos que estamos usando nas contas com R$200k+/mês.", category: "Funil e Analytics", hue: "deep", readTime: 9, date: "18 Abr" },
+  { id: 6, title: "ROAS caindo? As três causas mais comuns em contas B2B e como corrigir", excerpt: "Fadiga de criativo, saturação de audiência ou problema de atribuição — como diferenciar e o que fazer.", category: "Fundamentos", hue: "navy", readTime: 6, date: "17 Abr" },
 ]
 
 const TOPICS = [
-  { name: "IA para profissionais de marketing", icon: Bot, desc: "Prompts, automações e stacks de ferramentas que realmente economizam tempo.", count: 42 },
+  { name: "IA para profissionais de marketing", icon: Bot, desc: "Prompts, automações e stacks que realmente economizam tempo.", count: 42 },
   { name: "Mídia paga", icon: Target, desc: "Google Ads, Meta Ads, estrutura de conta, testes de criativos.", count: 68 },
-  { name: "Funil e analytics", icon: BarChart3, desc: "Atribuição que sobrevive às atualizações do iOS. Modelagem de LTV.", count: 31 },
+  { name: "Funil e analytics", icon: BarChart3, desc: "Atribuição que sobrevive às atualizações do iOS.", count: 31 },
   { name: "Fundamentos", icon: BookOpen, desc: "O glossário em linguagem simples para quem está começando.", count: 24 },
 ]
 
@@ -81,15 +32,13 @@ function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClic
     >
       <div className="relative h-40 overflow-hidden">
         <div className={cn("absolute inset-0", `cover-${article.hue}`)} />
-        <Badge tone="info" className="absolute top-3 left-3 backdrop-blur-lg">{article.category}</Badge>
+        <span style={{ position: "absolute", top: 12, left: 12, fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(255,255,255,0.9)", background: "rgba(0,0,0,0.35)", backdropFilter: "blur(8px)", borderRadius: 6, padding: "3px 8px" }}>
+          {article.category}
+        </span>
       </div>
       <div className="p-5 flex flex-col gap-2 flex-1">
-        <h3 className="text-[17px] font-semibold text-[var(--fg-1)] tracking-[-0.01em] leading-[1.35] line-clamp-2 group-hover:text-primary transition-colors">
-          {article.title}
-        </h3>
-        <p className="text-[13px] leading-[1.55] text-[var(--fg-3)] line-clamp-2 flex-1">
-          {article.excerpt}
-        </p>
+        <h3 className="text-[17px] font-semibold text-[var(--fg-1)] tracking-[-0.01em] leading-[1.35] line-clamp-2 group-hover:text-primary transition-colors">{article.title}</h3>
+        <p className="text-[13px] leading-[1.55] text-[var(--fg-3)] line-clamp-2 flex-1">{article.excerpt}</p>
         <div className="flex items-center gap-1.5 text-xs text-[var(--fg-3)] mt-3">
           <Clock className="h-3.5 w-3.5" />
           <span>{article.readTime} min de leitura</span>
@@ -103,58 +52,37 @@ function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClic
 
 function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBack: () => void }) {
   return (
-    <article className="max-w-[720px] mx-auto px-8 py-12">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-1 text-[13px] text-[var(--fg-3)] hover:text-[var(--fg-1)] transition-colors mb-8 bg-transparent border-none cursor-pointer font-sans"
-      >
-        <ChevronLeft className="h-3.5 w-3.5" />
+    <article style={{ maxWidth: 720, margin: "0 auto", padding: "48px 32px" }}>
+      <button onClick={onBack} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 13, color: "var(--fg-3)", background: "none", border: "none", cursor: "pointer", marginBottom: 32, fontFamily: "inherit" }}>
+        <ChevronLeft style={{ width: 14, height: 14 }} />
         Voltar
       </button>
-
-      <div className="flex flex-col gap-4 mb-8">
-        <Badge tone="info">{article.category}</Badge>
-        <h1 className="text-[44px] font-bold tracking-[-0.025em] leading-[1.1] text-[var(--fg-1)]">
-          {article.title}
-        </h1>
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1D4ED8] to-[#3B82F6] border border-[var(--wa-border-strong)]" />
-          <div>
-            <strong className="block text-sm text-[var(--fg-1)]">Wisdom Agency</strong>
-            <span className="text-xs text-[var(--fg-3)]">{article.date} · {article.readTime} min de leitura</span>
-          </div>
+      <div className="wa-section-eyebrow" style={{ marginBottom: 16 }}>
+        <span className="wa-section-eyebrow-dot" />{article.category}
+      </div>
+      <h1 style={{ fontSize: "clamp(32px,4vw,44px)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.1, color: "var(--fg-1)", margin: "0 0 20px" }}>{article.title}</h1>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
+        <div style={{ width: 40, height: 40, borderRadius: "50%", background: "linear-gradient(135deg,#1D4ED8,#3B82F6)", border: "1px solid var(--wa-border-strong)", flexShrink: 0 }} />
+        <div>
+          <strong style={{ display: "block", fontSize: 14, color: "var(--fg-1)" }}>Wisdom Agency</strong>
+          <span style={{ fontSize: 12, color: "var(--fg-3)" }}>{article.date} · {article.readTime} min de leitura</span>
         </div>
       </div>
-
-      <div className={cn("h-[280px] rounded-xl mb-8 border border-[var(--wa-border)]", `cover-${article.hue}`)} />
-
-      <div className="reader-body">
-        <p className="text-[19px] leading-[1.6] text-[var(--fg-2)] mb-6">
-          {article.excerpt}
-        </p>
-
-        <h2 className="text-2xl font-semibold tracking-[-0.015em] text-[var(--fg-1)] mt-8 mb-3">O framework das três alavancas</h2>
-        <p className="text-base leading-[1.7] text-[var(--fg-2)] mb-4">
-          Toda conta de mídia paga — Google, Meta, TikTok — tem as mesmas três alavancas. Quando o desempenho estagna, você quase sempre está super-indexando em uma e ignorando as outras duas.
-        </p>
-        <ol className="pl-6 text-[var(--fg-2)] text-base leading-[1.7] list-decimal">
-          <li className="mb-2.5"><strong className="text-[var(--fg-1)] font-semibold">Estrutura.</strong> Como campanhas, conjuntos de anúncios e anúncios são organizados. A alavanca menos sexy e geralmente o maior ganho.</li>
-          <li className="mb-2.5"><strong className="text-[var(--fg-1)] font-semibold">Criativo.</strong> Os anúncios reais — visual, copy, gancho. A IA ajuda mais aqui, não nos ajustes de lance.</li>
-          <li className="mb-2.5"><strong className="text-[var(--fg-1)] font-semibold">Sinal.</strong> Quais dados você alimenta o algoritmo. Qualidade de conversão supera quantidade de conversão sempre.</li>
-        </ol>
-
-        <div className="flex gap-3 p-[18px] bg-[rgba(59,130,246,0.08)] border border-[rgba(59,130,246,0.25)] rounded-[10px] my-6 text-sm leading-[1.55] text-[var(--fg-2)]">
-          <Sparkles className="h-[18px] w-[18px] text-[var(--wa-blue-300)] mt-0.5 flex-shrink-0" />
-          <div>
-            <strong className="text-[var(--fg-1)]">Workflow de IA.</strong> Use o Claude para gerar e revisar variantes de criativos, depois classifique-as com um prompt de pontuação ajustado à voz da sua marca. Publique as 3 melhores.
-          </div>
-        </div>
-
-        <h2 className="text-2xl font-semibold tracking-[-0.015em] text-[var(--fg-1)] mt-8 mb-3">Onde iniciantes travam</h2>
-        <p className="text-base leading-[1.7] text-[var(--fg-2)]">
-          A maioria dos novos profissionais de marketing gasta 80% do tempo ajustando lances e 20% em criativo. Inverta isso. O algoritmo de lance é melhor do que você; seu criativo não é.
-        </p>
+      <div className={cn("h-[260px] rounded-xl mb-8 border border-[var(--wa-border)]", `cover-${article.hue}`)} />
+      <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--fg-2)", marginBottom: 24 }}>{article.excerpt}</p>
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "28px 0 12px" }}>O framework das três alavancas</h2>
+      <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--fg-2)", marginBottom: 16 }}>Toda conta de mídia paga tem as mesmas três alavancas. Quando o desempenho estagna, você quase sempre está super-indexando em uma e ignorando as outras duas.</p>
+      <ol style={{ paddingLeft: 20, color: "var(--fg-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
+        <li style={{ marginBottom: 8 }}><strong style={{ color: "var(--fg-1)" }}>Estrutura.</strong> Como campanhas e anúncios são organizados. A alavanca menos sexy e geralmente o maior ganho.</li>
+        <li style={{ marginBottom: 8 }}><strong style={{ color: "var(--fg-1)" }}>Criativo.</strong> Os anúncios reais — visual, copy, gancho. A IA ajuda mais aqui, não nos ajustes de lance.</li>
+        <li style={{ marginBottom: 8 }}><strong style={{ color: "var(--fg-1)" }}>Sinal.</strong> Quais dados você alimenta no algoritmo. Qualidade de conversão supera quantidade.</li>
+      </ol>
+      <div style={{ display: "flex", gap: 12, padding: 18, background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 10, margin: "24px 0", fontSize: 14, lineHeight: 1.55, color: "var(--fg-2)" }}>
+        <Sparkles style={{ width: 18, height: 18, color: "var(--wa-blue-300)", marginTop: 2, flexShrink: 0 }} />
+        <div><strong style={{ color: "var(--fg-1)" }}>Workflow de IA.</strong> Use o Claude para gerar variantes de criativos e classifique-as com um prompt ajustado à voz da sua marca.</div>
       </div>
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "28px 0 12px" }}>Onde iniciantes travam</h2>
+      <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--fg-2)" }}>A maioria dos profissionais gasta 80% do tempo ajustando lances e 20% em criativo. Inverta isso. O algoritmo é melhor do que você; seu criativo não é.</p>
     </article>
   )
 }
@@ -166,22 +94,14 @@ export default function ContentPage() {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) {
-      setSubscribed(true)
-      setEmail("")
-    }
+    if (email) { setSubscribed(true); setEmail("") }
   }
 
   if (selectedArticle) {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1">
-          <ArticleReader
-            article={selectedArticle}
-            onBack={() => setSelectedArticle(null)}
-          />
-        </main>
+        <main className="flex-1"><ArticleReader article={selectedArticle} onBack={() => setSelectedArticle(null)} /></main>
         <Footer />
       </div>
     )
@@ -192,132 +112,105 @@ export default function ContentPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden py-24 px-8">
-          <div className="aurora" />
-          <div className="relative max-w-[900px] mx-auto flex flex-col gap-6 items-start">
-            <Badge tone="info" dot>Novo · Playbook semanal</Badge>
-            <h1 className="text-[68px] font-bold tracking-[-0.025em] leading-[1.02] text-[var(--fg-1)] m-0">
+        {/* Hero */}
+        <section className="relative overflow-hidden py-24 px-8 hero-spotlight">
+          <div className="aurora-v2" aria-hidden="true" />
+          <div className="dot-grid" aria-hidden="true" />
+          <div className="relative max-w-[960px] mx-auto flex flex-col gap-6 items-start z-10">
+            <div className="wa-section-eyebrow hero-enter" style={{ animationDelay: "0ms" }}>
+              <span className="wa-section-eyebrow-dot" />
+              Novo · Playbook semanal
+            </div>
+            <h1 className="hero-enter" style={{ animationDelay: "80ms", fontSize: "clamp(40px,5vw,68px)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.05, color: "var(--fg-1)", margin: 0 }}>
               Simplifique IA e mídia paga —<br />
-              <span className="text-[var(--fg-3)] font-semibold">sem perder as nuances.</span>
+              <span className="wa-grad">sem perder as nuances.</span>
             </h1>
-            <p className="text-[19px] leading-[1.6] text-[var(--fg-2)] max-w-[640px] m-0">
-              Playbooks práticos, workflows de IA e análises de campanhas para profissionais de marketing que preferem entregar do que teorizar. Escrito por operadores gerenciando +R$5M/mês em investimento em anúncios.
+            <p className="hero-enter" style={{ animationDelay: "160ms", fontSize: 19, lineHeight: 1.6, color: "var(--fg-2)", maxWidth: 640, margin: 0 }}>
+              Playbooks práticos, workflows de IA e análises de campanhas reais. Escrito por operadores gerenciando <strong style={{ color: "var(--fg-1)" }}>R$1M+/mês</strong> em anúncios.
             </p>
-            <div className="flex gap-3">
-              <Button
-                className="bg-[var(--wa-blue-500)] hover:bg-[var(--wa-blue-600)] text-white shadow-[0_0_0_1px_#2A3340,0_6px_20px_rgba(59,130,246,0.3),var(--inset-hairline-strong)]"
-                onClick={() => setSelectedArticle(ARTICLES[0])}
-              >
-                Leia o último playbook
-                <ArrowRight className="ml-2 h-4 w-4" />
+            <div className="hero-enter" style={{ animationDelay: "240ms", display: "flex", gap: 12 }}>
+              <Button className="magnetic-btn" onClick={() => setSelectedArticle(ARTICLES[0])}>
+                Leia o último playbook <ArrowRight className="ml-2 h-4 w-4 arrow-slide" />
               </Button>
-              <Button variant="ghost" className="text-[var(--fg-2)] hover:text-[var(--fg-1)] hover:bg-[var(--wa-surface-1)]">
-                <Play className="mr-2 h-4 w-4" />
-                Assistir intro de 2 min
+              <Button variant="outline">
+                <Play className="mr-2 h-4 w-4" /> Assistir intro de 2 min
               </Button>
             </div>
-            <div className="flex items-center gap-6 mt-4 pt-6 border-t border-[var(--wa-border)] w-full max-w-[640px]">
-              <div className="flex flex-col gap-0.5">
-                <strong className="text-[22px] font-bold text-[var(--fg-1)] tracking-[-0.02em]">+329%</strong>
-                <span className="text-xs text-[var(--fg-3)] tracking-[0.04em] uppercase">Leads YoY</span>
-              </div>
-              <div className="w-px h-8 bg-[var(--wa-border)]" />
-              <div className="flex flex-col gap-0.5">
-                <strong className="text-[22px] font-bold text-[var(--fg-1)] tracking-[-0.02em]">R$5M+</strong>
-                <span className="text-xs text-[var(--fg-3)] tracking-[0.04em] uppercase">Investimento mensal</span>
-              </div>
-              <div className="w-px h-8 bg-[var(--wa-border)]" />
-              <div className="flex flex-col gap-0.5">
-                <strong className="text-[22px] font-bold text-[var(--fg-1)] tracking-[-0.02em]">14</strong>
-                <span className="text-xs text-[var(--fg-3)] tracking-[0.04em] uppercase">Clientes B2B</span>
-              </div>
+            <div className="hero-enter" style={{ animationDelay: "320ms", display: "flex", alignItems: "center", marginTop: 16, paddingTop: 24, borderTop: "1px solid var(--wa-border)", width: "100%", maxWidth: 560 }}>
+              {[["R$1M+", "Investimento/mês"], ["+329%", "Leads YoY"], ["27", "Clientes ativos"]].map(([val, lbl], i) => (
+                <div key={lbl} style={{ display: "flex", alignItems: "center", flex: 1 }}>
+                  {i > 0 && <div style={{ width: 1, height: 32, background: "var(--wa-border)", marginRight: 20 }} />}
+                  <div>
+                    <strong style={{ display: "block", fontSize: 22, fontWeight: 800, color: "var(--fg-1)", letterSpacing: "-0.02em" }}>{val}</strong>
+                    <span style={{ fontSize: 11, color: "var(--fg-3)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{lbl}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Articles Grid */}
-        <section className="max-w-[1200px] mx-auto py-16 px-8">
-          <div className="flex justify-between items-end mb-8">
+        {/* Articles */}
+        <section style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 32px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 32 }}>
             <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--fg-accent)] mb-3">Últimos playbooks</div>
-              <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[var(--fg-1)] m-0">Novidades da semana</h2>
+              <div className="wa-section-eyebrow" style={{ marginBottom: 12 }}>
+                <span className="wa-section-eyebrow-dot" /> Últimos playbooks
+              </div>
+              <h2 className="wa-section-h2">Novidades da semana</h2>
             </div>
-            <a href="#" className="text-[var(--fg-accent)] text-sm font-medium inline-flex items-center gap-1.5 hover:text-[var(--wa-blue-300)]">
-              Ver todos <ArrowRight className="h-4 w-4" />
+            <a href="#" style={{ color: "var(--wa-blue-500)", fontSize: 14, fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>
+              Ver todos <ArrowRight style={{ width: 14, height: 14 }} />
             </a>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ARTICLES.map((article) => (
-              <ArticleCard
-                key={article.id}
-                article={article}
-                onClick={() => {
-                  setSelectedArticle(article)
-                  window.scrollTo(0, 0)
-                }}
-              />
-            ))}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(320px,1fr))", gap: 24 }}>
+            {ARTICLES.map((a) => <ArticleCard key={a.id} article={a} onClick={() => { setSelectedArticle(a); window.scrollTo(0, 0) }} />)}
           </div>
         </section>
 
-        {/* Topics Section */}
-        <section className="max-w-[1200px] mx-auto py-16 px-8">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--fg-accent)] mb-3">Tópicos</div>
-              <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[var(--fg-1)] m-0">Escolha seu caminho</h2>
+        {/* Topics */}
+        <section style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px 64px" }}>
+          <div style={{ marginBottom: 32 }}>
+            <div className="wa-section-eyebrow" style={{ marginBottom: 12 }}>
+              <span className="wa-section-eyebrow-dot" /> Tópicos
             </div>
+            <h2 className="wa-section-h2">Escolha seu caminho</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {TOPICS.map((topic) => (
-              <div
-                key={topic.name}
-                className="bg-[var(--bg-2)] border border-[var(--wa-border)] rounded-xl p-6 shadow-[var(--shadow-sm),var(--inset-hairline)] hover:border-[var(--wa-border-strong)] hover:shadow-[var(--shadow-md),var(--inset-hairline)] transition-all cursor-pointer flex flex-col gap-3"
-              >
-                <div className="w-10 h-10 bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.25)] rounded-[10px] flex items-center justify-center text-[var(--wa-blue-300)]">
-                  <topic.icon className="h-[22px] w-[22px]" />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 20 }}>
+            {TOPICS.map((t) => (
+              <div key={t.name} style={{ background: "var(--bg-2)", border: "1px solid var(--wa-border)", borderRadius: 12, padding: 24, cursor: "pointer", display: "flex", flexDirection: "column", gap: 12 }}>
+                <div style={{ width: 40, height: 40, background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--wa-blue-300)" }}>
+                  <t.icon style={{ width: 20, height: 20 }} />
                 </div>
-                <h4 className="text-base font-semibold text-[var(--fg-1)] m-0">{topic.name}</h4>
-                <p className="text-[13px] leading-[1.55] text-[var(--fg-3)] m-0 flex-1">{topic.desc}</p>
-                <div className="text-xs text-[var(--fg-4)] font-mono">{topic.count} artigos</div>
+                <h4 style={{ fontSize: 15, fontWeight: 600, color: "var(--fg-1)", margin: 0 }}>{t.name}</h4>
+                <p style={{ fontSize: 13, lineHeight: 1.55, color: "var(--fg-3)", margin: 0, flex: 1 }}>{t.desc}</p>
+                <div style={{ fontSize: 12, color: "var(--fg-4)", fontFamily: "var(--font-mono)" }}>{t.count} artigos</div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Newsletter Section */}
-        <section className="py-10 px-8 pb-24">
-          <div className="relative bg-[var(--bg-2)] border border-[var(--wa-border)] rounded-2xl p-12 shadow-[var(--shadow-md),var(--inset-hairline)] max-w-[900px] mx-auto overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(600px_300px_at_100%_0%,rgba(59,130,246,0.15),transparent_60%)] pointer-events-none" />
-            <div className="relative">
-              <div className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--fg-accent)] mb-2">The Wisdom Letter</div>
-              <h2 className="text-[30px] font-bold tracking-[-0.02em] text-[var(--fg-1)] mb-2">Um playbook. Toda terça. Sem enrolação.</h2>
-              <p className="text-[15px] text-[var(--fg-3)] leading-[1.5] mb-5">
-                Receba um playbook prático de IA + mídia paga na caixa de entrada toda terça-feira. Cancele em um clique.
+        {/* Newsletter */}
+        <section style={{ padding: "0 32px 96px" }}>
+          <div style={{ position: "relative", background: "var(--bg-2)", border: "1px solid var(--wa-border)", borderRadius: 20, padding: "56px 48px", maxWidth: 900, margin: "0 auto", overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(600px 300px at 100% 0%,rgba(59,130,246,0.15),transparent 60%)", pointerEvents: "none" }} />
+            <div style={{ position: "relative" }}>
+              <div className="wa-section-eyebrow" style={{ marginBottom: 12 }}>
+                <span className="wa-section-eyebrow-dot" /> The Wisdom Letter
+              </div>
+              <h2 className="wa-section-h2" style={{ marginBottom: 8 }}>Um playbook. Toda terça. Sem enrolação.</h2>
+              <p style={{ fontSize: 15, color: "var(--fg-3)", lineHeight: 1.5, marginBottom: 24 }}>
+                Receba um playbook prático de IA + mídia paga toda terça-feira. Cancele em um clique.
               </p>
-
               {subscribed ? (
-                <div className="inline-flex items-center gap-1.5 text-[13px] text-[#86EFAC]">
-                  <Check className="h-3.5 w-3.5" />
-                  Você está dentro. Confira sua caixa de entrada.
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "#86EFAC" }}>
+                  <Check style={{ width: 14, height: 14 }} /> Você está dentro. Confira sua caixa de entrada.
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex gap-2 max-w-[480px]">
-                  <Input
-                    type="email"
-                    placeholder="voce@empresa.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-[var(--wa-surface-1)] border-[var(--wa-border)] text-[var(--fg-1)] placeholder:text-[var(--fg-4)] focus:border-[var(--wa-blue-500)] focus:ring-[3px] focus:ring-[rgba(59,130,246,0.35)]"
-                    required
-                  />
-                  <Button
-                    type="submit"
-                    className="bg-[var(--wa-blue-500)] hover:bg-[var(--wa-blue-600)] text-white shadow-[0_0_0_1px_#2A3340,0_6px_20px_rgba(59,130,246,0.3),var(--inset-hairline-strong)]"
-                  >
-                    Assinar
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                <form onSubmit={handleSubscribe} style={{ display: "flex", gap: 8, maxWidth: 480 }}>
+                  <Input type="email" placeholder="voce@empresa.com" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1" required />
+                  <Button type="submit" className="magnetic-btn">
+                    Assinar <ArrowRight className="ml-2 h-4 w-4 arrow-slide" />
                   </Button>
                 </form>
               )}
