@@ -1,12 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { ArrowRight, TrendingUp, DollarSign, BarChart3, Star, Target, Bot, Layers, Check, ChevronLeft } from "lucide-react"
 import { Header } from "@/components/wisdom/header"
 import { Footer } from "@/components/wisdom/footer"
 import { Badge } from "@/components/wisdom/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { TiltCard } from "@/components/wisdom/tilt-card"
+import { useCursorSpotlight } from "@/hooks/use-cursor-spotlight"
 import { cn } from "@/lib/utils"
 
 const CASES = [
@@ -24,7 +26,7 @@ const CASES = [
     client: "App Educacional",
     industry: "Edtech",
     headline: "+85% de receita, 2.3M acessos/mês",
-    desc: "Rebuild completo da estratégia de aquísição. Integração de canais pagos com orgânico. Escala para 2,3M de acessos mensais e 28% de market share educacional.",
+    desc: "Rebuild completo da estratégia de aquisição. Integração de canais pagos com orgânico. Escala para 2,3M de acessos mensais e 28% de market share educacional.",
     metrics: [["+85%", "Receita"], ["-13%", "CPA YoY"], ["28%", "Market share"]],
     hue: "blue",
   },
@@ -103,7 +105,7 @@ function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: (
         </p>
         <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">O que fizemos</h2>
         <ol className="list-decimal list-inside space-y-2 text-muted-foreground mb-4">
-          <li>Reconstruímos a conta com segmentação limpa: marca / não-marca / Pmax com listas negativas entre elas.</li>
+          <li>Reconstruimos a conta com segmentação limpa: marca / não-marca / Pmax com listas negativas entre elas.</li>
           <li>Lançamos sprint de criativos semanal com automações em Apps Script para geração e classificação de variantes.</li>
           <li>Substituímos atribuição last-click por blend de first-touch + position-based no GA4.</li>
         </ol>
@@ -117,7 +119,7 @@ function CaseDetail({ caseItem, onBack }: { caseItem: typeof CASES[0]; onBack: (
   )
 }
 
-function ContactForm() {
+function PortfolioContactForm() {
   const [form, setForm] = useState({ name: "", email: "", spend: "R$1k – R$20k", message: "" })
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -243,6 +245,8 @@ function ContactForm() {
 
 export default function PortfolioPage() {
   const [selectedCase, setSelectedCase] = useState<(typeof CASES)[0] | null>(null)
+  const heroRef = useRef<HTMLElement>(null)
+  useCursorSpotlight(heroRef)
 
   if (selectedCase) {
     return (
@@ -262,25 +266,26 @@ export default function PortfolioPage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="aurora" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+        <section ref={heroRef} className="relative overflow-hidden hero-spotlight">
+          <div className="aurora-v2" aria-hidden="true" />
+          <div className="dot-grid" aria-hidden="true" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 z-10">
             <div className="max-w-3xl">
               <Badge tone="info">Aceitando novos clientes agora</Badge>
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                Mídia paga, feita do jeito certo.
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground hero-enter" style={{ animationDelay: "0ms" }}>
+                Mídia paga, feita do <span className="text-gradient">jeito certo.</span>
               </h1>
-              <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
+              <p className="mt-6 text-lg text-muted-foreground max-w-2xl hero-enter" style={{ animationDelay: "120ms" }}>
                 Especialista sênior com experiência de{" "}
                 <strong className="text-foreground">R$1M+/mês</strong> em investimento de anúncios
                 para marcas B2B e DTC. Atendo cada conta pessoalmente — sem hand-offs, sem decks
                 genéricos.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button size="lg" asChild>
+              <div className="mt-8 flex flex-wrap gap-4 hero-enter" style={{ animationDelay: "240ms" }}>
+                <Button size="lg" asChild className="magnetic-btn">
                   <a href="#contact">
                     Agende uma call de 30 min
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-5 w-5 arrow-slide" />
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
@@ -326,23 +331,29 @@ export default function PortfolioPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {SERVICES.map((service) => (
-                <div
-                  key={service.title}
-                  className="bg-[var(--bg-2)] border border-border rounded-xl p-7 shadow-[var(--shadow-sm),var(--inset-hairline)] hover:border-[var(--wa-border-strong)] transition-all flex flex-col gap-3"
-                >
-                  <div className="w-11 h-11 rounded-[10px] bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.25)] flex items-center justify-center mb-1">
-                    <service.icon className="h-5 w-5 text-[var(--wa-blue-300)]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground tracking-tight">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">{service.desc}</p>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center text-sm text-primary font-medium hover:text-[var(--wa-blue-300)] transition-colors gap-1.5"
+                <TiltCard key={service.title} intensity={5}>
+                  <div
+                    className="bg-[var(--bg-2)] border border-border rounded-xl p-7 shadow-[var(--shadow-sm),var(--inset-hairline)] hover:border-[var(--wa-border-strong)] transition-all flex flex-col gap-3 h-full relative z-[2]"
+                    style={{ transformStyle: "preserve-3d" }}
                   >
-                    Saiba mais
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
+                    <div
+                      className="w-11 h-11 rounded-[10px] bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.25)] flex items-center justify-center mb-1"
+                      style={{ transform: "translateZ(20px)" }}
+                    >
+                      <service.icon className="h-5 w-5 text-[var(--wa-blue-300)]" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground tracking-tight" style={{ transform: "translateZ(16px)" }}>{service.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{service.desc}</p>
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center text-sm text-primary font-medium hover:text-[var(--wa-blue-300)] transition-colors gap-1.5"
+                      style={{ transform: "translateZ(24px)" }}
+                    >
+                      Saiba mais
+                      <ArrowRight className="h-4 w-4 arrow-slide" />
+                    </a>
+                  </div>
+                </TiltCard>
               ))}
             </div>
           </div>
@@ -358,39 +369,41 @@ export default function PortfolioPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {CASES.map((caseItem) => (
-                <div
-                  key={caseItem.id}
-                  className="group cursor-pointer bg-background rounded-xl border border-border overflow-hidden hover:border-primary/50 transition-all"
-                  onClick={() => {
-                    setSelectedCase(caseItem)
-                    window.scrollTo(0, 0)
-                  }}
-                >
-                  <div className={cn("aspect-[16/9] relative", `cover-${caseItem.hue}`)}>
-                    <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                      <Badge tone="neutral">{caseItem.industry}</Badge>
-                      <span className="text-sm text-white/80">{caseItem.client}</span>
+                <TiltCard key={caseItem.id} intensity={6}>
+                  <div
+                    className="group cursor-pointer bg-background rounded-xl border border-border overflow-hidden hover:border-primary/50 transition-all h-full relative z-[2]"
+                    style={{ transformStyle: "preserve-3d" }}
+                    onClick={() => {
+                      setSelectedCase(caseItem)
+                      window.scrollTo(0, 0)
+                    }}
+                  >
+                    <div className={cn("aspect-[16/9] relative", `cover-${caseItem.hue}`)}>
+                      <div className="absolute bottom-4 left-4 flex items-center gap-2" style={{ transform: "translateZ(30px)" }}>
+                        <Badge tone="neutral">{caseItem.industry}</Badge>
+                        <span className="text-sm text-white/80">{caseItem.client}</span>
+                      </div>
+                    </div>
+                    <div className="p-5" style={{ transform: "translateZ(16px)" }}>
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {caseItem.headline}
+                      </h3>
+                      <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{caseItem.desc}</p>
+                      <div className="mt-4 flex gap-4">
+                        {caseItem.metrics.map(([value, label]) => (
+                          <div key={label}>
+                            <div className="text-sm font-bold text-primary">{value}</div>
+                            <div className="text-xs text-muted-foreground">{label}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-4 flex items-center text-sm text-primary">
+                        Ver o case completo
+                        <ArrowRight className="ml-1 h-4 w-4 arrow-slide group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {caseItem.headline}
-                    </h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{caseItem.desc}</p>
-                    <div className="mt-4 flex gap-4">
-                      {caseItem.metrics.map(([value, label]) => (
-                        <div key={label}>
-                          <div className="text-sm font-bold text-primary">{value}</div>
-                          <div className="text-xs text-muted-foreground">{label}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-4 flex items-center text-sm text-primary">
-                      Ver o case completo
-                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
+                </TiltCard>
               ))}
             </div>
           </div>
@@ -406,14 +419,13 @@ export default function PortfolioPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
               {PROCESS.map((step) => (
-                <div
-                  key={step.n}
-                  className="bg-[var(--bg-2)] border border-border rounded-xl p-6 shadow-[var(--inset-hairline)] flex flex-col gap-2.5"
-                >
-                  <span className="font-mono text-sm text-[var(--wa-blue-300)] tracking-wide">{step.n}</span>
-                  <h3 className="text-base font-semibold text-foreground">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-                </div>
+                <TiltCard key={step.n} intensity={4} glow={false}>
+                  <div className="bg-[var(--bg-2)] border border-border rounded-xl p-6 shadow-[var(--inset-hairline)] flex flex-col gap-2.5 h-full relative z-[2]">
+                    <span className="font-mono text-sm text-[var(--wa-blue-300)] tracking-wide">{step.n}</span>
+                    <h3 className="text-base font-semibold text-foreground">{step.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+                  </div>
+                </TiltCard>
               ))}
             </div>
           </div>
@@ -438,7 +450,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <ContactForm />
+        <PortfolioContactForm />
       </main>
 
       <Footer />
