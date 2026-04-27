@@ -1,19 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { CustomCursor } from '@/components/wisdom/custom-cursor'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: '--font-inter',
-  weight: ['400', '500', '600', '700', '800'],
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist',
 })
 
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ["latin"],
-  variable: '--font-jetbrains',
-  weight: ['400', '500'],
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
 })
 
 export const metadata: Metadata = {
@@ -24,14 +22,12 @@ export const metadata: Metadata = {
     description: 'Gestão de mídia paga para empresas B2B e DTC. R$1M+/mês gerenciados.',
     type: 'website',
     locale: 'pt_BR',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Wisdom Agency — Performance Marketing & IA Aplicada',
-      },
-    ],
+    images: [{
+      url: '/og-image.png',
+      width: 1200,
+      height: 630,
+      alt: 'Wisdom Agency — Performance Marketing & IA Aplicada',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -45,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${jetbrainsMono.variable} bg-background`}>
+    <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable} bg-background`}>
       <body className="font-sans antialiased">
         {/* GTM_PLACEHOLDER: adicionar script do GTM aqui quando criar a conta */}
         <CustomCursor />
