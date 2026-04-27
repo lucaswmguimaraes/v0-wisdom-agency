@@ -9,12 +9,19 @@ import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/wisdom/contact-form"
 import { ServiceCard } from "@/components/wisdom/service-card"
 import { AnimatedStat } from "@/components/wisdom/animated-stat"
+import { FloatingDashboard } from "@/components/wisdom/floating-dashboard"
+import { IsoGrid } from "@/components/wisdom/iso-grid"
+import { Marquee } from "@/components/wisdom/marquee"
 import { useCursorSpotlight } from "@/hooks/use-cursor-spotlight"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { useMagnetic } from "@/hooks/use-magnetic"
 
 export default function LandingPage() {
   const heroRef = useRef<HTMLElement>(null)
   useCursorSpotlight(heroRef)
+
+  const ctaRef = useRef<HTMLAnchorElement>(null)
+  useMagnetic(ctaRef, 0.2, 100)
 
   const servicesReveal = useScrollReveal()
   const contactReveal = useScrollReveal()
@@ -29,44 +36,70 @@ export default function LandingPage() {
           ref={heroRef}
           className="relative overflow-hidden hero-spotlight"
         >
+          <IsoGrid />
           <div className="aurora-v2" aria-hidden="true" />
           <div className="dot-grid" aria-hidden="true" />
           <div className="relative mx-auto max-w-[1200px] px-8 py-28 sm:py-36 z-10">
-            <div className="max-w-3xl">
-              <p className="eyebrow mb-5 hero-enter" style={{ animationDelay: "0ms" }}>
-                Growth Marketing · Mídia Paga · IA Aplicada
-              </p>
-              <h1
-                className="text-5xl sm:text-6xl font-bold tracking-tight text-foreground leading-[1.05] hero-enter"
-                style={{ animationDelay: "80ms" }}
-              >
-                Mídia paga que você<br />
-                consegue medir — e que<br />
-                <span className="text-gradient">realmente converte.</span>
-              </h1>
-              <p
-                className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed hero-enter"
-                style={{ animationDelay: "160ms" }}
-              >
-                Já gerenciei <strong className="text-foreground">R$1M+/mês</strong> em mídia paga para
-                empresas B2B e DTC. Aqui você encontra gestão especializada — ou aprende o que realmente
-                funciona, com dados reais.
-              </p>
-              <div
-                className="mt-10 flex flex-col sm:flex-row items-start gap-4 hero-enter"
-                style={{ animationDelay: "240ms" }}
-              >
-                <Button asChild size="lg" className="magnetic-btn">
-                  <a href="#contact">
-                    Agendar call de 30 min
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link href="/portfolio">Ver cases →</Link>
-                </Button>
+            <div className="hero-grid">
+              <div>
+                <p className="eyebrow mb-5 hero-enter" style={{ animationDelay: "0ms" }}>
+                  Growth Marketing · Mídia Paga · IA Aplicada
+                </p>
+                <h1
+                  className="text-5xl sm:text-6xl font-bold tracking-tight text-foreground leading-[1.05] hero-enter"
+                  style={{ animationDelay: "80ms" }}
+                >
+                  Mídia paga que você<br />
+                  consegue medir — e que<br />
+                  <span className="text-gradient">realmente converte.</span>
+                </h1>
+                <p
+                  className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed hero-enter"
+                  style={{ animationDelay: "160ms" }}
+                >
+                  Já gerenciei <strong className="text-foreground">R$1M+/mês</strong> em mídia paga para
+                  empresas B2B e DTC. Aqui você encontra gestão especializada — ou aprende o que realmente
+                  funciona, com dados reais.
+                </p>
+                <div
+                  className="mt-10 flex flex-col sm:flex-row items-start gap-4 hero-enter"
+                  style={{ animationDelay: "240ms" }}
+                >
+                  <Button asChild size="lg" className="magnetic-btn">
+                    <a ref={ctaRef} href="#contact">
+                      Agendar call de 30 min
+                      <ArrowRight className="ml-2 h-5 w-5 arrow-slide" />
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="lg" asChild>
+                    <Link href="/portfolio">Ver cases →</Link>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="hero-enter" style={{ animationDelay: "320ms" }}>
+                <FloatingDashboard />
               </div>
             </div>
+          </div>
+
+          {/* Stack marquee */}
+          <div className="relative z-10 border-t border-border">
+            <Marquee
+              items={[
+                "Google Ads",
+                "Meta Ads",
+                "LinkedIn Ads",
+                "GA4",
+                "GTM",
+                "Looker Studio",
+                "Apps Script",
+                "Supabase",
+                "Claude",
+                "n8n",
+              ]}
+              speed={50}
+            />
           </div>
         </section>
 
@@ -128,7 +161,7 @@ export default function LandingPage() {
                 badge="B2B SaaS · DTC"
                 title="Gestão de Mídia Paga"
                 subtitle="Google Ads · Meta Ads · LinkedIn Ads"
-                description="Estratégia, criação e otimização de campanhas full-funnel. Da segmentação ao CPA. Para quem tem budget R$50k+/mês e precisa de resultado rastreável."
+                description="Estratégia, criação e otimização de campanhas full-funnel. Da segmentação ao CPA. Para quem tem budget R$50k+/mês e precisa de resultado rastreavel."
                 ctaLabel="Ver cases"
                 ctaHref="/portfolio"
               />
