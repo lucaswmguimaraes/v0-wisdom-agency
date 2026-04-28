@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils"
 const ARTICLES = [
   {
     id: 1,
-    title: "Meta Advantage+ em 2026: o que mudou e o que estamos ajustando nas contas",
-    excerpt: "O novo painel de controle de audience chegou. Três ajustes que fizemos esta semana — e os resultados que estamos vendo no CPL.",
+    title: "Meta Advantage+: o targeting detalhado virou sugestão — e agora?",
+    excerpt: "Em janeiro de 2026, o Meta removeu dezenas de categorias de interesse e transformou qualquer segmentação detalhada em sugestão. O que isso significa para quem gerencia contas de performance.",
     category: "Mídia Paga",
     hue: "blue",
     readTime: 6,
@@ -20,47 +20,55 @@ const ARTICLES = [
     body: [
       {
         type: "lead",
-        text: "O Meta lançou o painel de controle de audience do Advantage+ no início de abril. Na prática, você agora consegue ver — e limitar — o quanto o algoritmo está expandindo sua audiência além do targeting original. Testamos em 4 contas esta semana. Aqui está o que encontramos.",
+        text: "Em 15 de janeiro de 2026, o Meta removeu dezenas de categorias de interesse detalhado das opções de targeting. Ao mesmo tempo, consolidou a lógica do Advantage+: qualquer segmentação que você configurar é tratada como sugestão — não como regra. Somente localização e idade mínima funcionam como restrições reais.",
       },
       {
         type: "h2",
-        text: "O que mudou de fato",
+        text: "O que mudou na prática",
       },
       {
         type: "p",
-        text: "Antes do painel, Advantage+ era uma caixa-preta: você definia uma audiência de sugestão e o Meta fazia o que queria. Agora você vê um breakdown de quanto do investimento foi para a sua audiência definida vs. expansões do algoritmo. Em 2 das 4 contas que gerenciamos, mais de 60% do gasto estava indo para expansão — sem que soubéssemos.",
+        text: "Antes, você podia combinar interesses e forçar o algoritmo a manter a entrega dentro de um público específico. Hoje, o Advantage+ Audience usa seus inputs como ponto de partida e expande para qualquer pessoa que o algoritmo considere mais propensa a converter — sem você saber quanto do budget foi para fora do seu targeting original.",
+      },
+      {
+        type: "p",
+        text: "O que não existe mais é transparência sobre essa expansão. Você não vê qual porcentagem do investimento foi para a audiência que você definiu versus a expansão automática. O Meta argumenta que isso é intencional: a divisão artificiria entre 'dentro' e 'fora' do público prejudicava o aprendizado.",
       },
       {
         type: "highlight",
-        label: "Dado real",
-        text: "Em uma conta de e-commerce DTC com R$80k/mês de investimento, a expansão automática estava consumindo 68% do budget. CPL dessa parcela: 3,4x maior que a audiência original. Pausamos a expansão e o CPL caiu 31% em 7 dias.",
+        label: "Contexto de mercado",
+        text: "O Meta afirma que Advantage+ reduz CPA em até 32% em verticais de e-commerce em relação ao targeting detalhado manual. Para contas com histórico sólido de conversão e orçamento acima de R$250/dia, os dados internos do Meta apontam performance consistentemente melhor com automação completa.",
       },
       {
         type: "h2",
-        text: "3 ajustes que fizemos imediatamente",
+        text: "Quando faz sentido resistir à automação",
+      },
+      {
+        type: "p",
+        text: "Para B2B com ICP muito específico (cargo, tamanho de empresa, setor), deixar o Meta expandir livremente pode gerar volume de leads incompatível com o processo comercial. O algoritmo otimiza para o evento de conversão — não para a qualidade do lead depois da conversão. Se o seu funil comercial tem rejeição alta, o problema pode estar aqui.",
       },
       {
         type: "ol",
         items: [
-          { bold: "Mapear o breakdown por conta.", text: " Primeiro passo: abrir o painel e ver qual % do gasto vai para expansão. Se passar de 40%, você tem um problema de controle de audiência." },
-          { bold: "Limitar a expansão em campanhas de conversão.", text: " Para contas com CPL apertado e audiências bem mapeadas, restringimos a expansão ao mínimo possível. Para contas de awareness, deixamos mais aberto." },
-          { bold: "Criar conjuntos separados para testar a expansão.", text: " Em vez de misturar, isolamos a expansão em um ad set próprio com budget controlado. Assim conseguimos medir o custo real sem contaminar a campanha principal." },
+          { bold: "Use os controles de conta como linha de defesa.", text: " Localização e idade mínima são as únicas restrições que o Advantage+ respeita. Configure-as corretamente no nível da conta — elas se aplicam a todas as campanhas." },
+          { bold: "Alimente o algoritmo com dados de qualidade, não de volume.", text: " Se você envia qualquer lead como evento de conversão, está treinando o algoritmo para encontrar mais pessoas assim. Envie apenas leads qualificados via CAPI." },
+          { bold: "Teste a audiência de sugestão com budget controlado.", text: " Antes de abrir completamente, rode uma campanha com orçamento pequeno sem audiência de sugestão e compare CPL e qualidade de lead com a versão com sugestão restrita." },
         ],
       },
       {
         type: "h2",
-        text: "O que ainda não temos resposta",
+        text: "A mudança de papel do gestor de mídia",
       },
       {
         type: "p",
-        text: "A grande questão é: para contas com volume baixo de dados de conversão, a expansão pode ser positiva — o algoritmo precisa de espaço para aprender. Ainda estamos coletando dados em 2 contas menores para entender se o trade-off vale. Próxima atualização em duas semanas.",
+        text: "A lógica que o Jon Loomer articulou bem: o seu papel mudou de seletor de audiência para provedor de sinal. O que você alimenta — criativos, eventos de conversão, dados de CRM via CAPI — define o que o algoritmo aprende. Quanto melhor o sinal, menor a dependência de controle manual.",
       },
     ],
   },
   {
     id: 2,
-    title: "Como usamos Claude para automatizar a operação de campanhas",
-    excerpt: "Relatórios de performance, alertas de anomalia e briefings de criativo — o que delegamos para IA e o que ainda fazemos na mão.",
+    title: "Claude Skills para PPC: de prompt avulso para sistema que roda sem você",
+    excerpt: "A diferença entre usar IA e construir com IA. Como Claude Skills transforma tarefas repetitivas de paid media em sistemas previsíveis — com exemplo prático de análise de search terms.",
     category: "IA para Marketing",
     hue: "ink",
     readTime: 5,
@@ -68,51 +76,59 @@ const ARTICLES = [
     body: [
       {
         type: "lead",
-        text: "Depois de 6 meses usando Claude na operação de mídia paga, conseguimos mapear o que a IA faz melhor que nós, o que ela faz pior e onde a combinação humano + IA gera o maior ganho. Este é o mapa atual.",
+        text: "Usar o Claude para gerar um texto ou analisar uma planilha é útil. Mas ainda é trabalho manual: você abre, digita, recebe o resultado, fecha. Claude Skills é a camada acima disso — você define uma vez como a IA deve executar uma tarefa e ela passa a fazer isso de forma previsível, toda vez, sem precisar de instrução nova.",
       },
       {
         type: "h2",
-        text: "O que delegamos completamente",
+        text: "O que é uma Claude Skill na prática",
       },
       {
         type: "p",
-        text: "Relatórios de performance semanal: o Claude recebe os dados do Google Sheets via Apps Script, identifica variações acima de 15% em qualquer KPI e gera um resumo em linguagem natural com prioridades de ação. Economizamos 3h por semana só nisso.",
-      },
-      {
-        type: "p",
-        text: "Briefings de criativo: quando um conjunto de anúncios começa a perder performance, o Claude analisa os dados históricos e gera um briefing estruturado para o time de criativo — com hipótese de por que o criativo atual está fadigando, referências de formato e 3 ângulos alternativos para testar.",
+        text: "Uma Skill é um arquivo Markdown (.md) que contém o playbook completo de como o Claude deve executar uma tarefa específica: o contexto, o formato de input esperado, as regras de análise e o formato de output. Ao invés de escrever um prompt diferente toda vez, você chama a Skill e ela executa o mesmo processo, com a mesma lógica, independentemente de quem estiver na frente do computador.",
       },
       {
         type: "highlight",
-        label: "Workflow de IA",
-        text: "Prompt base que usamos: 'Você é um analista de mídia paga sênior. Aqui estão os dados de performance da última semana [dados]. Identifique as 3 anomalias mais relevantes, explique a causa provável de cada uma e sugira uma ação específica. Seja direto. Sem introdução.'",
+        label: "Fonte",
+        text: "Conceito documentado no Search Engine Land: 'By embracing Claude Skills, marketers are moving from doing PPC work to designing the PPC systems that perform that work with predictability and at scale.' Integração com dados ao vivo via MCP (Model Context Protocol) permite que a Skill puxe dados direto do Google Ads sem exportação manual.",
       },
       {
         type: "h2",
-        text: "O que ainda fazemos na mão",
+        text: "Exemplo: auditoria de search terms",
+      },
+      {
+        type: "p",
+        text: "Uma Skill de auditoria de search terms define: receber o relatório de termos de busca em CSV, identificar termos com gasto acima de X sem conversão, classificar por intenção (informacional / navegacional / transacional), sugerir negativação ou match type mais restrito, e formatar a saída como tabela pronta para revisão.",
+      },
+      {
+        type: "p",
+        text: "Com a integração via MCP conectada ao Optmyzr ou diretamente à Google Ads API, a Skill consegue puxar os dados em tempo real. Você chama a Skill, ela executa a auditoria e devolve o relatório formatado — sem precisar exportar nada manualmente.",
+      },
+      {
+        type: "h2",
+        text: "O que Skills não resolvem",
       },
       {
         type: "ol",
         items: [
-          { bold: "Decisões de budget acima de R$5k.", text: " A IA sugere, mas qualquer realocação significativa passa por revisão humana. Erro de contexto aqui tem custo alto." },
-          { bold: "Leitura qualitativa de criativos.", text: " O algoritmo não sabe que aquele criativo com copy forte está usando um meme que envelheceu mal em 3 semanas. Isso requer contexto cultural." },
-          { bold: "Negociação de posicionamento e formatos.", text: " Relacionamento com rep do Meta e Google ainda é humano — e vale muito em créditos de teste e acesso antecipado a features." },
+          { bold: "Julgamento estratégico.", text: " A Skill executa o playbook que você definiu. Se o playbook estiver errado, a Skill vai errar de forma consistente. A qualidade do output depende da qualidade das instruções." },
+          { bold: "Contexto de conta que muda rápido.", text: " Se você mudou de estratégia na semana passada, a Skill não sabe disso a menos que você atualize o arquivo. Skills precisam de manutenção periódica." },
+          { bold: "Decisões de budget de alto impacto.", text: " Skills podem sugerir realocações, mas a aprovação final de movimentações significativas ainda precisa passar por revisão humana." },
         ],
       },
       {
         type: "h2",
-        text: "O ganho real em 6 meses",
+        text: "Por onde começar",
       },
       {
         type: "p",
-        text: "Não cortamos headcount. Mas conseguimos gerenciar 40% mais contas com o mesmo time — porque as tarefas repetitivas de análise e formatação saíram do nosso radar. O foco humano foi para onde importa: estratégia, criativo e relacionamento com cliente.",
+        text: "Identifique a tarefa repetitiva que consome mais tempo na sua semana — auditoria de termos, geração de relatório, briefing de criativo — e documente exatamente como você faz hoje. Esse documento é a base da Skill. Skills prontas também estão disponíveis no GitHub para adaptar ao seu contexto.",
       },
     ],
   },
   {
     id: 3,
-    title: "Performance Max em abril: novos controles e o que os dados estão dizendo",
-    excerpt: "Google liberou novos search themes e brand exclusions. Testamos nas contas e os resultados surpreenderam.",
+    title: "Performance Max em 2026: 50 search themes, novas exclusões e o que o relatório revela",
+    excerpt: "Google dobrou o limite de search themes por asset group, liberou exclusões por campanha e expandiu o relatório de search terms. O que mudou e como usar esses controles na prática.",
     category: "Mídia Paga",
     hue: "slate",
     readTime: 8,
@@ -120,39 +136,39 @@ const ARTICLES = [
     body: [
       {
         type: "lead",
-        text: "O Google entregou dois controles que a comunidade de paid media pediu por mais de dois anos: search themes com peso maior e brand exclusions no nível de campanha para Performance Max. Testamos em 6 contas durante 3 semanas. Os resultados são mais nuançados do que o anúncio sugere.",
+        text: "O Performance Max passou por uma rodada significativa de atualizações de controle. O limite de search themes por asset group dobrou de 25 para 50. Exclusões de marca agora funcionam no nível da campanha. O relatório de search terms ganhou uma coluna que indica se a query veio de keywordless targeting ou de um search theme que você definiu. São mudanças que a comunidade de paid media pedia há anos.",
       },
       {
         type: "h2",
-        text: "Search themes: o que realmente mudou",
+        text: "Search themes: o que o dobro do limite muda",
       },
       {
         type: "p",
-        text: "Na versão anterior, os search themes eram pouco mais do que sinais fracos — o Google usava quando queria. Com a atualização de abril, eles passaram a funcionar como modificadores de intenção: você indica os temas prioritários e o algoritmo dá peso significativamente maior a queries relacionadas.",
+        text: "Search themes não são palavras-chave — são sinais de intenção que você passa para o algoritmo. Com 50 por asset group, você consegue cobrir variações semânticas de forma muito mais granular sem precisar criar múltiplos asset groups artificiais. Para contas B2B com produtos complexos ou múltiplas personas, isso é relevante.",
       },
       {
         type: "p",
-        text: "Em 3 contas de B2B SaaS onde o PMax estava capturando muita query de awareness (topo de funil), adicionar search themes voltados para termos de fundo de funil ('software de gestão financeira para PME', 'preço plataforma RH') reduziu o CPA médio em 22% em 21 dias.",
+        text: "O novo relatório também mostra o impacto incremental de cada search theme: quanta tráfego adicional aquele tema gerou em relação ao keywordless puro. Isso permite identificar quais temas estão efetivamente influenciando o algoritmo e quais são redundantes com o que ele encontraria sozinho.",
       },
       {
         type: "highlight",
-        label: "Dado real",
-        text: "Conta de SaaS B2B: R$45k/mês em PMax. Antes dos search themes: CPA R$380, mix de 70% awareness / 30% conversão. Após 3 semanas com themes de fundo de funil: CPA R$296, mix 45% awareness / 55% conversão. Volume caiu 15%, mas qualidade de lead subiu.",
+        label: "Contexto de mercado",
+        text: "Segundo o Search Engine Journal, o Google também expandiu os limites de negative keywords e adicionou exclusões por faixa etária e dispositivo — ainda em rollout. Brand exclusions por campanha, uma das demandas mais antigas dos gestores, agora está disponível globalmente e resolve o problema de canibalização com campanhas de Search de marca.",
       },
       {
         type: "h2",
-        text: "Brand exclusions: finalmente funcionando",
+        text: "Como usar brand exclusions de forma correta",
       },
       {
         type: "p",
-        text: "Antes, a única forma de excluir brand no PMax era via brand exclusion list no nível da conta — e não funcionava de forma confiável. A exclusão por campanha resolveu o problema de canibalização que muitas contas enfrentavam: o PMax capturando queries de marca que deveriam ir para a campanha de Search de marca (com ROAS histórico muito mais alto).",
+        text: "O problema clássico: o PMax captura queries de marca (usuários buscando o nome da sua empresa) que deveriam ir para a campanha de Search de marca — onde o CPC é menor, o ROAS histórico é mais alto e o controle de mensagem é maior. Com a exclusão por campanha, você consegue separar esses dois fluxos sem depender da exclusion list da conta, que historicamente tinha problemas de confiabilidade.",
       },
       {
         type: "ol",
         items: [
-          { bold: "Ative imediatamente se você tem campanha de Search de marca.", text: " A canibalização provavelmente está acontecendo e você não está vendo porque o PMax agrega tudo." },
-          { bold: "Monitore o volume da campanha de Search de marca por 2 semanas.", text: " Ela vai crescer. Se o CPA dessa campanha for menor que o PMax, você estava perdendo eficiência." },
-          { bold: "Não exclua brand em contas sem histórico de marca.", text: " Para empresas novas, deixar o PMax capturar branded pode ajudar no aprendizado." },
+          { bold: "Ative brand exclusion no PMax se você já tem campanha de Search de marca.", text: " Monitore o volume da campanha de Search de marca por 14 dias após a ativação — ela deve crescer." },
+          { bold: "Use os 50 search themes para cobrir intenção de fundo de funil.", text: " Termos que combinam problema + solução + categoria tendem a gerar queries mais próximas da conversão." },
+          { bold: "Monitore o relatório de search terms por tema.", text: " Se um tema não está gerando tráfego incremental, ele é redundante. Substitua por variações que o algoritmo ainda não está alcançando." },
         ],
       },
       {
@@ -161,14 +177,14 @@ const ARTICLES = [
       },
       {
         type: "p",
-        text: "Controle de asset group por produto ainda é rudimentar. Para e-commerces com catálogos grandes, o PMax continua direcionando budget desproporcional para os produtos com maior margem histórica — mesmo quando você quer testar novos itens. Esse ainda é o maior ponto cego da campanha.",
+        text: "Controle de orçamento por asset group ainda não existe. Para e-commerces com catálogos grandes, o PMax continua alocando budget de forma opaca entre produtos e canais. O relatório de network segmentation (quanto foi para Search, Display, YouTube, Shopping) está em rollout mas ainda não chegou a todas as contas. Esses são os próximos pontos de pressão da comunidade.",
       },
     ],
   },
   {
     id: 4,
-    title: "Apps Script + Google Ads API: automatizamos 5h semanais de relatórios",
-    excerpt: "O script que roda toda segunda e entrega um resumo de performance no Sheets — com alertas de CPL e ROAS fora da faixa.",
+    title: "Google Ads Scripts + IA: como automatizar o relatório de segunda-feira",
+    excerpt: "Google Ads Scripts conectam diretamente com a API do Google Ads via GAQL. Com IA no loop, o script não só puxa os dados — ele analisa, prioriza e formata o que precisa de atenção.",
     category: "IA para Marketing",
     hue: "teal",
     readTime: 7,
@@ -176,48 +192,48 @@ const ARTICLES = [
     body: [
       {
         type: "lead",
-        text: "Durante meses, toda segunda-feira começava da mesma forma: abrir o Google Ads, exportar dados de 8 contas, colar no Sheets, formatar, calcular variações, identificar alertas e montar o resumo para o cliente. 5 horas. Toda semana. Montamos um script que faz isso em 4 minutos.",
+        text: "Google Ads Scripts são snippets de JavaScript que rodam dentro da plataforma e acessam a Google Ads API via GAQL (Google Ads Query Language) sem precisar de setup de developer credential. Você escreve uma vez, agenda para rodar toda segunda, e o script puxa, processa e exporta os dados direto para um Sheets. Com uma chamada à IA no final, o output vira análise — não só dado.",
       },
       {
         type: "h2",
-        text: "A estrutura do sistema",
+        text: "Como Scripts e GAQL funcionam juntos",
       },
       {
         type: "p",
-        text: "O sistema tem 3 partes: (1) um Apps Script que chama a Google Ads API e puxa métricas das últimas 2 semanas para cada conta, (2) uma aba de configuração no Sheets onde você define os limites de alerta por conta (CPL máximo, ROAS mínimo, budget diário), (3) uma função de geração de resumo que formata os dados e destaca o que está fora da faixa em vermelho.",
+        text: "O AdsApp.report() aceita queries GAQL e retorna os dados em formato de dicionário, ideal para exportar para planilhas. O AdsApp.search() retorna objetos GoogleAdsRow, mais úteis para processar programaticamente. Para relatórios de performance, o report() é mais simples: você define as métricas, o período e os filtros em GAQL, e o script gera a tabela.",
       },
       {
         type: "highlight",
         label: "Workflow de IA",
-        text: "Depois que o script roda, passamos o resumo para o Claude com o prompt: 'Aqui está o relatório de performance desta semana [dados]. Liste as 3 contas que precisam de atenção prioritária, explique por que e sugira a primeira ação para cada uma. Máximo 5 linhas por conta.' O resultado vai direto para o canal do cliente no Slack.",
+        text: "A integração mais eficiente: o Script puxa os dados e os grava em um Sheets. Um segundo script (Apps Script) lê o Sheets e chama a API do Claude ou ChatGPT com o prompt de análise. O modelo recebe os dados estruturados e devolve um resumo com prioridades de ação. Esse resumo pode ser enviado por email, Slack ou salvo em outra aba do Sheets automaticamente.",
       },
       {
         type: "h2",
-        text: "O que o script monitora",
+        text: "O que você consegue monitorar automaticamente",
       },
       {
         type: "ol",
         items: [
-          { bold: "CPL vs. meta.", text: " Se o CPL da semana estiver mais de 20% acima da meta definida, gera alerta vermelho." },
-          { bold: "ROAS vs. mínimo viável.", text: " Para contas de e-commerce, qualquer queda abaixo do ROAS de break-even gera notificação imediata." },
-          { bold: "Impressions share de marca.", text: " Quedas acima de 10% em uma semana geralmente indicam concorrente investindo pesado ou problema de leilão." },
-          { bold: "Variação de gasto diário.", text: " Detecta underspending (budget não sendo utilizado) e overspending (aceleração inesperada do algoritmo)." },
+          { bold: "Variações de CPA e ROAS por campanha semana a semana.", text: " O script compara o período atual com o anterior e flagga qualquer variação acima do threshold que você definir." },
+          { bold: "Search term report com gasto sem conversão.", text: " GAQL filtra termos acima de X de gasto e zero conversão no período. Output pronto para negativação." },
+          { bold: "Impression share por campanha.", text: " Quedas abruptas de IS de marca geralmente indicam concorrente aumentando bid ou problema de budget — o script detecta antes de você abrir a plataforma." },
+          { bold: "Underspend e overspend de budget diário.", text: " Campanhas que não estão gastando o budget definido e campanhas que aceleraram além do planejado." },
         ],
       },
       {
         type: "h2",
-        text: "O que você precisa para replicar",
+        text: "Requisitos para começar",
       },
       {
         type: "p",
-        text: "Acesso de desenvolvedor à Google Ads API (gratuito, demora 2 dias para aprovar), conhecimento básico de JavaScript para adaptar o script às suas contas, e um Sheets configurado com as abas de dados e configuração. O tempo de setup é de 4 a 6 horas na primeira vez — e nunca mais.",
+        text: "Acesso de administrador à conta do Google Ads. Scripts básicos em JavaScript — a documentação do Google para desenvolvedores tem templates prontos de relatório. Um Sheets para receber os dados. Para a camada de IA, uma API key do modelo de sua escolha e uma segunda função em Apps Script que lê o Sheets e chama a API. O setup inicial leva entre 3 e 6 horas dependendo da complexidade dos relatórios que você quer gerar.",
       },
     ],
   },
   {
     id: 5,
-    title: "Atribuição em 2026: o que ainda funciona depois do fim dos cookies",
-    excerpt: "MMM leve, first-party data e o blend de modelos que estamos usando nas contas com R$200k+/mês.",
+    title: "Meridian aberto para todos: o que o MMM do Google entrega na prática",
+    excerpt: "O Google abriu o Meridian — seu modelo open-source de Marketing Mix Modeling — para todos os anunciantes. O que ele faz, onde é melhor que alternativas e o que ainda exige trabalho técnico.",
     category: "Funil e Analytics",
     hue: "deep",
     readTime: 9,
@@ -225,47 +241,55 @@ const ARTICLES = [
     body: [
       {
         type: "lead",
-        text: "O last-click morreu há anos. O data-driven do Google é melhor, mas ainda é uma caixa-preta. Em contas com R$200k+/mês, nenhum modelo único de atribuição dá a resposta completa. O que funciona na prática é um blend de 3 abordagens — e saber quando usar cada uma.",
+        text: "O Meridian, modelo open-source de Marketing Mix Modeling do Google, está disponível para todos os anunciantes e data scientists desde 2025. Em 2026, o Google foi além e lançou o Scenario Planner — uma interface no-code que usa o Meridian para simular cenários de alocação de budget sem precisar de código. A barreira de entrada para MMM caiu significativamente.",
       },
       {
         type: "h2",
-        text: "Os 3 modelos que usamos juntos",
+        text: "O que o Meridian faz diferente",
       },
       {
         type: "p",
-        text: "Modelo 1 — Data-driven do Google/Meta: bom para otimização de lances dentro de cada plataforma. O problema é que cada plataforma se atribui crédito em excesso. Usamos para decisões táticas dentro do canal.",
+        text: "A maioria dos MMMs opera no nível nacional — você insere dados agregados de todo o país e recebe atribuição por canal. O Meridian usa modelagem hierárquica geo-level: consegue rodar para mais de 50 regiões geográficas simultaneamente, compartilhando informação entre elas via estrutura hierárquica bayesiana. Para marcas com operações regionais fortes, isso muda a qualidade dos insights.",
       },
       {
         type: "p",
-        text: "Modelo 2 — First-party com GA4 + BigQuery: cruzamos o histórico de sessões com os dados de CRM. Conseguimos ver a jornada real do lead — quantos touchpoints antes da conversão, quais canais aparecem mais no início vs. fim do funil. Requer trabalho de engenharia, mas é o dado mais honesto que temos.",
-      },
-      {
-        type: "p",
-        text: "Modelo 3 — MMM leve (Marketing Mix Modeling): para contas acima de R$200k/mês, rodamos um modelo estatístico simples que correlaciona variações de investimento por canal com variações de resultado agregado. Não é o MMM de grandes empresas, mas com 12 meses de dados históricos já dá sinais confiáveis.",
+        text: "A abordagem bayesiana também diferencia o Meridian de alternativas como o Robyn (Meta). Enquanto o Robyn prioriza otimização pragmática, o Meridian modela os mecanismos causais — decay, saturação, variáveis confundidoras. A pergunta que ele responde melhor: 'O que aconteceria se eu mudasse a alocação de budget?'",
       },
       {
         type: "highlight",
-        label: "Dado real",
-        text: "Em uma conta com R$280k/mês distribuídos entre Google, Meta e LinkedIn: o data-driven das plataformas atribuía 80% das conversões ao Google. O MMM leve mostrou que o LinkedIn estava gerando 35% do pipeline — mas com ciclo de 45 dias, não aparecia no last-click. Realocamos R$40k/mês para LinkedIn e o pipeline cresceu 28% em 90 dias.",
+        label: "Fonte",
+        text: "Segundo o Search Engine Land, o Google lançou o Scenario Planner como interface no-code sobre o Meridian — você simula diferentes alocações de budget e vê o impacto projetado em receita sem precisar rodar o modelo diretamente. Disponível dentro do Google Ads para anunciantes elegíveis.",
       },
       {
         type: "h2",
-        text: "O que fazer se você não tem budget para MMM",
+        text: "O que ainda exige trabalho técnico",
+      },
+      {
+        type: "p",
+        text: "O Meridian é open-source no GitHub e requer Python para configuração e rodada do modelo completo. Você precisa de no mínimo 12 a 18 meses de dados históricos de spend e resultado por canal para que o modelo produza estimativas confiáveis. Dados de canais offline (TV, OOH, eventos) precisam ser adicionados manualmente.",
       },
       {
         type: "ol",
         items: [
-          { bold: "Pesquisa pós-conversão.", text: " Pergunte ao cliente no formulário de obrigado: 'Como você nos encontrou?' É dado qualitativo, mas surpreendentemente preciso em B2B." },
-          { bold: "Testes de incrementalidade.", text: " Pause um canal por 2 semanas e meça o impacto no resultado total. Trabalhoso, mas é o dado mais limpo que existe." },
-          { bold: "Cohort analysis no GA4.", text: " Analise cohorts de usuários por canal de aquisição e compare LTV ao longo de 90 dias. Canais de topo de funil costumam se destacar aqui." },
+          { bold: "Scenario Planner (no-code).", text: " Para quem quer simulações rápidas de budget sem expertise técnica. Limitado aos dados que o Google já tem sobre sua conta." },
+          { bold: "Meridian completo (Python).", text: " Para equipes com data scientist ou analista com Python. Permite incorporar dados offline, CRM e canais fora do ecossistema Google." },
+          { bold: "Alternativas open-source.", text: " Robyn (Meta/Facebook), Orbit (Uber) e Prophet (Facebook) são outras opções com abordagens diferentes. A escolha depende do stack técnico e do tipo de questão que você quer responder." },
         ],
+      },
+      {
+        type: "h2",
+        text: "O ponto de atenção",
+      },
+      {
+        type: "p",
+        text: "MMM feito pelo Google usando dados do Google tem um viés inerente a considerar. O modelo é open-source e auditável, mas os dados de input que ele usa para calibrar podem favorecer canais Google. Para uma visão verdadeiramente independente, rodar o modelo com dados próprios — não via Scenario Planner — é o caminho mais confiável.",
       },
     ],
   },
   {
     id: 6,
-    title: "ROAS caindo? As três causas mais comuns em contas B2B e como corrigir",
-    excerpt: "Fadiga de criativo, saturação de audiência ou problema de atribuição — como diferenciar e o que fazer.",
+    title: "ROAS alto, crescimento baixo: quando a automação cria ilusão de performance",
+    excerpt: "Black-box automation como Performance Max e Advantage+ otimiza para o evento de conversão — não para crescimento incremental. Como identificar se o seu ROAS está medindo resultado real ou capturando conversões que já aconteceriam.",
     category: "Fundamentos",
     hue: "navy",
     readTime: 6,
@@ -273,56 +297,44 @@ const ARTICLES = [
     body: [
       {
         type: "lead",
-        text: "ROAS caindo é o sintoma. A causa pode ser completamente diferente dependendo da conta — e o tratamento errado piora o problema. Depois de diagnosticar quedas de ROAS em dezenas de contas B2B, mapeamos as 3 causas mais comuns e como diferenciar cada uma.",
+        text: "Tem um problema que está se tornando cada vez mais comum em contas que usam Performance Max e Advantage+ de forma extensiva: ROAS no dashboard da plataforma sobe enquanto o resultado de negócio fica flat ou cai. A automação encontrou o caminho de menor resistência — interceptar conversões que já estavam acontecendo — e está otimizando para isso.",
       },
       {
         type: "h2",
-        text: "Causa 1: fadiga de criativo",
+        text: "Como a automação cria ROAS inflado",
       },
       {
         type: "p",
-        text: "Sinal: frequency acima de 3,5 em Meta ou CTR caindo semana a semana sem mudança de bid. O criativo foi visto vezes demais pela mesma pessoa. O algoritmo continua entregando porque é o que tem, mas a performance deteriora.",
+        text: "O algoritmo do Performance Max e do Advantage+ tem um objetivo único: encontrar conversões. A forma mais eficiente de fazer isso é mostrar anúncios para pessoas que já têm alta propensão de converter — usuários que estão procurando sua marca, visitantes do site, clientes que compraram antes. O problema: essas conversões aconteceriam de qualquer forma. O anúncio não causou a conversão; ele apenas apareceu no caminho.",
       },
       {
         type: "p",
-        text: "Correção: não é pausar o criativo — é substituir. Teste 3 novos criativos com ângulos diferentes (dado + resultado, before/after, objeção direta) e pause o fadigado só quando o novo tiver pelo menos 50 conversões.",
-      },
-      {
-        type: "h2",
-        text: "Causa 2: saturação de audiência",
-      },
-      {
-        type: "p",
-        text: "Sinal: reach estagnado mesmo com budget mantido, CPM subindo, e a audiência salva mostrando tamanho decrescente no Meta. Você esgotou as pessoas dentro do seu targeting que tinham probabilidade razoável de converter.",
+        text: "O Search Engine Land documentou esse padrão: 'Black-box automation is finding the path of least resistance to a conversion by becoming the most expensive touchpoint in journeys that were already destined to convert, rather than finding new customers.' O ROAS sobe porque a atribuição de plataforma credita a conversão ao anúncio. O incremento real é zero.",
       },
       {
         type: "highlight",
-        label: "Como diagnosticar",
-        text: "No Meta: compare o reach das últimas 4 semanas. Se o reach está flat ou caindo com budget constante, é saturação. No Google: olhe search impression share — se está acima de 80% em palavras-chave principais, você está capturando quase tudo que existe. É hora de expandir.",
+        label: "Como identificar",
+        text: "Compare o crescimento de receita ou pipeline nos últimos 90 dias com o crescimento de gasto em mídia. Se o ROAS da plataforma subiu mas a receita não acompanhou, você provavelmente tem conversões não-incrementais sendo atribuídas. O teste mais limpo: pause o canal por 2 semanas e meça o impacto no resultado agregado.",
       },
       {
         type: "h2",
-        text: "Causa 3: problema de atribuição",
-      },
-      {
-        type: "p",
-        text: "Sinal: ROAS caindo nas plataformas, mas resultado de negócio (pipeline, receita) estável ou crescendo. O problema não é a campanha — é que você está perdendo visibilidade das conversões. Causas comuns: mudança de janela de atribuição, perda de pixel events por atualização de iOS/Android, ou quebra no GTM.",
+        text: "3 formas de medir ROAS incremental",
       },
       {
         type: "ol",
         items: [
-          { bold: "Verifique o GTM primeiro.", text: " Abra o Tag Assistant e confirme que os eventos de conversão estão disparando. 30% das quedas de ROAS que vemos são quebra de tracking silenciosa." },
-          { bold: "Compare com dados do CRM.", text: " Se o pipeline do CRM está crescendo mas o ROAS da plataforma está caindo, é quase certamente atribuição." },
-          { bold: "Ative Conversions API (CAPI) se ainda não tiver.", text: " No Meta, o CAPI resolve a maior parte da perda de sinal do iOS. Implementação leva 2 dias." },
+          { bold: "Teste de holdout.", text: " Pause a campanha para um grupo de usuários (geo ou audiência) enquanto mantém para outro. Compara o resultado entre os dois grupos. É o método mais preciso, mas requer volume suficiente." },
+          { bold: "Marginal ROAS (mROAS).", text: " Meça o que acontece com o resultado quando você aumenta o budget em margem. Se aumentar 20% de budget gera menos de 20% de resultado adicional, você está capturando retornos decrescentes — ou conversões não-incrementais." },
+          { bold: "Meridian ou outro MMM.", text: " Modelos de mix de marketing separam o efeito dos anúncios de outros fatores (sazonalidade, busca orgânica, boca a boca). O coeficiente do canal te diz quanto do resultado é atribuível de fato à mídia paga." },
         ],
       },
       {
         type: "h2",
-        text: "O diagnóstico antes do remédio",
+        text: "O que fazer quando você confirma o problema",
       },
       {
         type: "p",
-        text: "A maioria dos gestores pula direto para 'vamos mudar o criativo' quando o ROAS cai. Mas se a causa for atribuição, novos criativos não resolvem nada. Reserve 30 minutos para o diagnóstico antes de qualquer mudança — evita muito trabalho desnecessário.",
+        text: "Reconfigurar o evento de otimização é o primeiro passo. Se você está otimizando para visita ao site ou lead genérico, o algoritmo vai encontrar conversões baratas e não-incrementais. Mova a otimização para eventos mais próximos da receita real — lead qualificado, oportunidade criada no CRM, compra confirmada. O volume de conversões vai cair no dashboard; o resultado de negócio deve subir.",
       },
     ],
   },
