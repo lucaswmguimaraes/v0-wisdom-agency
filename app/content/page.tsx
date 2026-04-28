@@ -9,12 +9,323 @@ import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 
 const ARTICLES = [
-  { id: 1, title: "Meta Advantage+ em 2026: o que mudou e o que estamos ajustando nas contas", excerpt: "O novo painel de controle de audience chegou. Três ajustes que fizemos esta semana — e os resultados que estamos vendo no CPL.", category: "Mídia Paga", hue: "blue", readTime: 6, date: "22 Abr" },
-  { id: 2, title: "Como usamos Claude para automatizar a operação de campanhas", excerpt: "Relatórios de performance, alertas de anomalia e briefings de criativo — o que delegamos para IA e o que ainda fazemos na mão.", category: "IA para Marketing", hue: "ink", readTime: 5, date: "21 Abr" },
-  { id: 3, title: "Performance Max em abril: novos controles e o que os dados estão dizendo", excerpt: "Google liberou novos search themes e brand exclusions. Testamos nas contas e os resultados surpreenderam.", category: "Mídia Paga", hue: "slate", readTime: 8, date: "20 Abr" },
-  { id: 4, title: "Apps Script + Google Ads API: automatizamos 5h semanais de relatórios", excerpt: "O script que roda toda segunda e entrega um resumo de performance no Sheets — com alertas de CPL e ROAS fora da faixa.", category: "IA para Marketing", hue: "teal", readTime: 7, date: "19 Abr" },
-  { id: 5, title: "Atribuição em 2026: o que ainda funciona depois do fim dos cookies", excerpt: "MMM leve, first-party data e o blend de modelos que estamos usando nas contas com R$200k+/mês.", category: "Funil e Analytics", hue: "deep", readTime: 9, date: "18 Abr" },
-  { id: 6, title: "ROAS caindo? As três causas mais comuns em contas B2B e como corrigir", excerpt: "Fadiga de criativo, saturação de audiência ou problema de atribuição — como diferenciar e o que fazer.", category: "Fundamentos", hue: "navy", readTime: 6, date: "17 Abr" },
+  {
+    id: 1,
+    title: "Meta Advantage+ em 2026: o que mudou e o que estamos ajustando nas contas",
+    excerpt: "O novo painel de controle de audience chegou. Três ajustes que fizemos esta semana — e os resultados que estamos vendo no CPL.",
+    category: "Mídia Paga",
+    hue: "blue",
+    readTime: 6,
+    date: "22 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "O Meta lançou o painel de controle de audience do Advantage+ no início de abril. Na prática, você agora consegue ver — e limitar — o quanto o algoritmo está expandindo sua audiência além do targeting original. Testamos em 4 contas esta semana. Aqui está o que encontramos.",
+      },
+      {
+        type: "h2",
+        text: "O que mudou de fato",
+      },
+      {
+        type: "p",
+        text: "Antes do painel, Advantage+ era uma caixa-preta: você definia uma audiência de sugestão e o Meta fazia o que queria. Agora você vê um breakdown de quanto do investimento foi para a sua audiência definida vs. expansões do algoritmo. Em 2 das 4 contas que gerenciamos, mais de 60% do gasto estava indo para expansão — sem que soubéssemos.",
+      },
+      {
+        type: "highlight",
+        label: "Dado real",
+        text: "Em uma conta de e-commerce DTC com R$80k/mês de investimento, a expansão automática estava consumindo 68% do budget. CPL dessa parcela: 3,4x maior que a audiência original. Pausamos a expansão e o CPL caiu 31% em 7 dias.",
+      },
+      {
+        type: "h2",
+        text: "3 ajustes que fizemos imediatamente",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Mapear o breakdown por conta.", text: " Primeiro passo: abrir o painel e ver qual % do gasto vai para expansão. Se passar de 40%, você tem um problema de controle de audiência." },
+          { bold: "Limitar a expansão em campanhas de conversão.", text: " Para contas com CPL apertado e audiências bem mapeadas, restringimos a expansão ao mínimo possível. Para contas de awareness, deixamos mais aberto." },
+          { bold: "Criar conjuntos separados para testar a expansão.", text: " Em vez de misturar, isolamos a expansão em um ad set próprio com budget controlado. Assim conseguimos medir o custo real sem contaminar a campanha principal." },
+        ],
+      },
+      {
+        type: "h2",
+        text: "O que ainda não temos resposta",
+      },
+      {
+        type: "p",
+        text: "A grande questão é: para contas com volume baixo de dados de conversão, a expansão pode ser positiva — o algoritmo precisa de espaço para aprender. Ainda estamos coletando dados em 2 contas menores para entender se o trade-off vale. Próxima atualização em duas semanas.",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Como usamos Claude para automatizar a operação de campanhas",
+    excerpt: "Relatórios de performance, alertas de anomalia e briefings de criativo — o que delegamos para IA e o que ainda fazemos na mão.",
+    category: "IA para Marketing",
+    hue: "ink",
+    readTime: 5,
+    date: "21 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "Depois de 6 meses usando Claude na operação de mídia paga, conseguimos mapear o que a IA faz melhor que nós, o que ela faz pior e onde a combinação humano + IA gera o maior ganho. Este é o mapa atual.",
+      },
+      {
+        type: "h2",
+        text: "O que delegamos completamente",
+      },
+      {
+        type: "p",
+        text: "Relatórios de performance semanal: o Claude recebe os dados do Google Sheets via Apps Script, identifica variações acima de 15% em qualquer KPI e gera um resumo em linguagem natural com prioridades de ação. Economizamos 3h por semana só nisso.",
+      },
+      {
+        type: "p",
+        text: "Briefings de criativo: quando um conjunto de anúncios começa a perder performance, o Claude analisa os dados históricos e gera um briefing estruturado para o time de criativo — com hipótese de por que o criativo atual está fadigando, referências de formato e 3 ângulos alternativos para testar.",
+      },
+      {
+        type: "highlight",
+        label: "Workflow de IA",
+        text: "Prompt base que usamos: 'Você é um analista de mídia paga sênior. Aqui estão os dados de performance da última semana [dados]. Identifique as 3 anomalias mais relevantes, explique a causa provável de cada uma e sugira uma ação específica. Seja direto. Sem introdução.'",
+      },
+      {
+        type: "h2",
+        text: "O que ainda fazemos na mão",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Decisões de budget acima de R$5k.", text: " A IA sugere, mas qualquer realocação significativa passa por revisão humana. Erro de contexto aqui tem custo alto." },
+          { bold: "Leitura qualitativa de criativos.", text: " O algoritmo não sabe que aquele criativo com copy forte está usando um meme que envelheceu mal em 3 semanas. Isso requer contexto cultural." },
+          { bold: "Negociação de posicionamento e formatos.", text: " Relacionamento com rep do Meta e Google ainda é humano — e vale muito em créditos de teste e acesso antecipado a features." },
+        ],
+      },
+      {
+        type: "h2",
+        text: "O ganho real em 6 meses",
+      },
+      {
+        type: "p",
+        text: "Não cortamos headcount. Mas conseguimos gerenciar 40% mais contas com o mesmo time — porque as tarefas repetitivas de análise e formatação saíram do nosso radar. O foco humano foi para onde importa: estratégia, criativo e relacionamento com cliente.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Performance Max em abril: novos controles e o que os dados estão dizendo",
+    excerpt: "Google liberou novos search themes e brand exclusions. Testamos nas contas e os resultados surpreenderam.",
+    category: "Mídia Paga",
+    hue: "slate",
+    readTime: 8,
+    date: "20 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "O Google entregou dois controles que a comunidade de paid media pediu por mais de dois anos: search themes com peso maior e brand exclusions no nível de campanha para Performance Max. Testamos em 6 contas durante 3 semanas. Os resultados são mais nuançados do que o anúncio sugere.",
+      },
+      {
+        type: "h2",
+        text: "Search themes: o que realmente mudou",
+      },
+      {
+        type: "p",
+        text: "Na versão anterior, os search themes eram pouco mais do que sinais fracos — o Google usava quando queria. Com a atualização de abril, eles passaram a funcionar como modificadores de intenção: você indica os temas prioritários e o algoritmo dá peso significativamente maior a queries relacionadas.",
+      },
+      {
+        type: "p",
+        text: "Em 3 contas de B2B SaaS onde o PMax estava capturando muita query de awareness (topo de funil), adicionar search themes voltados para termos de fundo de funil ('software de gestão financeira para PME', 'preço plataforma RH') reduziu o CPA médio em 22% em 21 dias.",
+      },
+      {
+        type: "highlight",
+        label: "Dado real",
+        text: "Conta de SaaS B2B: R$45k/mês em PMax. Antes dos search themes: CPA R$380, mix de 70% awareness / 30% conversão. Após 3 semanas com themes de fundo de funil: CPA R$296, mix 45% awareness / 55% conversão. Volume caiu 15%, mas qualidade de lead subiu.",
+      },
+      {
+        type: "h2",
+        text: "Brand exclusions: finalmente funcionando",
+      },
+      {
+        type: "p",
+        text: "Antes, a única forma de excluir brand no PMax era via brand exclusion list no nível da conta — e não funcionava de forma confiável. A exclusão por campanha resolveu o problema de canibalização que muitas contas enfrentavam: o PMax capturando queries de marca que deveriam ir para a campanha de Search de marca (com ROAS histórico muito mais alto).",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Ative imediatamente se você tem campanha de Search de marca.", text: " A canibalização provavelmente está acontecendo e você não está vendo porque o PMax agrega tudo." },
+          { bold: "Monitore o volume da campanha de Search de marca por 2 semanas.", text: " Ela vai crescer. Se o CPA dessa campanha for menor que o PMax, você estava perdendo eficiência." },
+          { bold: "Não exclua brand em contas sem histórico de marca.", text: " Para empresas novas, deixar o PMax capturar branded pode ajudar no aprendizado." },
+        ],
+      },
+      {
+        type: "h2",
+        text: "O que ainda falta",
+      },
+      {
+        type: "p",
+        text: "Controle de asset group por produto ainda é rudimentar. Para e-commerces com catálogos grandes, o PMax continua direcionando budget desproporcional para os produtos com maior margem histórica — mesmo quando você quer testar novos itens. Esse ainda é o maior ponto cego da campanha.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Apps Script + Google Ads API: automatizamos 5h semanais de relatórios",
+    excerpt: "O script que roda toda segunda e entrega um resumo de performance no Sheets — com alertas de CPL e ROAS fora da faixa.",
+    category: "IA para Marketing",
+    hue: "teal",
+    readTime: 7,
+    date: "19 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "Durante meses, toda segunda-feira começava da mesma forma: abrir o Google Ads, exportar dados de 8 contas, colar no Sheets, formatar, calcular variações, identificar alertas e montar o resumo para o cliente. 5 horas. Toda semana. Montamos um script que faz isso em 4 minutos.",
+      },
+      {
+        type: "h2",
+        text: "A estrutura do sistema",
+      },
+      {
+        type: "p",
+        text: "O sistema tem 3 partes: (1) um Apps Script que chama a Google Ads API e puxa métricas das últimas 2 semanas para cada conta, (2) uma aba de configuração no Sheets onde você define os limites de alerta por conta (CPL máximo, ROAS mínimo, budget diário), (3) uma função de geração de resumo que formata os dados e destaca o que está fora da faixa em vermelho.",
+      },
+      {
+        type: "highlight",
+        label: "Workflow de IA",
+        text: "Depois que o script roda, passamos o resumo para o Claude com o prompt: 'Aqui está o relatório de performance desta semana [dados]. Liste as 3 contas que precisam de atenção prioritária, explique por que e sugira a primeira ação para cada uma. Máximo 5 linhas por conta.' O resultado vai direto para o canal do cliente no Slack.",
+      },
+      {
+        type: "h2",
+        text: "O que o script monitora",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "CPL vs. meta.", text: " Se o CPL da semana estiver mais de 20% acima da meta definida, gera alerta vermelho." },
+          { bold: "ROAS vs. mínimo viável.", text: " Para contas de e-commerce, qualquer queda abaixo do ROAS de break-even gera notificação imediata." },
+          { bold: "Impressions share de marca.", text: " Quedas acima de 10% em uma semana geralmente indicam concorrente investindo pesado ou problema de leilão." },
+          { bold: "Variação de gasto diário.", text: " Detecta underspending (budget não sendo utilizado) e overspending (aceleração inesperada do algoritmo)." },
+        ],
+      },
+      {
+        type: "h2",
+        text: "O que você precisa para replicar",
+      },
+      {
+        type: "p",
+        text: "Acesso de desenvolvedor à Google Ads API (gratuito, demora 2 dias para aprovar), conhecimento básico de JavaScript para adaptar o script às suas contas, e um Sheets configurado com as abas de dados e configuração. O tempo de setup é de 4 a 6 horas na primeira vez — e nunca mais.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Atribuição em 2026: o que ainda funciona depois do fim dos cookies",
+    excerpt: "MMM leve, first-party data e o blend de modelos que estamos usando nas contas com R$200k+/mês.",
+    category: "Funil e Analytics",
+    hue: "deep",
+    readTime: 9,
+    date: "18 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "O last-click morreu há anos. O data-driven do Google é melhor, mas ainda é uma caixa-preta. Em contas com R$200k+/mês, nenhum modelo único de atribuição dá a resposta completa. O que funciona na prática é um blend de 3 abordagens — e saber quando usar cada uma.",
+      },
+      {
+        type: "h2",
+        text: "Os 3 modelos que usamos juntos",
+      },
+      {
+        type: "p",
+        text: "Modelo 1 — Data-driven do Google/Meta: bom para otimização de lances dentro de cada plataforma. O problema é que cada plataforma se atribui crédito em excesso. Usamos para decisões táticas dentro do canal.",
+      },
+      {
+        type: "p",
+        text: "Modelo 2 — First-party com GA4 + BigQuery: cruzamos o histórico de sessões com os dados de CRM. Conseguimos ver a jornada real do lead — quantos touchpoints antes da conversão, quais canais aparecem mais no início vs. fim do funil. Requer trabalho de engenharia, mas é o dado mais honesto que temos.",
+      },
+      {
+        type: "p",
+        text: "Modelo 3 — MMM leve (Marketing Mix Modeling): para contas acima de R$200k/mês, rodamos um modelo estatístico simples que correlaciona variações de investimento por canal com variações de resultado agregado. Não é o MMM de grandes empresas, mas com 12 meses de dados históricos já dá sinais confiáveis.",
+      },
+      {
+        type: "highlight",
+        label: "Dado real",
+        text: "Em uma conta com R$280k/mês distribuídos entre Google, Meta e LinkedIn: o data-driven das plataformas atribuía 80% das conversões ao Google. O MMM leve mostrou que o LinkedIn estava gerando 35% do pipeline — mas com ciclo de 45 dias, não aparecia no last-click. Realocamos R$40k/mês para LinkedIn e o pipeline cresceu 28% em 90 dias.",
+      },
+      {
+        type: "h2",
+        text: "O que fazer se você não tem budget para MMM",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Pesquisa pós-conversão.", text: " Pergunte ao cliente no formulário de obrigado: 'Como você nos encontrou?' É dado qualitativo, mas surpreendentemente preciso em B2B." },
+          { bold: "Testes de incrementalidade.", text: " Pause um canal por 2 semanas e meça o impacto no resultado total. Trabalhoso, mas é o dado mais limpo que existe." },
+          { bold: "Cohort analysis no GA4.", text: " Analise cohorts de usuários por canal de aquisição e compare LTV ao longo de 90 dias. Canais de topo de funil costumam se destacar aqui." },
+        ],
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "ROAS caindo? As três causas mais comuns em contas B2B e como corrigir",
+    excerpt: "Fadiga de criativo, saturação de audiência ou problema de atribuição — como diferenciar e o que fazer.",
+    category: "Fundamentos",
+    hue: "navy",
+    readTime: 6,
+    date: "17 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "ROAS caindo é o sintoma. A causa pode ser completamente diferente dependendo da conta — e o tratamento errado piora o problema. Depois de diagnosticar quedas de ROAS em dezenas de contas B2B, mapeamos as 3 causas mais comuns e como diferenciar cada uma.",
+      },
+      {
+        type: "h2",
+        text: "Causa 1: fadiga de criativo",
+      },
+      {
+        type: "p",
+        text: "Sinal: frequency acima de 3,5 em Meta ou CTR caindo semana a semana sem mudança de bid. O criativo foi visto vezes demais pela mesma pessoa. O algoritmo continua entregando porque é o que tem, mas a performance deteriora.",
+      },
+      {
+        type: "p",
+        text: "Correção: não é pausar o criativo — é substituir. Teste 3 novos criativos com ângulos diferentes (dado + resultado, before/after, objeção direta) e pause o fadigado só quando o novo tiver pelo menos 50 conversões.",
+      },
+      {
+        type: "h2",
+        text: "Causa 2: saturação de audiência",
+      },
+      {
+        type: "p",
+        text: "Sinal: reach estagnado mesmo com budget mantido, CPM subindo, e a audiência salva mostrando tamanho decrescente no Meta. Você esgotou as pessoas dentro do seu targeting que tinham probabilidade razoável de converter.",
+      },
+      {
+        type: "highlight",
+        label: "Como diagnosticar",
+        text: "No Meta: compare o reach das últimas 4 semanas. Se o reach está flat ou caindo com budget constante, é saturação. No Google: olhe search impression share — se está acima de 80% em palavras-chave principais, você está capturando quase tudo que existe. É hora de expandir.",
+      },
+      {
+        type: "h2",
+        text: "Causa 3: problema de atribuição",
+      },
+      {
+        type: "p",
+        text: "Sinal: ROAS caindo nas plataformas, mas resultado de negócio (pipeline, receita) estável ou crescendo. O problema não é a campanha — é que você está perdendo visibilidade das conversões. Causas comuns: mudança de janela de atribuição, perda de pixel events por atualização de iOS/Android, ou quebra no GTM.",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Verifique o GTM primeiro.", text: " Abra o Tag Assistant e confirme que os eventos de conversão estão disparando. 30% das quedas de ROAS que vemos são quebra de tracking silenciosa." },
+          { bold: "Compare com dados do CRM.", text: " Se o pipeline do CRM está crescendo mas o ROAS da plataforma está caindo, é quase certamente atribuição." },
+          { bold: "Ative Conversions API (CAPI) se ainda não tiver.", text: " No Meta, o CAPI resolve a maior parte da perda de sinal do iOS. Implementação leva 2 dias." },
+        ],
+      },
+      {
+        type: "h2",
+        text: "O diagnóstico antes do remédio",
+      },
+      {
+        type: "p",
+        text: "A maioria dos gestores pula direto para 'vamos mudar o criativo' quando o ROAS cai. Mas se a causa for atribuição, novos criativos não resolvem nada. Reserve 30 minutos para o diagnóstico antes de qualquer mudança — evita muito trabalho desnecessário.",
+      },
+    ],
+  },
 ]
 
 const TOPICS = [
@@ -50,6 +361,50 @@ function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClic
   )
 }
 
+function ArticleBody({ body }: { body: typeof ARTICLES[0]["body"] }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+      {body.map((block, i) => {
+        if (block.type === "lead") {
+          return (
+            <p key={i} style={{ fontSize: 19, lineHeight: 1.6, color: "var(--fg-2)", marginBottom: 28 }}>{block.text}</p>
+          )
+        }
+        if (block.type === "h2") {
+          return (
+            <h2 key={i} style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "32px 0 12px" }}>{block.text}</h2>
+          )
+        }
+        if (block.type === "p") {
+          return (
+            <p key={i} style={{ fontSize: 16, lineHeight: 1.7, color: "var(--fg-2)", marginBottom: 16 }}>{block.text}</p>
+          )
+        }
+        if (block.type === "highlight") {
+          return (
+            <div key={i} style={{ display: "flex", gap: 12, padding: 18, background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 10, margin: "8px 0 20px", fontSize: 14, lineHeight: 1.55, color: "var(--fg-2)" }}>
+              <Sparkles style={{ width: 18, height: 18, color: "var(--wa-blue-300)", marginTop: 2, flexShrink: 0 }} />
+              <div><strong style={{ color: "var(--fg-1)" }}>{block.label}.</strong> {block.text}</div>
+            </div>
+          )
+        }
+        if (block.type === "ol") {
+          return (
+            <ol key={i} style={{ paddingLeft: 20, color: "var(--fg-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
+              {block.items!.map((item, j) => (
+                <li key={j} style={{ marginBottom: 10 }}>
+                  <strong style={{ color: "var(--fg-1)" }}>{item.bold}</strong>{item.text}
+                </li>
+              ))}
+            </ol>
+          )
+        }
+        return null
+      })}
+    </div>
+  )
+}
+
 function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBack: () => void }) {
   return (
     <article style={{ maxWidth: 720, margin: "0 auto", padding: "48px 32px" }}>
@@ -64,25 +419,12 @@ function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBac
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
         <div style={{ width: 40, height: 40, borderRadius: "50%", background: "linear-gradient(135deg,#1D4ED8,#3B82F6)", border: "1px solid var(--wa-border-strong)", flexShrink: 0 }} />
         <div>
-          <strong style={{ display: "block", fontSize: 14, color: "var(--fg-1)" }}>Wisdom Agency</strong>
+          <strong style={{ display: "block", fontSize: 14, color: "var(--fg-1)" }}>Lucas Guimarães</strong>
           <span style={{ fontSize: 12, color: "var(--fg-3)" }}>{article.date} · {article.readTime} min de leitura</span>
         </div>
       </div>
       <div className={cn("h-[260px] rounded-xl mb-8 border border-[var(--wa-border)]", `cover-${article.hue}`)} />
-      <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--fg-2)", marginBottom: 24 }}>{article.excerpt}</p>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "28px 0 12px" }}>O framework das três alavancas</h2>
-      <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--fg-2)", marginBottom: 16 }}>Toda conta de mídia paga tem as mesmas três alavancas. Quando o desempenho estagna, você quase sempre está super-indexando em uma e ignorando as outras duas.</p>
-      <ol style={{ paddingLeft: 20, color: "var(--fg-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
-        <li style={{ marginBottom: 8 }}><strong style={{ color: "var(--fg-1)" }}>Estrutura.</strong> Como campanhas e anúncios são organizados. A alavanca menos sexy e geralmente o maior ganho.</li>
-        <li style={{ marginBottom: 8 }}><strong style={{ color: "var(--fg-1)" }}>Criativo.</strong> Os anúncios reais — visual, copy, gancho. A IA ajuda mais aqui, não nos ajustes de lance.</li>
-        <li style={{ marginBottom: 8 }}><strong style={{ color: "var(--fg-1)" }}>Sinal.</strong> Quais dados você alimenta no algoritmo. Qualidade de conversão supera quantidade.</li>
-      </ol>
-      <div style={{ display: "flex", gap: 12, padding: 18, background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 10, margin: "24px 0", fontSize: 14, lineHeight: 1.55, color: "var(--fg-2)" }}>
-        <Sparkles style={{ width: 18, height: 18, color: "var(--wa-blue-300)", marginTop: 2, flexShrink: 0 }} />
-        <div><strong style={{ color: "var(--fg-1)" }}>Workflow de IA.</strong> Use o Claude para gerar variantes de criativos e classifique-as com um prompt ajustado à voz da sua marca.</div>
-      </div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "28px 0 12px" }}>Onde iniciantes travam</h2>
-      <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--fg-2)" }}>A maioria dos profissionais gasta 80% do tempo ajustando lances e 20% em criativo. Inverta isso. O algoritmo é melhor do que você; seu criativo não é.</p>
+      <ArticleBody body={article.body} />
     </article>
   )
 }
@@ -126,7 +468,7 @@ export default function ContentPage() {
               <span className="wa-grad">sem perder as nuances.</span>
             </h1>
             <p className="hero-enter" style={{ animationDelay: "160ms", fontSize: 19, lineHeight: 1.6, color: "var(--fg-2)", maxWidth: 640, margin: 0 }}>
-              Playbooks práticos, workflows de IA e análises de campanhas reais. Escrito por operadores gerenciando <strong style={{ color: "var(--fg-1)" }}>R$1M+/mês</strong> em anúncios.
+              Playbooks práticos, workflows de IA e análises de campanhas reais. Escrito por quem gerencia <strong style={{ color: "var(--fg-1)" }}>R$1M+/mês</strong> em anúncios.
             </p>
             <div className="hero-enter" style={{ animationDelay: "240ms", display: "flex", gap: 12 }}>
               <Button className="magnetic-btn" onClick={() => setSelectedArticle(ARTICLES[0])}>
