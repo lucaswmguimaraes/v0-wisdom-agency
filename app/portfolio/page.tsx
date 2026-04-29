@@ -13,34 +13,34 @@ import { useMagnetic } from "@/hooks/use-magnetic"
 
 const CASES = [
   {
-    id: "northwind",
-    client: "Northwind",
-    tag: "B2B SaaS · LinkedIn + Google",
-    headline: "Northwind reduziu o CPL em 62% em 90 dias.",
-    desc: "LinkedIn e Google Search reestruturados, variantes de criativo geradas por GPT e atribuição reconstruída. R$1,4M/mês em gestão.",
-    metrics: [["−62%", "CPL"], ["+140%", "MQLs"], ["3.4x", "ROAS"]],
+    id: "saude-app",
+    client: "App de saúde",
+    tag: "App de saúde · Google Ads + Meta Ads",
+    headline: "App de saúde: +329% de leads com -65% no CPL.",
+    desc: "Google Ads e Meta Ads reestruturados com foco em qualificação de lead. Tracking end-to-end via GTM e CAPI, com eventos enviados pelo backend. Operação escalada de R$8k para R$20k/mês em investimento mantendo CPL.",
+    metrics: [["+329%", "Leads"], ["−65%", "CPL"], ["R$20k", "Invest./mês"]],
     coverClass: "wa-case-cover-1",
-    sparkline: "M0 72 L40 64 L80 67 L120 50 L160 40 L200 28 L240 18 L300 8",
+    sparkline: "M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5",
     gradId: "pg1",
   },
   {
-    id: "fernhaus",
-    client: "Fernhaus",
-    tag: "DTC · Meta + Performance Max",
-    headline: "Fernhaus +214% de receita em 6 meses.",
-    desc: "Refresh de criativo Meta + Google, rebuild de Performance Max, integração com lifecycle.",
-    metrics: [["+214%", "Receita"], ["4.2x", "ROAS"], ["−38%", "CAC"]],
+    id: "edtech",
+    client: "Plataforma educacional",
+    tag: "Edtech · Google + Meta",
+    headline: "Plataforma de educação: +85% de receita com -13% no CPA.",
+    desc: "Rebuild completo de estrutura de campanhas. Paid search e Meta integrados com email lifecycle e scoring de leads no CRM. App escalado para 2,3M de acessos mensais e 28,1% de market share no segmento educacional.",
+    metrics: [["+85%", "Receita"], ["−13%", "CPA"], ["28,1%", "Market share"]],
     coverClass: "wa-case-cover-2",
     sparkline: "M0 80 L50 72 L100 58 L150 38 L200 22 L250 12 L300 5",
     gradId: "pg2",
   },
   {
-    id: "kinect",
-    client: "Kinect Edtech",
-    tag: "Edtech · Google + Meta",
-    headline: "Kinect +329% de leads e 28% de market share.",
-    desc: "Rebuild completo de aquisição. Paid search, Meta e LinkedIn integrados com email lifecycle e workflows de IA para qualificação.",
-    metrics: [["+329%", "Leads"], ["−65%", "CPL"], ["28%", "Market share"]],
+    id: "b2b-saas",
+    client: "Serviços B2B",
+    tag: "Serviços B2B · Google + Orgânico",
+    headline: "+30.000 leads/mês integrando paid e orgânico.",
+    desc: "Integração estratégica de canais pagos e orgânicos com tracking end-to-end. Estrutura de funil com scoring de leads e nurturing via CRM. Crescimento sustentável de pipeline, sem depender de um único canal.",
+    metrics: [["+30k", "Leads/mês"], ["Paid +", "Orgânico integrado"], ["E2E", "Tracking"]],
     coverClass: "wa-case-cover-3",
     sparkline: "M0 78 L60 68 L110 55 L160 36 L210 20 L260 10 L300 4",
     gradId: "pg3",
@@ -51,19 +51,19 @@ const SERVICES = [
   {
     icon: <Target className="h-6 w-6" />,
     title: "Gestão de mídia paga",
-    desc: "Google, Meta, LinkedIn e TikTok. Estrutura de conta, teste de criativo, estratégia de lance e pacing — com sync semanal e Slack direto.",
-    bullets: ["R$1M+/mês em gestão", "ROAS médio 4x+", "Relatórios com insights, não planilhas"],
+    desc: "Google, Meta, LinkedIn e TikTok. Estrutura de conta, teste de criativo, estratégia de lance e pacing — com acompanhamento pelo WhatsApp com suporte a qualquer momento.",
+    bullets: ["R$20M+ em mídia gerenciada", "ROAS médio 4x+", "Relatórios com insights, não planilhas"],
   },
   {
     icon: <Bot className="h-6 w-6" />,
     title: "Consultoria de IA",
-    desc: "Embedamos GPT-4 e Claude na sua operação — geração de criativo, análise de performance, outbound personalizado. Workflows que você dona.",
-    bullets: ["Playbooks prontos", "Automações em n8n / Make", "Treinamento do time incluído"],
+    desc: "Integro Claude e Google Apps Script na sua operação — automação de relatórios, análise de performance e geração de criativo. Workflows que você possui e controla.",
+    bullets: ["Playbooks prontos", "Automações de tarefas com Claude Code", "Manutenção e suporte dos fluxos"],
   },
   {
     icon: <Layers className="h-6 w-6" />,
     title: "Estratégia full-funnel",
-    desc: "Anúncio é o último metro. Mapeamos oferta, landing, lifecycle e atribuição — pra que mídia paga componha, em vez de vazar.",
+    desc: "Anúncio é o último metro. Mapeamos oferta, landing, lifecycle e atribuição — para que mídia paga componha resultado.",
     bullets: ["Auditoria em 7 dias", "Roadmap trimestral", "Atribuição fim-a-fim"],
   },
 ]
@@ -112,7 +112,7 @@ function CaseDetail({ c, onBack }: { c: (typeof CASES)[0]; onBack: () => void })
         style={{
           display: "flex", alignItems: "center", gap: 4,
           fontSize: 13, color: "var(--fg-3)", background: "none",
-          border: "none", cursor: "pointer", marginBottom: 32,
+          border: "none", cursor: "pointer", marginBottom: 32, fontFamily: "inherit",
         }}
       >
         <ChevronLeft style={{ width: 14, height: 14 }} />
@@ -123,8 +123,8 @@ function CaseDetail({ c, onBack }: { c: (typeof CASES)[0]; onBack: () => void })
         <span className="wa-section-eyebrow-dot" />
         {c.tag}
       </div>
-      <h1 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em", color: "var(--fg-1)", margin: "0 0 16px" }}>
-        {c.headline}
+      <h1 style={{ fontSize: "clamp(28px,3.5vw,44px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em", margin: "0 0 16px" }}>
+        <span className="wa-grad">{c.headline}</span>
       </h1>
       <p style={{ fontSize: 17, color: "var(--fg-2)", lineHeight: 1.65, marginBottom: 40 }}>{c.desc}</p>
 
@@ -156,13 +156,13 @@ function CaseDetail({ c, onBack }: { c: (typeof CASES)[0]; onBack: () => void })
 
       <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "0 0 12px" }}>O briefing</h2>
       <p style={{ fontSize: 16, color: "var(--fg-2)", lineHeight: 1.7, marginBottom: 24 }}>
-        Conta de anúncios no piloto automático. Performance Max canibalizando busca de marca; criativos sem atualização há meses. Sem segmentação clara entre campanhas.
+        Conta de anúncios no piloto automático. Campanhas canibalizando entre si, criativos sem atualização há meses e tracking incompleto. Sem visibilidade real de custo por lead qualificado.
       </p>
       <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "0 0 12px" }}>O que fizemos</h2>
       <ol style={{ paddingLeft: 20, color: "var(--fg-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
-        <li style={{ marginBottom: 8 }}>Reconstruimos a conta com segmentação limpa: marca / não-marca / Pmax com listas negativas entre elas.</li>
-        <li style={{ marginBottom: 8 }}>Sprint de criativos semanal com automações em Apps Script para geração e classificação de variantes.</li>
-        <li style={{ marginBottom: 8 }}>Substituimos atribuição last-click por blend de first-touch + position-based no GA4.</li>
+        <li style={{ marginBottom: 8 }}>Reconstruímos a estrutura de conta com segmentação limpa e listas negativas entre campanhas.</li>
+        <li style={{ marginBottom: 8 }}>Sprint de criativos semanal com análise de performance por variante usando Google Apps Script e Claude.</li>
+        <li style={{ marginBottom: 8 }}>Tracking end-to-end: GTM, CAPI e eventos de conversão enviados diretamente pelo backend, eliminando perda de sinal.</li>
       </ol>
       <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "0 0 12px" }}>Onde chegamos</h2>
       <p style={{ fontSize: 16, color: "var(--fg-2)", lineHeight: 1.7 }}>
@@ -190,6 +190,19 @@ function PortfolioContactForm() {
     }
   }
 
+  const selectStyle: React.CSSProperties = {
+    width: "100%",
+    height: 40,
+    borderRadius: 6,
+    border: "1px solid var(--wa-border)",
+    background: "#10151C",
+    color: "#F7F9FC",
+    padding: "0 12px",
+    fontSize: 14,
+    cursor: "pointer",
+    appearance: "auto" as const,
+  }
+
   return (
     <div style={{ background: "var(--wa-surface-1)", border: "1px solid var(--wa-border)", borderRadius: 16, padding: 32 }}>
       {sent ? (
@@ -215,13 +228,13 @@ function PortfolioContactForm() {
             <select
               value={form.spend}
               onChange={(e) => setForm({ ...form, spend: e.target.value })}
-              style={{ width: "100%", height: 36, borderRadius: 6, border: "1px solid var(--wa-border)", background: "var(--wa-bg)", color: "var(--fg-1)", padding: "0 12px", fontSize: 14 }}
+              style={selectStyle}
             >
-              <option>Abaixo de R$20k</option>
-              <option>R$20k – R$50k</option>
-              <option>R$50k – R$250k</option>
-              <option>R$250k – R$1M</option>
-              <option>R$1M+</option>
+              <option value="Abaixo de R$20k" style={{ background: "#10151C", color: "#F7F9FC" }}>Abaixo de R$20k</option>
+              <option value="R$20k – R$50k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$20k – R$50k</option>
+              <option value="R$50k – R$250k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$50k – R$250k</option>
+              <option value="R$250k – R$1M" style={{ background: "#10151C", color: "#F7F9FC" }}>R$250k – R$1M</option>
+              <option value="R$1M+" style={{ background: "#10151C", color: "#F7F9FC" }}>R$1M+</option>
             </select>
           </div>
           <div>
@@ -310,7 +323,8 @@ export default function PortfolioPage() {
                 maxWidth: 540,
               }}
             >
-              Gerenciamos <strong style={{ color: "var(--fg-1)" }}>R$1M+ por mês</strong> para marcas
+              Já gerenciei mais de{" "}
+              <strong style={{ color: "var(--fg-1)" }}>R$20M em mídia paga</strong> para marcas
               B2B e DTC. Cada case abaixo tem números reais, com permissão dos clientes.
             </p>
 
@@ -335,10 +349,10 @@ export default function PortfolioPage() {
         <section className="wa-stats-band">
           <div className="wa-stats-grid">
             {[
-              { value: "+329%", label: "Leads ano a ano, cliente médio" },
-              { value: "+85%", label: "Crescimento de receita em 2025" },
-              { value: "R$1M+", label: "Em mídia gerenciada por mês" },
-              { value: "27", label: "Clientes B2B + DTC ativos" },
+              { value: "+329%", label: "Volume de leads com -65% no CPL" },
+              { value: "+85%", label: "Crescimento de receita ano a ano" },
+              { value: "R$20M+", label: "Em mídia gerenciada ao longo da carreira" },
+              { value: "+40", label: "Empresas B2B e DTC atendidas" },
             ].map((s) => (
               <div key={s.value} style={{ textAlign: "center", padding: "8px 0" }}>
                 <div className="wa-stat-value-big">{s.value}</div>
@@ -452,7 +466,7 @@ export default function PortfolioPage() {
           <div className="wa-cta-inner">
             <div className="wa-section-eyebrow" style={{ justifyContent: "center" }}>
               <span className="wa-section-eyebrow-dot" />
-              Vagas abertas · 3 novos clientes
+              Disponível para novos projetos
             </div>
             <h2 style={{ marginTop: 24 }}>
               Pronto pra parar de{" "}
@@ -461,7 +475,7 @@ export default function PortfolioPage() {
               <em style={{ fontStyle: "italic", color: "var(--fg-2)" }}>saber?</em>
             </h2>
             <p style={{ marginTop: 20, color: "var(--fg-2)", maxWidth: 460, margin: "20px auto 0", lineHeight: 1.65 }}>
-              Conte sobre sua conta. Se fizer sentido, a gente manda uma proposta em até 48h.
+              Conte sobre sua conta. Se fizer sentido, mando uma proposta em até 48h.
             </p>
           </div>
         </section>
@@ -491,9 +505,9 @@ export default function PortfolioPage() {
                 </ul>
                 <p style={{ marginTop: 24, fontSize: 14, color: "var(--fg-3)" }}>
                   Prefere email direto?{" "}
-                  <a href="mailto:oi@wisdom.agency" style={{ color: "var(--wa-blue-500)" }}>
+                  <a href="mailto:lucaswmguimaraes@gmail.com" style={{ color: "var(--wa-blue-500)" }}>
                     <Mail style={{ width: 13, height: 13, display: "inline", marginRight: 4 }} />
-                    oi@wisdom.agency
+                    lucaswmguimaraes@gmail.com
                   </a>
                 </p>
               </div>
