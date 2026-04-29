@@ -1,11 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, Clock, Target, Bot, BarChart3, BookOpen, Play, ChevronLeft, Sparkles, Check, Zap, TrendingUp } from "lucide-react"
+import { ArrowRight, Clock, Target, Bot, BarChart3, BookOpen, ChevronLeft, Sparkles, Zap, TrendingUp } from "lucide-react"
 import { Header } from "@/components/wisdom/header"
 import { Footer } from "@/components/wisdom/footer"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 
 const ARTICLES = [
@@ -353,10 +352,10 @@ const ARTICLES = [
 ]
 
 const TOPICS = [
-  { name: "IA para profissionais de marketing", icon: Bot, desc: "Prompts, automações e stacks que realmente economizam tempo.", count: 42 },
-  { name: "Mídia paga", icon: Target, desc: "Google Ads, Meta Ads, estrutura de conta, testes de criativos.", count: 68 },
-  { name: "Funil e analytics", icon: BarChart3, desc: "Atribuição que sobrevive às atualizações do iOS.", count: 31 },
-  { name: "Fundamentos", icon: BookOpen, desc: "O glossário em linguagem simples para quem está começando.", count: 24 },
+  { name: "IA para profissionais de marketing", icon: Bot, desc: "Prompts, automações e stacks que realmente economizam tempo.", count: 2 },
+  { name: "Mídia paga", icon: Target, desc: "Google Ads, Meta Ads, estrutura de conta, testes de criativos.", count: 2 },
+  { name: "Funil e analytics", icon: BarChart3, desc: "Atribuição que sobrevive às atualizações do iOS.", count: 1 },
+  { name: "Fundamentos", icon: BookOpen, desc: "O glossário em linguagem simples para quem está começando.", count: 1 },
 ]
 
 function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClick: () => void }) {
@@ -468,13 +467,6 @@ function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBac
 
 export default function ContentPage() {
   const [selectedArticle, setSelectedArticle] = useState<typeof ARTICLES[0] | null>(null)
-  const [email, setEmail] = useState("")
-  const [subscribed, setSubscribed] = useState(false)
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) { setSubscribed(true); setEmail("") }
-  }
 
   if (selectedArticle) {
     return (
@@ -500,9 +492,8 @@ export default function ContentPage() {
               <span className="wa-section-eyebrow-dot" />
               Novo · Playbook semanal
             </div>
-            <h1 className="hero-enter" style={{ animationDelay: "80ms", fontSize: "clamp(40px,5vw,68px)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.05, color: "var(--fg-1)", margin: 0 }}>
-              Simplifique IA e mídia paga —<br />
-              <span className="wa-grad">sem perder as nuances.</span>
+            <h1 className="hero-enter" style={{ animationDelay: "80ms", fontSize: "clamp(40px,5vw,68px)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.05, margin: 0 }}>
+              <span className="wa-grad">Simplifique IA e mídia paga —<br />sem perder as nuances.</span>
             </h1>
             <p className="hero-enter" style={{ animationDelay: "160ms", fontSize: 19, lineHeight: 1.6, color: "var(--fg-2)", maxWidth: 640, margin: 0 }}>
               Playbooks práticos, workflows de IA e análises de campanhas reais. Escrito por quem já gerenciou <strong style={{ color: "var(--fg-1)" }}>mais de R$20M</strong> em anúncios.
@@ -510,9 +501,6 @@ export default function ContentPage() {
             <div className="hero-enter" style={{ animationDelay: "240ms", display: "flex", gap: 12 }}>
               <Button className="magnetic-btn" onClick={() => setSelectedArticle(ARTICLES[0])}>
                 Leia o último playbook <ArrowRight className="ml-2 h-4 w-4 arrow-slide" />
-              </Button>
-              <Button variant="outline">
-                <Play className="mr-2 h-4 w-4" /> Assistir intro de 2 min
               </Button>
             </div>
             <div className="hero-enter" style={{ animationDelay: "320ms", display: "flex", alignItems: "center", marginTop: 16, paddingTop: 24, borderTop: "1px solid var(--wa-border)", width: "100%", maxWidth: 560 }}>
@@ -548,7 +536,7 @@ export default function ContentPage() {
         </section>
 
         {/* Topics */}
-        <section style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px 64px" }}>
+        <section style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px 96px" }}>
           <div style={{ marginBottom: 32 }}>
             <div className="wa-section-eyebrow" style={{ marginBottom: 12 }}>
               <span className="wa-section-eyebrow-dot" /> Tópicos
@@ -566,34 +554,6 @@ export default function ContentPage() {
                 <div style={{ fontSize: 12, color: "var(--fg-4)", fontFamily: "var(--font-mono)" }}>{t.count} artigos</div>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Newsletter */}
-        <section style={{ padding: "0 32px 96px" }}>
-          <div style={{ position: "relative", background: "var(--bg-2)", border: "1px solid var(--wa-border)", borderRadius: 20, padding: "56px 48px", maxWidth: 900, margin: "0 auto", overflow: "hidden" }}>
-            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(600px 300px at 100% 0%,rgba(59,130,246,0.15),transparent 60%)", pointerEvents: "none" }} />
-            <div style={{ position: "relative" }}>
-              <div className="wa-section-eyebrow" style={{ marginBottom: 12 }}>
-                <span className="wa-section-eyebrow-dot" /> The Wisdom Letter
-              </div>
-              <h2 className="wa-section-h2" style={{ marginBottom: 8 }}>Um playbook. Toda terça. Sem enrolação.</h2>
-              <p style={{ fontSize: 15, color: "var(--fg-3)", lineHeight: 1.5, marginBottom: 24 }}>
-                Receba um playbook prático de IA + mídia paga toda terça-feira. Cancele em um clique.
-              </p>
-              {subscribed ? (
-                <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "#86EFAC" }}>
-                  <Check style={{ width: 14, height: 14 }} /> Você está dentro. Confira sua caixa de entrada.
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} style={{ display: "flex", gap: 8, maxWidth: 480 }}>
-                  <Input type="email" placeholder="voce@empresa.com" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1" required />
-                  <Button type="submit" className="magnetic-btn">
-                    Assinar <ArrowRight className="ml-2 h-4 w-4 arrow-slide" />
-                  </Button>
-                </form>
-              )}
-            </div>
           </div>
         </section>
       </main>
