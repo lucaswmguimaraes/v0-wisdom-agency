@@ -51,6 +51,29 @@ const LinkedInAdsLogo = () => (
   </svg>
 )
 
+const TikTokAdsLogo = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+    <rect width="20" height="20" rx="3.5" fill="#111111" />
+    {/* cyan offset shadow */}
+    <path
+      d="M8.7 15.1a1.9 1.9 0 1 1-1.4-3.25V7.1l4.6-1.1v2.6l-4.6 1v5.5z"
+      fill="#69C9D0"
+      transform="translate(0.5 0)"
+    />
+    {/* red offset shadow */}
+    <path
+      d="M8.7 15.1a1.9 1.9 0 1 1-1.4-3.25V7.1l4.6-1.1v2.6l-4.6 1v5.5z"
+      fill="#EE1D52"
+      transform="translate(-0.5 0)"
+    />
+    {/* white foreground */}
+    <path
+      d="M8.7 15.1a1.9 1.9 0 1 1-1.4-3.25V7.1l4.6-1.1v2.6l-4.6 1v5.5z"
+      fill="white"
+    />
+  </svg>
+)
+
 const GA4Logo = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
     <rect x="1" y="11" width="4" height="8" rx="1.5" fill="#F9AB00" />
@@ -91,23 +114,6 @@ const AppsScriptLogo = () => (
   </svg>
 )
 
-const SupabaseLogo = () => (
-  <svg width="18" height="20" viewBox="0 0 18 20" fill="none" aria-hidden="true">
-    <path
-      d="M10.5 1L1 12h9l-2.5 7L17 8H8L10.5 1z"
-      fill="url(#supabase-grad)"
-      stroke="#3ECF8E"
-      strokeWidth="0.5"
-    />
-    <defs>
-      <linearGradient id="supabase-grad" x1="9" y1="1" x2="9" y2="19" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#3ECF8E" />
-        <stop offset="1" stopColor="#249361" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-
 const ClaudeLogo = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
     <circle cx="10" cy="10" r="9" fill="#CC785C" />
@@ -128,30 +134,16 @@ const ClaudeLogo = () => (
   </svg>
 )
 
-const N8nLogo = () => (
-  <svg width="24" height="16" viewBox="0 0 24 16" fill="none" aria-hidden="true">
-    <text
-      x="0"
-      y="13"
-      fontFamily="'JetBrains Mono', monospace"
-      fontWeight="700"
-      fontSize="14"
-      fill="#EA4B71"
-    >n8n</text>
-  </svg>
-)
-
 const PLATFORMS = [
   { name: "Google Ads", Logo: GoogleAdsLogo },
   { name: "Meta Ads", Logo: MetaAdsLogo },
   { name: "LinkedIn Ads", Logo: LinkedInAdsLogo },
+  { name: "TikTok Ads", Logo: TikTokAdsLogo },
   { name: "GA4", Logo: GA4Logo },
   { name: "GTM", Logo: GTMLogo },
   { name: "Looker Studio", Logo: LookerLogo },
   { name: "Apps Script", Logo: AppsScriptLogo },
-  { name: "Supabase", Logo: SupabaseLogo },
   { name: "Claude", Logo: ClaudeLogo },
-  { name: "n8n", Logo: N8nLogo },
 ]
 
 const LOOP = [...PLATFORMS, ...PLATFORMS]
