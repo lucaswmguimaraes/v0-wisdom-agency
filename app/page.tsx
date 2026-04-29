@@ -20,30 +20,30 @@ const SERVICES = [
     icon: <Target className="h-6 w-6" />,
     title: "Gestão de mídia paga",
     desc:
-      "Google, Meta, LinkedIn e TikTok. Estrutura de conta, teste de criativo, estratégia de lance e pacing — com sync semanal e Slack direto.",
-    bullets: ["R$1M+/mês em gestão", "ROAS médio 4x+", "Relatórios com insights, não planilhas"],
+      "Google, Meta, LinkedIn e TikTok. Estrutura de conta, teste de criativo, estratégia de lance e pacing — com acompanhamento pelo WhatsApp com suporte a qualquer momento.",
+    bullets: ["R$20M+ em mídia gerenciada", "ROAS médio 4x+", "Relatórios com insights, não planilhas"],
   },
   {
     icon: <Bot className="h-6 w-6" />,
     title: "Consultoria de IA",
     desc:
-      "Embedamos GPT-4 e Claude na sua operação — geração de criativo, análise de performance, outbound personalizado. Workflows que você dona.",
-    bullets: ["Playbooks prontos", "Automações em n8n / Make", "Treinamento do time incluído"],
+      "Integro Claude e Google Apps Script na sua operação — automação de relatórios, análise de performance e geração de criativo. Workflows que você possui e controla.",
+    bullets: ["Playbooks prontos", "Automações de tarefas com Claude Code", "Manutenção e suporte dos fluxos"],
   },
   {
     icon: <Layers className="h-6 w-6" />,
     title: "Estratégia full-funnel",
     desc:
-      "Anúncio é o último metro. Mapeamos oferta, landing, lifecycle e atribuição — pra que mídia paga componha, em vez de vazar.",
+      "Anúncio é o último metro. Mapeamos oferta, landing, lifecycle e atribuição — para que mídia paga componha resultado.",
     bullets: ["Auditoria em 7 dias", "Roadmap trimestral", "Atribuição fim-a-fim"],
   },
 ]
 
 const STATS = [
-  { value: "+329%", label: "Leads ano a ano, cliente médio" },
-  { value: "+85%", label: "Crescimento de receita em 2025" },
-  { value: "R$1M+", label: "Em mídia gerenciada por mês" },
-  { value: "27", label: "Clientes B2B + DTC ativos" },
+  { value: "+329%", label: "Volume de leads com -65% no CPL" },
+  { value: "+85%", label: "Crescimento de receita ano a ano" },
+  { value: "R$20M+", label: "Em mídia gerenciada ao longo da carreira" },
+  { value: "+40", label: "Empresas B2B e DTC atendidas" },
 ]
 
 const PROCESS = [
@@ -138,7 +138,7 @@ export default function LandingPage() {
                 {/* Eyebrow */}
                 <div className="wa-section-eyebrow hero-enter" style={{ animationDelay: "0ms" }}>
                   <span className="wa-section-eyebrow-dot" />
-                  Aceitando 3 novos clientes · Q2 2026
+                  Disponível para novos projetos
                 </div>
 
                 {/* Headline */}
@@ -172,10 +172,9 @@ export default function LandingPage() {
                     maxWidth: 520,
                   }}
                 >
-                  Gerenciamos{" "}
-                  <strong style={{ color: "var(--fg-1)" }}>R$1M+ por mês</strong> em mídia paga para
-                  marcas B2B e DTC. Sem hand-off de júnior, sem 40 slides de deck. Apenas retornos que
-                  compõem.
+                  Já gerenciei mais de{" "}
+                  <strong style={{ color: "var(--fg-1)" }}>R$20M em mídia paga</strong> para marcas B2B e DTC.
+                  Sem hand-off de júnior, sem 40 slides de deck. Apenas retornos que compõem.
                 </p>
 
                 {/* CTAs */}
@@ -198,12 +197,12 @@ export default function LandingPage() {
                   <Button variant="outline" size="lg" asChild>
                     <Link href="/portfolio">
                       <Play className="mr-2 h-4 w-4" />
-                      Ver caso em vídeo
+                      Ver casos
                     </Link>
                   </Button>
                 </div>
 
-                {/* Trust signal */}
+                {/* Social proof — companies count */}
                 <div
                   className="hero-enter"
                   style={{
@@ -229,11 +228,8 @@ export default function LandingPage() {
                       />
                     ))}
                   </div>
-                  <div>
-                    <div style={{ color: "#FBBC05", fontSize: 12, letterSpacing: 2 }}>★★★★★</div>
-                    <div style={{ fontSize: 13, color: "var(--fg-2)" }}>
-                      <strong style={{ color: "var(--fg-1)" }}>4.9/5</strong> · 27+ clientes ativos
-                    </div>
+                  <div style={{ fontSize: 13, color: "var(--fg-2)" }}>
+                    <strong style={{ color: "var(--fg-1)" }}>+40 empresas</strong> atendidas ao longo da carreira
                   </div>
                 </div>
               </div>
@@ -364,9 +360,19 @@ export default function LandingPage() {
             </div>
 
             <div className="wa-cases-grid">
-              <Link href="/portfolio#northwind" className="wa-case-card">
-                <div className="wa-case-cover wa-case-cover-1">
-                  <span className="wa-case-tag">B2B SaaS · LinkedIn + Google</span>
+              {/* Case 1 — App de saúde */}
+              <Link href="/portfolio" className="wa-case-card">
+                <div className="wa-case-cover wa-case-cover-1" style={{ position: "relative" }}>
+                  <span className="wa-case-tag">App de saúde · Google + Meta</span>
+                  {/* Illustration */}
+                  <div style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-60%)", opacity: 0.25, pointerEvents: "none" }}>
+                    <svg width="72" height="90" viewBox="0 0 72 90" fill="none">
+                      <rect x="8" y="0" width="56" height="90" rx="10" stroke="white" strokeWidth="2" />
+                      <rect x="20" y="7" width="32" height="4" rx="2" fill="white" fillOpacity="0.7" />
+                      <polyline points="12,70 24,56 36,63 50,42 60,28" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                      <circle cx="60" cy="28" r="3.5" fill="white" />
+                    </svg>
+                  </div>
                   <div className="wa-case-cover-chart">
                     <svg
                       viewBox="0 0 300 90"
@@ -380,7 +386,7 @@ export default function LandingPage() {
                         </linearGradient>
                       </defs>
                       <path
-                        d="M0 72 L40 64 L80 67 L120 50 L160 40 L200 28 L240 18 L300 8"
+                        d="M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5"
                         fill="none"
                         stroke="white"
                         strokeOpacity="0.9"
@@ -388,38 +394,50 @@ export default function LandingPage() {
                         strokeLinecap="round"
                       />
                       <path
-                        d="M0 72 L40 64 L80 67 L120 50 L160 40 L200 28 L240 18 L300 8 L300 90 L0 90 Z"
+                        d="M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5 L300 90 L0 90 Z"
                         fill="url(#cg1)"
                       />
                     </svg>
                   </div>
                 </div>
                 <div className="wa-case-body">
-                  <h3>Northwind reduziu o CPL em 62% em 90 dias.</h3>
+                  <h3>App de saúde: +329% de leads com -65% no CPL.</h3>
                   <p style={{ marginTop: 8, fontSize: 14, color: "var(--fg-3)", lineHeight: 1.6 }}>
-                    LinkedIn e Google Search reestruturados, variantes de criativo geradas por GPT e
-                    atribuição reconstruida. R$1,4M/mês em gestão.
+                    Google Ads e Meta Ads reestruturados com foco em qualificação de lead. Tracking
+                    end-to-end via GTM e CAPI, com eventos de conversão enviados pelo backend.
+                    Operação escalada de R$8k para R$20k/mês em investimento, mantendo CPL.
                   </p>
                   <div className="wa-case-metrics">
                     <div>
-                      <strong>−62%</strong>
+                      <strong>+329%</strong>
+                      <span>Leads</span>
+                    </div>
+                    <div>
+                      <strong>−65%</strong>
                       <span>CPL</span>
                     </div>
                     <div>
-                      <strong>+140%</strong>
-                      <span>MQLs</span>
-                    </div>
-                    <div>
-                      <strong>3.4x</strong>
-                      <span>ROAS</span>
+                      <strong>R$20k</strong>
+                      <span>Invest./mês</span>
                     </div>
                   </div>
                 </div>
               </Link>
 
-              <Link href="/portfolio#fernhaus" className="wa-case-card">
-                <div className="wa-case-cover wa-case-cover-2">
-                  <span className="wa-case-tag">DTC · Meta + Performance Max</span>
+              {/* Case 2 — Plataforma educacional */}
+              <Link href="/portfolio" className="wa-case-card">
+                <div className="wa-case-cover wa-case-cover-2" style={{ position: "relative" }}>
+                  <span className="wa-case-tag">Edtech · Google + Meta</span>
+                  {/* Illustration */}
+                  <div style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-60%)", opacity: 0.25, pointerEvents: "none" }}>
+                    <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+                      <rect x="4" y="48" width="12" height="20" rx="2" fill="white" />
+                      <rect x="20" y="34" width="12" height="34" rx="2" fill="white" />
+                      <rect x="36" y="18" width="12" height="50" rx="2" fill="white" />
+                      <rect x="52" y="4" width="12" height="64" rx="2" fill="white" />
+                      <path d="M4 48 L64 4" stroke="white" strokeWidth="1.5" strokeDasharray="3 2.5" strokeLinecap="round" />
+                    </svg>
+                  </div>
                   <div className="wa-case-cover-chart">
                     <svg
                       viewBox="0 0 300 90"
@@ -448,23 +466,24 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="wa-case-body">
-                  <h3>Fernhaus +214% de receita em 6 meses.</h3>
+                  <h3>Plataforma de educação: +85% de receita com -13% no CPA.</h3>
                   <p style={{ marginTop: 8, fontSize: 14, color: "var(--fg-3)", lineHeight: 1.6 }}>
-                    Refresh de criativo Meta + Google, rebuild de Performance Max, integração com
-                    lifecycle.
+                    Rebuild completo de aquisição. Paid search e Meta integrados com email lifecycle e
+                    scoring de leads. App escalado para 2,3M de acessos mensais e 28,1% de market
+                    share no segmento educacional.
                   </p>
                   <div className="wa-case-metrics">
                     <div>
-                      <strong>+214%</strong>
+                      <strong>+85%</strong>
                       <span>Receita</span>
                     </div>
                     <div>
-                      <strong>4.2x</strong>
-                      <span>ROAS</span>
+                      <strong>−13%</strong>
+                      <span>CPA</span>
                     </div>
                     <div>
-                      <strong>−38%</strong>
-                      <span>CAC</span>
+                      <strong>28,1%</strong>
+                      <span>Market share</span>
                     </div>
                   </div>
                 </div>
@@ -478,7 +497,7 @@ export default function LandingPage() {
           <div className="wa-cta-inner">
             <div className="wa-section-eyebrow" style={{ justifyContent: "center" }}>
               <span className="wa-section-eyebrow-dot" />
-              Vagas abertas · 3 novos clientes
+              Disponível para novos projetos
             </div>
             <h2 style={{ marginTop: 24 }}>
               Pronto pra parar de{" "}
@@ -496,8 +515,8 @@ export default function LandingPage() {
                 lineHeight: 1.65,
               }}
             >
-              Conte sobre sua conta. Se fizer sentido, a gente manda uma proposta em até 48h. Se não,
-              indicamos alguém que faz.
+              Conte sobre sua conta. Se fizer sentido, mando uma proposta em até 48h. Se não,
+              indico alguém que faz.
             </p>
             <div
               style={{
@@ -515,9 +534,9 @@ export default function LandingPage() {
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="mailto:oi@wisdom.agency">
+                <a href="mailto:lucaswmguimaraes@gmail.com">
                   <Mail className="mr-2 h-4 w-4" />
-                  oi@wisdom.agency
+                  lucaswmguimaraes@gmail.com
                 </a>
               </Button>
             </div>
