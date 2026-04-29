@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, Clock, Target, Bot, BarChart3, BookOpen, Play, ChevronLeft, Sparkles, Check } from "lucide-react"
+import { ArrowRight, Clock, Target, Bot, BarChart3, BookOpen, Play, ChevronLeft, Sparkles, Check, Zap, TrendingUp } from "lucide-react"
 import { Header } from "@/components/wisdom/header"
 import { Footer } from "@/components/wisdom/footer"
 import { Button } from "@/components/ui/button"
@@ -15,6 +15,8 @@ const ARTICLES = [
     excerpt: "Em janeiro de 2026, o Meta removeu dezenas de categorias de interesse e transformou qualquer segmentação detalhada em sugestão. O que isso significa para quem gerencia contas de performance.",
     category: "Mídia Paga",
     hue: "blue",
+    icon: Target,
+    source: "Jon Loomer Digital · Central de Ajuda Meta",
     readTime: 6,
     date: "22 Abr",
     body: [
@@ -71,6 +73,8 @@ const ARTICLES = [
     excerpt: "A diferença entre usar IA e construir com IA. Como Claude Skills transforma tarefas repetitivas de paid media em sistemas previsíveis — com exemplo prático de análise de search terms.",
     category: "IA para Marketing",
     hue: "ink",
+    icon: Bot,
+    source: "Search Engine Land",
     readTime: 5,
     date: "21 Abr",
     body: [
@@ -131,6 +135,8 @@ const ARTICLES = [
     excerpt: "Google dobrou o limite de search themes por asset group, liberou exclusões por campanha e expandiu o relatório de search terms. O que mudou e como usar esses controles na prática.",
     category: "Mídia Paga",
     hue: "slate",
+    icon: BarChart3,
+    source: "Search Engine Journal · Search Engine Land",
     readTime: 8,
     date: "20 Abr",
     body: [
@@ -187,6 +193,8 @@ const ARTICLES = [
     excerpt: "Google Ads Scripts conectam diretamente com a API do Google Ads via GAQL. Com IA no loop, o script não só puxa os dados — ele analisa, prioriza e formata o que precisa de atenção.",
     category: "IA para Marketing",
     hue: "teal",
+    icon: Zap,
+    source: "Search Engine Journal · Google Developers",
     readTime: 7,
     date: "19 Abr",
     body: [
@@ -236,6 +244,8 @@ const ARTICLES = [
     excerpt: "O Google abriu o Meridian — seu modelo open-source de Marketing Mix Modeling — para todos os anunciantes. O que ele faz, onde é melhor que alternativas e o que ainda exige trabalho técnico.",
     category: "Funil e Analytics",
     hue: "deep",
+    icon: TrendingUp,
+    source: "Search Engine Land · Adweek",
     readTime: 9,
     date: "18 Abr",
     body: [
@@ -292,6 +302,8 @@ const ARTICLES = [
     excerpt: "Black-box automation como Performance Max e Advantage+ otimiza para o evento de conversão — não para crescimento incremental. Como identificar se o seu ROAS está medindo resultado real ou capturando conversões que já aconteceriam.",
     category: "Fundamentos",
     hue: "navy",
+    icon: BookOpen,
+    source: "Search Engine Land",
     readTime: 6,
     date: "17 Abr",
     body: [
@@ -348,6 +360,7 @@ const TOPICS = [
 ]
 
 function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClick: () => void }) {
+  const Icon = article.icon
   return (
     <article
       onClick={onClick}
@@ -355,13 +368,16 @@ function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClic
     >
       <div className="relative h-40 overflow-hidden">
         <div className={cn("absolute inset-0", `cover-${article.hue}`)} />
+        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Icon style={{ width: 52, height: 52, color: "rgba(255,255,255,0.12)", strokeWidth: 1.25 }} />
+        </div>
         <span style={{ position: "absolute", top: 12, left: 12, fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(255,255,255,0.9)", background: "rgba(0,0,0,0.35)", backdropFilter: "blur(8px)", borderRadius: 6, padding: "3px 8px" }}>
           {article.category}
         </span>
       </div>
       <div className="p-5 flex flex-col gap-2 flex-1">
         <h3 className="text-[17px] font-semibold text-[var(--fg-1)] tracking-[-0.01em] leading-[1.35] line-clamp-2 group-hover:text-primary transition-colors">{article.title}</h3>
-        <p className="text-[13px] leading-[1.55] text-[var(--fg-3)] line-clamp-2 flex-1">{article.excerpt}</p>
+        <p className="text-[13px] leading-[1.55] text-[var(--fg-3)] line-clamp-3 flex-1">{article.excerpt}</p>
         <div className="flex items-center gap-1.5 text-xs text-[var(--fg-3)] mt-3">
           <Clock className="h-3.5 w-3.5" />
           <span>{article.readTime} min de leitura</span>
@@ -427,7 +443,9 @@ function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBac
       <div className="wa-section-eyebrow" style={{ marginBottom: 16 }}>
         <span className="wa-section-eyebrow-dot" />{article.category}
       </div>
-      <h1 style={{ fontSize: "clamp(32px,4vw,44px)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.1, color: "var(--fg-1)", margin: "0 0 20px" }}>{article.title}</h1>
+      <h1 style={{ fontSize: "clamp(32px,4vw,44px)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.1, margin: "0 0 20px" }}>
+        <span className="wa-grad">{article.title}</span>
+      </h1>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
         <div style={{ width: 40, height: 40, borderRadius: "50%", background: "linear-gradient(135deg,#1D4ED8,#3B82F6)", border: "1px solid var(--wa-border-strong)", flexShrink: 0 }} />
         <div>
@@ -435,8 +453,15 @@ function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBac
           <span style={{ fontSize: 12, color: "var(--fg-3)" }}>{article.date} · {article.readTime} min de leitura</span>
         </div>
       </div>
-      <div className={cn("h-[260px] rounded-xl mb-8 border border-[var(--wa-border)]", `cover-${article.hue}`)} />
+      <div className={cn("h-[260px] rounded-xl mb-8 border border-[var(--wa-border)] relative overflow-hidden", `cover-${article.hue}`)}>
+        {(() => { const Icon = article.icon; return <Icon style={{ position: "absolute", bottom: 24, right: 24, width: 80, height: 80, color: "rgba(255,255,255,0.1)", strokeWidth: 1 }} /> })()}
+      </div>
       <ArticleBody body={article.body} />
+      {article.source && (
+        <div style={{ marginTop: 48, paddingTop: 24, borderTop: "1px solid var(--wa-border)", fontSize: 13, color: "var(--fg-4)", lineHeight: 1.6 }}>
+          <strong style={{ color: "var(--fg-3)" }}>Fontes:</strong> {article.source}
+        </div>
+      )}
     </article>
   )
 }
@@ -480,7 +505,7 @@ export default function ContentPage() {
               <span className="wa-grad">sem perder as nuances.</span>
             </h1>
             <p className="hero-enter" style={{ animationDelay: "160ms", fontSize: 19, lineHeight: 1.6, color: "var(--fg-2)", maxWidth: 640, margin: 0 }}>
-              Playbooks práticos, workflows de IA e análises de campanhas reais. Escrito por quem gerencia <strong style={{ color: "var(--fg-1)" }}>R$1M+/mês</strong> em anúncios.
+              Playbooks práticos, workflows de IA e análises de campanhas reais. Escrito por quem já gerenciou <strong style={{ color: "var(--fg-1)" }}>mais de R$20M</strong> em anúncios.
             </p>
             <div className="hero-enter" style={{ animationDelay: "240ms", display: "flex", gap: 12 }}>
               <Button className="magnetic-btn" onClick={() => setSelectedArticle(ARTICLES[0])}>
@@ -491,7 +516,7 @@ export default function ContentPage() {
               </Button>
             </div>
             <div className="hero-enter" style={{ animationDelay: "320ms", display: "flex", alignItems: "center", marginTop: 16, paddingTop: 24, borderTop: "1px solid var(--wa-border)", width: "100%", maxWidth: 560 }}>
-              {[["R$1M+", "Investimento/mês"], ["+329%", "Leads YoY"], ["27", "Clientes ativos"]].map(([val, lbl], i) => (
+              {[["R$20M+", "Mídia gerenciada"], ["+329%", "Leads YoY"], ["+40", "Empresas atendidas"]].map(([val, lbl], i) => (
                 <div key={lbl} style={{ display: "flex", alignItems: "center", flex: 1 }}>
                   {i > 0 && <div style={{ width: 1, height: 32, background: "var(--wa-border)", marginRight: 20 }} />}
                   <div>
