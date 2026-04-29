@@ -19,15 +19,17 @@ export function Logo({ variant = "lockup", className }: LogoProps) {
     >
       <rect width="48" height="48" rx="10" fill="#0B0F14" />
       <rect x="0.5" y="0.5" width="47" height="47" rx="9.5" stroke="#2A3340" />
+      {/* W body — branco */}
       <path
-        d="M10 14 L17 34 L24 20 L31 34 L38 14"
+        d="M8 12L15 36L21 21L26 36L32 12"
         stroke="#F7F9FC"
         strokeWidth="2.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* Extensão azul à direita — traço de identidade */}
       <path
-        d="M31 34 L38 14"
+        d="M32 12L36 23L40 12"
         stroke="#3B82F6"
         strokeWidth="2.6"
         strokeLinecap="round"
@@ -69,15 +71,17 @@ export function LogoMark({ className }: { className?: string }) {
     >
       <rect width="48" height="48" rx="10" fill="#0B0F14" />
       <rect x="0.5" y="0.5" width="47" height="47" rx="9.5" stroke="#2A3340" />
+      {/* W body — branco */}
       <path
-        d="M10 14 L17 34 L24 20 L31 34 L38 14"
+        d="M8 12L15 36L21 21L26 36L32 12"
         stroke="#F7F9FC"
         strokeWidth="2.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* Extensão azul à direita */}
       <path
-        d="M31 34 L38 14"
+        d="M32 12L36 23L40 12"
         stroke="#3B82F6"
         strokeWidth="2.6"
         strokeLinecap="round"
