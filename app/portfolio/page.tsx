@@ -303,13 +303,11 @@ export default function PortfolioPage() {
                 fontWeight: 800,
                 lineHeight: 1.06,
                 letterSpacing: "-0.025em",
-                color: "var(--fg-1)",
                 marginTop: 20,
                 maxWidth: 800,
               }}
             >
-              Campanhas reais.{" "}
-              <span className="wa-grad">Resultados auditáveis.</span>
+              <span className="wa-grad">Campanhas reais. Resultados auditáveis.</span>
             </h1>
 
             <p

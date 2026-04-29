@@ -200,6 +200,14 @@
   background-clip: text;
 }
 
+/* ─── BRAND GRADIENT ─── */
+.wa-grad {
+  background: linear-gradient(180deg, #fff 20%, rgba(59,130,246,0.85) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* ─── MAGNETIC CTA — pulsing glow ─── */
 .magnetic-btn {
   position: relative;
@@ -557,16 +565,11 @@ html.wa-custom-cursor * {
   color: var(--fg-3);
 }
 
-.wa-marquee__logo-item svg {
-  opacity: 0.55;
-  flex-shrink: 0;
-}
-
 .wa-marquee__logo-item span {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  opacity: 0.75;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  opacity: 0.8;
 }
 
 @keyframes wa-marquee-scroll {
@@ -863,7 +866,6 @@ button:hover .arrow-slide { transform: translateX(4px); }
   box-shadow: var(--shadow-md), var(--inset-hairline);
   overflow: hidden;
   transition: all 280ms var(--ease-standard);
-  min-height: 400px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -873,7 +875,8 @@ button:hover .arrow-slide { transform: translateX(4px); }
 .wa-case-card:hover { border-color: var(--wa-border-strong); transform: translateY(-4px); }
 
 .wa-case-cover {
-  flex: 0 0 55%;
+  height: 220px;
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--wa-border);
@@ -891,6 +894,13 @@ button:hover .arrow-slide { transform: translateX(4px); }
     radial-gradient(500px 300px at 80% 20%, #7C3AED, transparent 65%),
     radial-gradient(400px 280px at 20% 80%, #3B82F6, transparent 60%),
     linear-gradient(135deg, #0B0F14, #1a1030);
+}
+
+.wa-case-cover-3 {
+  background:
+    radial-gradient(500px 300px at 50% 20%, #065F46, transparent 65%),
+    radial-gradient(400px 280px at 80% 70%, #0F766E, transparent 60%),
+    linear-gradient(135deg, #0B0F14, #0f1f1a);
 }
 
 .wa-case-cover-chart {
@@ -925,7 +935,7 @@ button:hover .arrow-slide { transform: translateX(4px); }
 }
 
 .wa-case-body h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: var(--fg-1); margin: 0; line-height: 1.25; }
-.wa-case-body p  { font-size: 14px; line-height: 1.6; color: var(--fg-3); margin: 0; flex: 1; }
+.wa-case-body p  { font-size: 14px; line-height: 1.6; color: var(--fg-3); margin: 0; }
 
 .wa-case-metrics {
   display: flex;
