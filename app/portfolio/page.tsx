@@ -201,15 +201,24 @@ function PortfolioContactForm() {
   const [form, setForm] = useState({ name: "", email: "", spend: "R$50k – R$250k", message: "" })
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    setErrorMsg("")
     try {
-      await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) })
-    } catch { /* silent */ } finally {
-      setLoading(false)
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error("Erro no envio")
       setSent(true)
+    } catch {
+      setErrorMsg("Algo deu errado. Tente novamente ou me chame no email.")
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -266,9 +275,12 @@ function PortfolioContactForm() {
               style={{ width: "100%", borderRadius: 6, border: "1px solid var(--wa-border)", background: "var(--wa-bg)", color: "var(--fg-1)", padding: "8px 12px", fontSize: 14, lineHeight: 1.6, resize: "none" }}
             />
           </div>
+          {errorMsg && (
+            <p style={{ fontSize: 13, color: "var(--wa-danger)", margin: 0 }}>{errorMsg}</p>
+          )}
           <Button type="submit" className="magnetic-btn" disabled={loading}>
             {loading ? "Enviando..." : "Agendar diagnóstico"}
-            <ArrowRight className="ml-2 h-4 w-4 arrow-slide" />
+            {!loading && <ArrowRight className="ml-2 h-4 w-4 arrow-slide" />}
           </Button>
         </form>
       )}
