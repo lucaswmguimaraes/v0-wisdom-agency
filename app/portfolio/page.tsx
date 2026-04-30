@@ -13,37 +13,58 @@ import { useMagnetic } from "@/hooks/use-magnetic"
 
 const CASES = [
   {
-    id: "saude-app",
-    client: "App de saúde",
-    tag: "App de saúde · Google Ads + Meta Ads",
-    headline: "App de saúde: +329% de leads com -65% no CPL.",
-    desc: "Google Ads e Meta Ads reestruturados com foco em qualificação de lead. Tracking end-to-end via GTM e CAPI, com eventos enviados pelo backend. Operação escalada de R$8k para R$20k/mês em investimento mantendo CPL.",
-    metrics: [["+329%", "Leads"], ["−65%", "CPL"], ["R$20k", "Invest./mês"]],
+    id: "nonno-app",
+    client: "App de cuidadores",
+    tag: "App de cuidadores · Google Ads + Meta Ads",
+    headline: "App de cuidadores: +329% de leads qualificados com -65% no CPL.",
+    desc: "Reestruturação completa de campanhas com foco em qualificação mobile-first. Novo formulário multi-step aumentou de 34,8% para 60,8% a taxa de leads que viraram orçamentos. Operação escalada de R$8k para R$20k/mês mantendo CPL sob controle.",
+    metrics: [["+329%", "Leads"], ["−65%", "CPL"], ["60,8%", "Taxa de orçamento"]],
     coverClass: "wa-case-cover-1",
     sparkline: "M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5",
     gradId: "pg1",
+    briefing: "Startup de cuidadores para idosos com campanhas no piloto automático. Alta taxa de leads desqualificados chegando ao time comercial — cuidadores se candidatando pelo mesmo formulário dos familiares. CPL alto, tracking incompleto e escala travada.",
+    actions: [
+      "Separamos os fluxos: novo formulário mobile-first para captação de famílias buscando cuidadores, com 5 etapas de qualificação e lead score calculado antes do envio.",
+      "Implementamos tracking end-to-end via GTM e CAPI com Smart Bidding baseado em valor de conversão — cada lead passou a ter peso diferente para o algoritmo do Google e Meta.",
+      "Reestruturamos campanhas segmentando por estado e cobertura de cidade, eliminando gasto em regiões fora de operação.",
+    ],
+    result: "Em 90 dias: taxa de leads que viraram orçamentos subiu de 34,8% para 60,8%. Taxa de cuidadores se candidatando caiu de 19,2% para 11,2% — o formulário passou a filtrar na origem. Operação escalada de R$8k para R$20k/mês sem incremento de CPL.",
   },
   {
-    id: "edtech",
-    client: "Plataforma educacional",
-    tag: "Edtech · Google + Meta",
-    headline: "Plataforma de educação: +85% de receita com -13% no CPA.",
-    desc: "Rebuild completo de estrutura de campanhas. Paid search e Meta integrados com email lifecycle e scoring de leads no CRM. App escalado para 2,3M de acessos mensais e 28,1% de market share no segmento educacional.",
+    id: "qconcursos",
+    client: "Plataforma de concursos",
+    tag: "Edtech · Google + Meta + CRM",
+    headline: "Plataforma de concursos: +85% de receita com -13% no CPA.",
+    desc: "Oferta estruturada de ponta a ponta — da campanha ao lifecycle. Paid search e Meta integrados com CRM e ativação de base, levando o app a 2,3M de acessos mensais e 28,1% de market share no segmento de educação para concursos.",
     metrics: [["+85%", "Receita"], ["−13%", "CPA"], ["28,1%", "Market share"]],
     coverClass: "wa-case-cover-2",
     sparkline: "M0 80 L50 72 L100 58 L150 38 L200 22 L250 12 L300 5",
     gradId: "pg2",
+    briefing: "Plataforma de estudos para concursos públicos com crescimento estagnado. Campanhas rodando de forma isolada — sem conexão entre oferta, criativo e o que acontecia depois do clique. Necessidade de resultado expressivo em janela curta.",
+    actions: [
+      "Construímos uma oferta consistente e atraente que casava com o momento do usuário em cada etapa do funil — da descoberta até a reativação de base inativa.",
+      "Integramos paid search, Meta e campanhas de app com a operação de CRM: lifecycle de email acionado por comportamento de campanha, scoring de leads e régua de ativação.",
+      "Implementamos atribuição fim-a-fim para visibilidade real de qual canal e qual mensagem gerava receita — não apenas cliques.",
+    ],
+    result: "+85% de crescimento de receita YoY com -13% no CPA. App escalado para 2,3M de acessos mensais e 28,1% de market share no segmento educacional. O modelo de oferta e lifecycle se tornou o padrão da operação.",
   },
   {
-    id: "b2b-saas",
-    client: "Serviços B2B",
-    tag: "Serviços B2B · Google + Orgânico",
-    headline: "+30.000 leads/mês integrando paid e orgânico.",
-    desc: "Integração estratégica de canais pagos e orgânicos com tracking end-to-end. Estrutura de funil com scoring de leads e nurturing via CRM. Crescimento sustentável de pipeline, sem depender de um único canal.",
-    metrics: [["+30k", "Leads/mês"], ["Paid +", "Orgânico integrado"], ["E2E", "Tracking"]],
+    id: "contabilidade-facilitada",
+    client: "Instituição de ensino",
+    tag: "Educação superior · Google + Meta + Organic",
+    headline: "+30.000 leads/mês integrando paid, orgânico e lançamentos de pós-graduação.",
+    desc: "Coordenação de aquisição no lançamento simultâneo de 3 novos cursos de pós-graduação. Números recordes de captação com integração entre mídia paga, tráfego orgânico e operação comercial — todos medindo e otimizando pelo mesmo funil.",
+    metrics: [["+30k", "Leads/mês"], ["3", "Cursos lançados"], ["Recorde", "Captação"]],
     coverClass: "wa-case-cover-3",
     sparkline: "M0 78 L60 68 L110 55 L160 36 L210 20 L260 10 L300 4",
     gradId: "pg3",
+    briefing: "Instituição de ensino com operação de marketing e comercial historicamente desconectadas. Lançamento de 3 novos cursos de pós-graduação exigia escala rápida, com times e canais diferentes puxando para direções distintas.",
+    actions: [
+      "Centralizamos a estratégia de aquisição: paid search, Meta e conteúdo orgânico passaram a trabalhar com o mesmo funil, o mesmo lead scoring e os mesmos critérios de qualificação.",
+      "Estruturamos os lançamentos dos 3 cursos com campanhas dedicadas por segmento de público, evitando canibalização e garantindo volume em cada frente simultaneamente.",
+      "Conectamos marketing e comercial via CRM com nutrição automatizada — leads de diferentes fontes chegavam ao time de vendas com contexto e prioridade definidos.",
+    ],
+    result: "Captação recorde nos 3 cursos lançados, com mais de 30.000 leads/mês em pico de campanha. Integração entre canais eliminou sobreposição de audiência e aumentou eficiência de budget. Operação escalável para novos lançamentos.",
   },
 ]
 
@@ -155,18 +176,20 @@ function CaseDetail({ c, onBack }: { c: (typeof CASES)[0]; onBack: () => void })
       </div>
 
       <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "0 0 12px" }}>O briefing</h2>
-      <p style={{ fontSize: 16, color: "var(--fg-2)", lineHeight: 1.7, marginBottom: 24 }}>
-        Conta de anúncios no piloto automático. Campanhas canibalizando entre si, criativos sem atualização há meses e tracking incompleto. Sem visibilidade real de custo por lead qualificado.
+      <p style={{ fontSize: 16, color: "var(--fg-2)", lineHeight: 1.7, marginBottom: 32 }}>
+        {c.briefing}
       </p>
+
       <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "0 0 12px" }}>O que fizemos</h2>
-      <ol style={{ paddingLeft: 20, color: "var(--fg-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
-        <li style={{ marginBottom: 8 }}>Reconstruímos a estrutura de conta com segmentação limpa e listas negativas entre campanhas.</li>
-        <li style={{ marginBottom: 8 }}>Sprint de criativos semanal com análise de performance por variante usando Google Apps Script e Claude.</li>
-        <li style={{ marginBottom: 8 }}>Tracking end-to-end: GTM, CAPI e eventos de conversão enviados diretamente pelo backend, eliminando perda de sinal.</li>
+      <ol style={{ paddingLeft: 20, color: "var(--fg-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>
+        {c.actions.map((action, i) => (
+          <li key={i} style={{ marginBottom: 12 }}>{action}</li>
+        ))}
       </ol>
+
       <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-1)", margin: "0 0 12px" }}>Onde chegamos</h2>
       <p style={{ fontSize: 16, color: "var(--fg-2)", lineHeight: 1.7 }}>
-        Em 90 dias os resultados se consolidaram e continuaram melhorando com experimentos semanais. O playbook virou padrão para novas contas do mesmo segmento.
+        {c.result}
       </p>
     </article>
   )
@@ -225,11 +248,7 @@ function PortfolioContactForm() {
           </div>
           <div>
             <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--fg-1)", marginBottom: 6 }}>Investimento mensal em anúncios</label>
-            <select
-              value={form.spend}
-              onChange={(e) => setForm({ ...form, spend: e.target.value })}
-              style={selectStyle}
-            >
+            <select value={form.spend} onChange={(e) => setForm({ ...form, spend: e.target.value })} style={selectStyle}>
               <option value="Abaixo de R$20k" style={{ background: "#10151C", color: "#F7F9FC" }}>Abaixo de R$20k</option>
               <option value="R$20k – R$50k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$20k – R$50k</option>
               <option value="R$50k – R$250k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$50k – R$250k</option>
