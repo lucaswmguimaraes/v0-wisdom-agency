@@ -20,6 +20,8 @@ export function ContactForm() {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      spend: (form.elements.namedItem("spend") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     }
 
     try {
@@ -57,6 +59,19 @@ export function ContactForm() {
         </div>
       </div>
     )
+  }
+
+  const selectStyle: React.CSSProperties = {
+    width: "100%",
+    height: 40,
+    borderRadius: 6,
+    border: "1px solid var(--wa-border)",
+    background: "#10151C",
+    color: "#F7F9FC",
+    padding: "0 12px",
+    fontSize: 14,
+    cursor: "pointer",
+    appearance: "auto" as const,
   }
 
   return (
@@ -101,6 +116,43 @@ export function ContactForm() {
           type="text"
           placeholder="Acme Inc. ou acme.com"
           className="input-field w-full"
+        />
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="spend" className="text-sm font-medium text-foreground">
+          Investimento mensal em anúncios
+        </label>
+        <select id="spend" name="spend" style={selectStyle}>
+          <option value="Abaixo de R$20k" style={{ background: "#10151C", color: "#F7F9FC" }}>Abaixo de R$20k</option>
+          <option value="R$20k – R$50k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$20k – R$50k</option>
+          <option value="R$50k – R$250k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$50k – R$250k</option>
+          <option value="R$250k – R$1M" style={{ background: "#10151C", color: "#F7F9FC" }}>R$250k – R$1M</option>
+          <option value="R$1M+" style={{ background: "#10151C", color: "#F7F9FC" }}>R$1M+</option>
+        </select>
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="message" className="text-sm font-medium text-foreground">
+          O que você está tentando resolver?{" "}
+          <span className="text-muted-foreground font-normal">(opcional)</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={3}
+          placeholder="CPA subiu 40% desde a última atualização, Performance Max está comendo busca de marca..."
+          style={{
+            width: "100%",
+            borderRadius: 6,
+            border: "1px solid var(--wa-border)",
+            background: "var(--wa-bg)",
+            color: "var(--fg-1)",
+            padding: "8px 12px",
+            fontSize: 14,
+            lineHeight: 1.6,
+            resize: "none",
+          }}
         />
       </div>
 
