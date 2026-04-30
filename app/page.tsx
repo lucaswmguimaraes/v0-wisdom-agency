@@ -360,11 +360,10 @@ export default function LandingPage() {
             </div>
 
             <div className="wa-cases-grid">
-              {/* Case 1 — App de saúde */}
+              {/* Case 1 — App de cuidadores */}
               <Link href="/portfolio" className="wa-case-card">
                 <div className="wa-case-cover wa-case-cover-1" style={{ position: "relative" }}>
-                  <span className="wa-case-tag">App de saúde · Google + Meta</span>
-                  {/* Illustration */}
+                  <span className="wa-case-tag">App de cuidadores · Google + Meta</span>
                   <div style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-60%)", opacity: 0.25, pointerEvents: "none" }}>
                     <svg width="72" height="90" viewBox="0 0 72 90" fill="none">
                       <rect x="8" y="0" width="56" height="90" rx="10" stroke="white" strokeWidth="2" />
@@ -374,61 +373,35 @@ export default function LandingPage() {
                     </svg>
                   </div>
                   <div className="wa-case-cover-chart">
-                    <svg
-                      viewBox="0 0 300 90"
-                      preserveAspectRatio="none"
-                      style={{ width: "100%", height: "100%" }}
-                    >
+                    <svg viewBox="0 0 300 90" preserveAspectRatio="none" style={{ width: "100%", height: "100%" }}>
                       <defs>
                         <linearGradient id="cg1" x1="0" x2="0" y1="0" y2="1">
                           <stop offset="0%" stopColor="white" stopOpacity="0.4" />
                           <stop offset="100%" stopColor="white" stopOpacity="0" />
                         </linearGradient>
                       </defs>
-                      <path
-                        d="M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5"
-                        fill="none"
-                        stroke="white"
-                        strokeOpacity="0.9"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5 L300 90 L0 90 Z"
-                        fill="url(#cg1)"
-                      />
+                      <path d="M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5" fill="none" stroke="white" strokeOpacity="0.9" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M0 78 L50 68 L100 60 L150 44 L200 28 L250 14 L300 5 L300 90 L0 90 Z" fill="url(#cg1)" />
                     </svg>
                   </div>
                 </div>
                 <div className="wa-case-body">
-                  <h3>App de saúde: +329% de leads com -65% no CPL.</h3>
+                  <h3>App de cuidadores: +329% de leads qualificados com -65% no CPL.</h3>
                   <p style={{ marginTop: 8, fontSize: 14, color: "var(--fg-3)", lineHeight: 1.6 }}>
-                    Google Ads e Meta Ads reestruturados com foco em qualificação de lead. Tracking
-                    end-to-end via GTM e CAPI, com eventos de conversão enviados pelo backend.
-                    Operação escalada de R$8k para R$20k/mês em investimento, mantendo CPL.
+                    Reformulamos o formulário de captação com foco em qualificação mobile-first, aumentando de 34,8% para 60,8% a taxa de leads que viraram orçamentos. Operação escalada de R$8k para R$20k/mês mantendo CPL.
                   </p>
                   <div className="wa-case-metrics">
-                    <div>
-                      <strong>+329%</strong>
-                      <span>Leads</span>
-                    </div>
-                    <div>
-                      <strong>−65%</strong>
-                      <span>CPL</span>
-                    </div>
-                    <div>
-                      <strong>R$20k</strong>
-                      <span>Invest./mês</span>
-                    </div>
+                    <div><strong>+329%</strong><span>Leads</span></div>
+                    <div><strong>−65%</strong><span>CPL</span></div>
+                    <div><strong>60,8%</strong><span>Taxa de orçamento</span></div>
                   </div>
                 </div>
               </Link>
 
-              {/* Case 2 — Plataforma educacional */}
+              {/* Case 2 — Plataforma de concursos */}
               <Link href="/portfolio" className="wa-case-card">
                 <div className="wa-case-cover wa-case-cover-2" style={{ position: "relative" }}>
-                  <span className="wa-case-tag">Edtech · Google + Meta</span>
-                  {/* Illustration */}
+                  <span className="wa-case-tag">Edtech · Google + Meta + CRM</span>
                   <div style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-60%)", opacity: 0.25, pointerEvents: "none" }}>
                     <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
                       <rect x="4" y="48" width="12" height="20" rx="2" fill="white" />
@@ -439,52 +412,27 @@ export default function LandingPage() {
                     </svg>
                   </div>
                   <div className="wa-case-cover-chart">
-                    <svg
-                      viewBox="0 0 300 90"
-                      preserveAspectRatio="none"
-                      style={{ width: "100%", height: "100%" }}
-                    >
+                    <svg viewBox="0 0 300 90" preserveAspectRatio="none" style={{ width: "100%", height: "100%" }}>
                       <defs>
                         <linearGradient id="cg2" x1="0" x2="0" y1="0" y2="1">
                           <stop offset="0%" stopColor="white" stopOpacity="0.35" />
                           <stop offset="100%" stopColor="white" stopOpacity="0" />
                         </linearGradient>
                       </defs>
-                      <path
-                        d="M0 80 L50 72 L100 58 L150 38 L200 22 L250 12 L300 5"
-                        fill="none"
-                        stroke="white"
-                        strokeOpacity="0.85"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M0 80 L50 72 L100 58 L150 38 L200 22 L250 12 L300 5 L300 90 L0 90 Z"
-                        fill="url(#cg2)"
-                      />
+                      <path d="M0 80 L50 72 L100 58 L150 38 L200 22 L250 12 L300 5" fill="none" stroke="white" strokeOpacity="0.85" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M0 80 L50 72 L100 58 L150 38 L200 22 L250 12 L300 5 L300 90 L0 90 Z" fill="url(#cg2)" />
                     </svg>
                   </div>
                 </div>
                 <div className="wa-case-body">
-                  <h3>Plataforma de educação: +85% de receita com -13% no CPA.</h3>
+                  <h3>Plataforma de concursos: +85% de receita com -13% no CPA.</h3>
                   <p style={{ marginTop: 8, fontSize: 14, color: "var(--fg-3)", lineHeight: 1.6 }}>
-                    Rebuild completo de aquisição. Paid search e Meta integrados com email lifecycle e
-                    scoring de leads. App escalado para 2,3M de acessos mensais e 28,1% de market
-                    share no segmento educacional.
+                    Oferta estruturada de ponta a ponta — da campanha ao lifecycle. Paid search e Meta integrados com CRM e ativação de base, levando o app a 2,3M de acessos mensais e 28,1% de market share no segmento.
                   </p>
                   <div className="wa-case-metrics">
-                    <div>
-                      <strong>+85%</strong>
-                      <span>Receita</span>
-                    </div>
-                    <div>
-                      <strong>−13%</strong>
-                      <span>CPA</span>
-                    </div>
-                    <div>
-                      <strong>28,1%</strong>
-                      <span>Market share</span>
-                    </div>
+                    <div><strong>+85%</strong><span>Receita</span></div>
+                    <div><strong>−13%</strong><span>CPA</span></div>
+                    <div><strong>28,1%</strong><span>Market share</span></div>
                   </div>
                 </div>
               </Link>
