@@ -25,11 +25,11 @@ export function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com/wisdomagency"
+                href="https://instagram.com/wisdom.agc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Instagram @wisdomagency"
+                aria-label="Instagram @wisdom.agc"
               >
                 <Instagram className="h-5 w-5" />
               </a>
