@@ -16,11 +16,11 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-4">
               <a
-                href="https://www.linkedin.com/in/lucas-william-martins-guimaraes/"
+                href="https://www.linkedin.com/company/wisdom-agency"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="LinkedIn de Lucas Guimarães"
+                aria-label="LinkedIn da Wisdom Agency"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
