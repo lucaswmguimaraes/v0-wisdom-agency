@@ -349,13 +349,374 @@ const ARTICLES = [
       },
     ],
   },
+  {
+    id: 7,
+    title: "Bid strategies em 2026: quando usar tCPA, tROAS e Maximize Conversions — e quando não usar",
+    excerpt: "A escolha de bid strategy determina como o algoritmo aloca budget e quais usuários prioriza. Guia prático com os critérios de quando cada estratégia faz sentido — e os sinais de que ela está atrapalhando.",
+    category: "Mídia Paga",
+    hue: "blue",
+    icon: Target,
+    source: "Google Ads Help Center · Search Engine Journal",
+    readTime: 7,
+    date: "16 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "Bid strategy não é só uma configuração técnica — é a instrução que você dá ao algoritmo sobre o que otimizar. tCPA diz: 'traga conversões ao menor custo possível dentro deste target'. tROAS diz: 'maximize receita mantendo esta proporção de retorno'. Maximize Conversions diz: 'gaste o orçamento gerando o máximo de conversões, sem restrição de custo'. A escolha errada desperdiça budget; a escolha certa é o que separa contas que escalam das que ficam travadas.",
+      },
+      {
+        type: "h2",
+        text: "tCPA: quando faz sentido e quando não faz",
+      },
+      {
+        type: "p",
+        text: "tCPA funciona melhor quando você tem um volume consistente de conversões — o Google recomenda pelo menos 30 por mês na campanha, mas na prática contas com menos de 50 conversões mensais têm learning phase prolongada e oscilação de CPA alta. A estratégia funciona bem para leads com valor relativamente homogêneo: geração de cadastros, downloads, agendamentos.",
+      },
+      {
+        type: "p",
+        text: "Onde o tCPA atrapalha: quando o target está muito abaixo do CPA histórico real da conta. O algoritmo vai restringir tanto a entrega que a campanha para de gastar o orçamento. O sinal: impression share caindo, budget não sendo gasto, volume de conversões em queda. Regra prática — defina o target com no máximo 20% abaixo do CPA dos últimos 30 dias e reduza gradualmente.",
+      },
+      {
+        type: "highlight",
+        label: "Learning phase",
+        text: "Qualquer mudança de bid strategy, target ou estrutura de campanha reinicia a learning phase — que dura entre 1 e 2 semanas. Durante esse período, performance oscila e dados não são representativos. Evite fazer múltiplas mudanças simultâneas e não avalie resultado durante a learning phase.",
+      },
+      {
+        type: "h2",
+        text: "tROAS: para quem tem valor de conversão variável",
+      },
+      {
+        type: "p",
+        text: "tROAS é para e-commerce ou qualquer contexto onde diferentes conversões têm valores diferentes. Se um cliente compra R$50 e outro compra R$500, otimizar por CPA trata os dois igualmente. tROAS instrui o algoritmo a priorizar conversões de maior valor. Requisito mínimo: 50 conversões com valores distintos por mês. Abaixo disso, o algoritmo não tem dados suficientes para aprender a diferença.",
+      },
+      {
+        type: "h2",
+        text: "Maximize Conversions: a estratégia de warm-up",
+      },
+      {
+        type: "p",
+        text: "Maximize Conversions sem target é a estratégia correta para contas novas ou campanhas com pouco histórico. Sem um target definido, o algoritmo tem liberdade para explorar e acumular dados de conversão. Depois de 30 a 50 conversões, você migra para tCPA com um target baseado no CPA observado. Pular essa etapa e já começar com tCPA restritivo é o erro mais comum em contas novas.",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Conta nova ou campanha sem histórico.", text: " Use Maximize Conversions sem target por 4 a 6 semanas para acumular dados." },
+          { bold: "30-50 conversões mensais, valor homogêneo.", text: " Migre para tCPA com target baseado no CPA real dos últimos 30 dias." },
+          { bold: "50+ conversões mensais, valor variável.", text: " tROAS com target baseado no ROAS histórico real, não na meta ideal." },
+          { bold: "Sinal de problema em tCPA/tROAS.", text: " Budget não gasto + IS em queda = target irreal. Eleve o target em 15-20% e monitore por 7 dias antes de ajustar novamente." },
+        ],
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "Landing page para mídia paga: os 5 elementos que mais impactam conversão",
+    excerpt: "A landing page é onde o dinheiro da mídia vai — ou some. Análise dos 5 elementos com maior impacto comprovado em taxa de conversão, com exemplos práticos para B2B e DTC.",
+    category: "Mídia Paga",
+    hue: "slate",
+    icon: BarChart3,
+    source: "CXL Institute · Unbounce",
+    readTime: 6,
+    date: "15 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "Uma landing page ruim desperdiça todo o trabalho de targeting, criativo e bid strategy. O tráfego chega, não converte, e o CPA sobe. A CXL Institute analisou centenas de testes A/B em landing pages de performance e identificou os elementos com maior impacto consistente em taxa de conversão. Não são os que você provavelmente imagina.",
+      },
+      {
+        type: "h2",
+        text: "1. Hero acima da dobra: clareza antes de criatividade",
+      },
+      {
+        type: "p",
+        text: "O teste que a CXL repete mais em auditorias: 'um estranho consegue entender o que você oferece em 5 segundos?' A maioria não passa. Headlines criativas que priorizam metáfora sobre clareza aumentam bounce rate. O hero precisa responder três perguntas sem scroll: o que é, para quem é, e o que acontece quando eu clicar. Criatividade vem depois que a proposta está clara.",
+      },
+      {
+        type: "h2",
+        text: "2. Social proof específico, não genérico",
+      },
+      {
+        type: "p",
+        text: "Depoimentos do tipo 'ótimo produto, recomendo!' não convertem. Depoimentos que descrevem o problema antes do produto, mencionam resultado específico e têm foto real do cliente são os que movem agulha. Para B2B: logos de clientes conhecidos acima da dobra têm impacto significativo em confiança. Para DTC: avaliações com fotos reais de uso superam estúdio profissional.",
+      },
+      {
+        type: "highlight",
+        label: "Dado do Unbounce",
+        text: "Páginas com depoimentos específicos (resultado + contexto + pessoa real) convertem em média 34% mais do que páginas com depoimentos genéricos ou sem depoimento, segundo análise de 40.000 landing pages da Unbounce.",
+      },
+      {
+        type: "h2",
+        text: "3. CTA único e visível — sem opções paralelas",
+      },
+      {
+        type: "p",
+        text: "Cada CTA adicional na página divide a atenção e reduz a taxa de conversão do CTA principal. A regra é uma ação por página. Botões de redes sociais, links para outras páginas, menus de navegação completos — tudo isso aumenta taxa de saída sem aumentar conversão. Em landing pages de campanha, remova a navegação global.",
+      },
+      {
+        type: "h2",
+        text: "4. Velocidade: cada segundo conta literalmente",
+      },
+      {
+        type: "p",
+        text: "O Google documentou que cada segundo adicional de carregamento reduz conversão em 7% em mobile. Para tráfego pago, onde o usuário veio de um anúncio e tem expectativa de resposta imediata, a tolerância é ainda menor. Core Web Vitals abaixo de 2.5s de LCP é o piso mínimo. Use PageSpeed Insights para auditar e priorize: comprimir imagens, eliminar JavaScript desnecessário, usar CDN.",
+      },
+      {
+        type: "h2",
+        text: "5. Message match: a congruência entre anúncio e página",
+      },
+      {
+        type: "p",
+        text: "Message match é a consistência entre o que o anúncio promete e o que a landing page entrega. Se o anúncio diz 'Diagnóstico gratuito em 24h' e a landing page abre com um hero genérico sobre a empresa, há ruptura de expectativa — o usuário se pergunta se clicou no lugar certo. A headline da landing page deve espelhar a promessa do anúncio. Para campanhas com múltiplos criativos, landing pages dinâmicas ou versões separadas por mensagem aumentam conversão consistentemente.",
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "Automação com Claude e Apps Script: como construir um relatório de performance semanal em 4 horas",
+    excerpt: "Passo a passo para criar um pipeline que lê dados do Google Ads, analisa com Claude e envia um resumo formatado toda segunda. Código real, sem atalho.",
+    category: "IA para Marketing",
+    hue: "teal",
+    icon: Zap,
+    source: "Anthropic Docs · Google Workspace Developers",
+    readTime: 8,
+    date: "14 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "O pipeline completo: um Google Ads Script puxa dados da semana anterior via GAQL e grava em um Sheets. Um Apps Script lê esse Sheets, monta um prompt estruturado com os dados e chama a API do Claude. O Claude analisa, prioriza e formata um resumo com as principais movimentações e recomendações. Outro Apps Script envia o resultado por email toda segunda às 8h. Setup de 4 horas, economia de 2 a 3 horas toda semana.",
+      },
+      {
+        type: "h2",
+        text: "Passo 1: Google Ads Script para puxar os dados",
+      },
+      {
+        type: "p",
+        text: "No Google Ads, acesse Ferramentas > Scripts e crie um novo script. A query GAQL básica para performance por campanha: SELECT campaign.name, metrics.cost_micros, metrics.conversions, metrics.clicks, metrics.impressions FROM campaign WHERE segments.date DURING LAST_7_DAYS. O AdsApp.report() executa a query e retorna os dados. Use SpreadsheetApp.openById() para gravar no Sheets com o ID da planilha que você criou.",
+      },
+      {
+        type: "highlight",
+        label: "Dica de configuração",
+        text: "Crie uma planilha dedicada para o pipeline com abas separadas: 'dados_brutos' (onde o Ads Script grava), 'análise' (onde o Apps Script escreve o output do Claude) e 'histórico' (arquivo das semanas anteriores). Isso facilita debug e permite comparações históricas.",
+      },
+      {
+        type: "h2",
+        text: "Passo 2: Apps Script para chamar a API do Claude",
+      },
+      {
+        type: "p",
+        text: "No Google Sheets, acesse Extensões > Apps Script. O script lê os dados da aba 'dados_brutos', monta um objeto JSON com as métricas por campanha e constrói o prompt: 'Você é um analista de mídia paga sênior. Analise os dados de performance da semana e identifique: 1) campanhas com maior variação positiva e negativa, 2) oportunidades de otimização imediata, 3) alertas que precisam de ação até amanhã. Seja direto e específico. Dados: [JSON dos dados]'.",
+      },
+      {
+        type: "p",
+        text: "A chamada para a API do Claude usa UrlFetchApp.fetch() com o endpoint da Anthropic (api.anthropic.com/v1/messages), headers com a API key armazenada nas propriedades do script (não hardcoded), e o body com modelo, max_tokens e messages. O response é parseado e o texto da análise é gravado na aba 'análise'.",
+      },
+      {
+        type: "h2",
+        text: "Passo 3: envio automático por email",
+      },
+      {
+        type: "p",
+        text: "GmailApp.sendEmail() é a função mais simples. Passe o destinatário, assunto com a data da semana, e o corpo com o texto da análise formatado em HTML básico para melhor legibilidade. Para times maiores, use um loop com array de destinatários. Configure um trigger em Editar > Gatilhos para rodar toda segunda às 8h — o Apps Script tem um scheduler nativo que não precisa de servidor externo.",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Armazene a API key com segurança.", text: " Use PropertiesService.getScriptProperties().setProperty('CLAUDE_API_KEY', 'sua-key') — nunca hardcode credenciais no código." },
+          { bold: "Adicione tratamento de erro.", text: " O pipeline pode falhar se o Sheets estiver vazio ou a API retornar erro. Use try/catch e envie um email de alerta em caso de falha." },
+          { bold: "Itere no prompt.", text: " A primeira versão do prompt vai gerar análises genéricas. Refine adicionando contexto sobre a conta, metas do período e formato desejado do output." },
+        ],
+      },
+    ],
+  },
+  {
+    id: 10,
+    title: "Creative testing no Meta: a metodologia que separa o que funciona do que parece funcionar",
+    excerpt: "Testar criativos sem metodologia gera dados que confirmam o que você já queria acreditar. Como estruturar testes de criativo que produzem aprendizado real — e como escalar os vencedores sem quebrar a conta.",
+    category: "Mídia Paga",
+    hue: "deep",
+    icon: Target,
+    source: "Meta Business · Search Engine Journal",
+    readTime: 7,
+    date: "13 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "A maioria dos testes de criativo no Meta não produz aprendizado — produz confirmação de viés. Você testa dois anúncios, um ganha, você escala. Mas o vencedor pode ter ganhado por variação estatística normal, não por diferença real de performance. Três semanas depois, o 'vencedor' está com CPA igual ao perdedor. Uma metodologia de teste correta é a diferença entre construir um sistema de criativo que aprende e rodar testes que não chegam a lugar nenhum.",
+      },
+      {
+        type: "h2",
+        text: "O princípio fundamental: isole uma variável por vez",
+      },
+      {
+        type: "p",
+        text: "Se você testa imagem diferente, copy diferente e CTA diferente ao mesmo tempo, você sabe qual variação ganhou — mas não sabe por quê. Na próxima iteração, você não tem hipótese testável. Teste uma variável de cada vez: só o hook visual, ou só o headline, ou só o formato. Leva mais tempo, mas gera hipóteses que se acumulam em conhecimento sobre o que funciona para a sua audiência específica.",
+      },
+      {
+        type: "highlight",
+        label: "Orçamento mínimo por criativo",
+        text: "O Meta recomenda pelo menos R$50/dia por variação para que o algoritmo distribua impressões de forma equitativa. Abaixo disso, o algoritmo favorece um criativo cedo demais e o teste fica contaminado. Para contas menores, teste no máximo 2 a 3 variações simultaneamente.",
+      },
+      {
+        type: "h2",
+        text: "Duração mínima e sinais de vencedor real",
+      },
+      {
+        type: "p",
+        text: "Um teste de criativo precisa de pelo menos 7 dias e no mínimo 50 a 100 eventos do objetivo (cliques, leads ou compras) por variação para ter significância estatística mínima. Antes disso, qualquer diferença de performance pode ser ruído. O sinal de vencedor real: CTR ou taxa de conversão consistentemente superior por pelo menos 5 dias consecutivos, não apenas no agregado do período.",
+      },
+      {
+        type: "h2",
+        text: "Como escalar sem quebrar o vencedor",
+      },
+      {
+        type: "p",
+        text: "O erro clássico: o criativo vence, você duplica o adset e dobra o budget no mesmo dia. O Meta interpreta a duplicação como uma campanha nova e reinicia o aprendizado. O resultado vencedor some. A forma correta de escalar: aumente o budget do adset original em no máximo 20% por vez, com intervalo de pelo menos 3 dias entre aumentos. Se precisar de escala mais rápida, duplique o adset mas com públicos diferentes — não o mesmo público com budget maior.",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Crie um banco de hipóteses antes de testar.", text: " Para cada teste, documente: o que você está testando, por que você acha que vai fazer diferença, e o critério de sucesso. Isso evita interpretar resultados de forma oportunista." },
+          { bold: "Use Campaign Budget Optimization (CBO) com cautela em testes.", text: " O CBO distribui budget entre adsets automaticamente — o que pode concentrar em um criativo cedo demais. Para testes, use ABO (Ad Set Budget Optimization) para controle igual." },
+          { bold: "Arquive, não delete.", text: " Criativos 'perdedores' hoje podem vencer com uma audiência diferente ou em outro momento do funil. Archive e documente o resultado em vez de deletar." },
+        ],
+      },
+    ],
+  },
+  {
+    id: 11,
+    title: "Google Analytics 4: as 6 configurações que a maioria das contas ignora",
+    excerpt: "GA4 instalado não é GA4 configurado. As 6 configurações que mais impactam a qualidade dos dados — da integração com Google Ads ao data stream correto para cross-domain tracking.",
+    category: "Funil e Analytics",
+    hue: "navy",
+    icon: TrendingUp,
+    source: "Google Analytics Help · Measure School",
+    readTime: 6,
+    date: "12 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "A maioria das contas de GA4 tem o código instalado mas a configuração incompleta. O resultado: dados de atribuição incorretos, audiences de remarketing mal formadas, e decisões de mídia baseadas em números que não refletem o comportamento real do usuário. Seis configurações que fazem diferença real — e que a maioria das contas não tem feita corretamente.",
+      },
+      {
+        type: "h2",
+        text: "1. Integração com Google Ads para importação de conversões",
+      },
+      {
+        type: "p",
+        text: "A maioria das contas usa conversões nativas do Google Ads (tags de conversão) em vez de importar do GA4. O problema: as duas fontes medem de forma diferente e raramente batem. Definir o GA4 como fonte única de verdade para conversões — e importar para o Google Ads — garante consistência entre o que você vê no GA4 e o que o algoritmo do Google Ads está otimizando.",
+      },
+      {
+        type: "h2",
+        text: "2. Configuração correta de data streams",
+      },
+      {
+        type: "p",
+        text: "Um data stream por domínio. Se você tem site principal e subdomínio de checkout em domínios diferentes, precisa de cross-domain tracking configurado — caso contrário, GA4 conta uma nova sessão a cada cruzamento de domínio, inflando artificialmente o número de sessões e distorcendo o caminho de conversão.",
+      },
+      {
+        type: "highlight",
+        label: "Cross-domain tracking",
+        text: "Configure em Admin > Data Streams > Enhanced Measurement > Cross-domain measurement. Adicione todos os domínios que fazem parte do mesmo fluxo do usuário. Sem isso, uma compra que passa por checkout.seusite.com aparece como se viesse de tráfego direto, sem atribuição ao canal original.",
+      },
+      {
+        type: "h2",
+        text: "3. Filtros de tráfego interno",
+      },
+      {
+        type: "p",
+        text: "Tráfego do seu próprio time contamina dados de comportamento e conversão. Configure filtros de IP interno em Admin > Data Streams > Configure Tag Settings > Define Internal Traffic. Para times remotos com IPs dinâmicos, use o parâmetro debug_mode via GTM para excluir tráfego de teste.",
+      },
+      {
+        type: "h2",
+        text: "4. Enhanced measurement: o que ativar e o que desativar",
+      },
+      {
+        type: "p",
+        text: "O enhanced measurement ativa automaticamente rastreamento de scrolls, cliques em links externos, buscas no site, vídeos do YouTube e downloads. Na maioria dos casos, ative tudo — mas revise 'form interactions': dependendo de como seus formulários são construídos, pode registrar eventos de form_submit sem conversão real, inflando o número de leads.",
+      },
+      {
+        type: "h2",
+        text: "5. Configuração de audiences para remarketing",
+      },
+      {
+        type: "p",
+        text: "Audiences no GA4 precisam de pelo menos 100 usuários para serem usadas no Google Ads. Configure audiences baseadas em comportamento de alto valor — usuários que visitaram a página de preços, assistiram mais de 75% de um vídeo, iniciaram um checkout sem completar. Audiences genéricas ('todos os visitantes dos últimos 30 dias') têm performance de remarketing significativamente inferior.",
+      },
+      {
+        type: "h2",
+        text: "6. Configuração do modelo de atribuição",
+      },
+      {
+        type: "p",
+        text: "O GA4 usa Data-Driven Attribution por padrão para contas com volume suficiente — o que é melhor que last-click na maioria dos casos. Mas verifique em Admin > Attribution Settings qual modelo está ativo e qual janela de conversão está configurada. A janela padrão de 30 dias pode não refletir seu ciclo de compra real: produtos de alta consideração se beneficiam de janelas mais longas; produtos de compra por impulso, de janelas menores.",
+      },
+    ],
+  },
+  {
+    id: 12,
+    title: "O que é CAPI e por que você deveria ter configurado há meses",
+    excerpt: "Conversions API (CAPI) é a alternativa server-side ao pixel — e desde o iOS 14, é a diferença entre dados confiáveis e estimativas. Como funciona, o que recupera e como implementar.",
+    category: "Fundamentos",
+    hue: "ink",
+    icon: BookOpen,
+    source: "Meta Business · Search Engine Land",
+    readTime: 5,
+    date: "11 Abr",
+    body: [
+      {
+        type: "lead",
+        text: "O pixel do Meta é client-side: ele roda no navegador do usuário e envia dados de comportamento para o Meta. O problema: desde o iOS 14 e as mudanças de privacidade dos navegadores, uma parcela crescente desses eventos nunca chega. Safari bloqueia. Usuários optam por sair do rastreamento. Ad blockers interferem. A Conversions API (CAPI) resolve isso por outro caminho — direto do seu servidor para o servidor do Meta, sem depender do navegador.",
+      },
+      {
+        type: "h2",
+        text: "Client-side vs server-side: a diferença que importa",
+      },
+      {
+        type: "p",
+        text: "O pixel client-side dispara quando o JavaScript roda no navegador do usuário após uma ação (compra, lead, visualização de página). Se o navegador bloqueia ou o usuário fecha a página antes do disparo, o evento se perde. O CAPI dispara do seu servidor — quando a compra é confirmada no banco de dados, você envia o evento para a API do Meta independentemente do que aconteceu no navegador. O evento não pode ser bloqueado porque não passa pelo navegador.",
+      },
+      {
+        type: "highlight",
+        label: "O impacto do iOS 14",
+        text: "O Meta estimou que o iOS 14 causou redução de 15% a 20% na mensuração de eventos de conversão para campanhas mobile. Para e-commerces com base significativa de usuários iOS (especialmente no segmento premium), a diferença entre dados com CAPI e sem CAPI pode ser a diferença entre uma campanha que aparece como lucrativa e uma que aparece como ineficiente.",
+      },
+      {
+        type: "h2",
+        text: "Event Match Quality Score: o que o Meta mede",
+      },
+      {
+        type: "p",
+        text: "O Meta usa o Event Match Quality (EMQ) Score para avaliar a qualidade dos dados do CAPI — de 0 a 10, mede o quanto os eventos enviados conseguem ser associados a um usuário real do Facebook. Quanto mais dados de identificação você envia junto com o evento (email com hash, telefone, nome, endereço), maior o score. Um EMQ acima de 7 é considerado bom; abaixo de 5 indica que os eventos estão chegando mas sem dados suficientes para match.",
+      },
+      {
+        type: "h2",
+        text: "Como implementar: as 3 formas principais",
+      },
+      {
+        type: "ol",
+        items: [
+          { bold: "Integração direta via API.", text: " A forma mais robusta e flexível. Você controla exatamente quais dados enviar e quando. Requer desenvolvimento backend. A documentação da Meta Business tem SDKs em PHP, Python, Ruby e Node." },
+          { bold: "Via Google Tag Manager (server-side container).", text: " Se você já usa GTM, um server-side container processa eventos no servidor antes de enviá-los para o Meta. Configuração mais rápida que integração direta, com menos controle granular." },
+          { bold: "Via parceiros de plataforma (Shopify, WooCommerce).",  text: " Shopify tem integração nativa com CAPI no app oficial do Meta. Para a maioria dos e-commerces em Shopify, essa é a forma mais rápida e com menor risco de implementação incorreta." },
+        ],
+      },
+      {
+        type: "h2",
+        text: "Pixel e CAPI juntos: como evitar deduplicação incorreta",
+      },
+      {
+        type: "p",
+        text: "O ideal é rodar pixel e CAPI simultaneamente — o pixel captura o que consegue no navegador, o CAPI captura o restante do servidor. Para evitar contagem duplicada do mesmo evento, inclua um event_id único em ambos os disparos. O Meta usa esse ID para deduplicar: se receber o mesmo event_id via pixel e via CAPI, conta como um evento só. Sem deduplicação correta, as conversões reportadas ficam infladas e o algoritmo otimiza com dados errados.",
+      },
+    ],
+  },
 ]
 
 const TOPICS = [
-  { name: "IA para profissionais de marketing", icon: Bot, desc: "Prompts, automações e stacks que realmente economizam tempo.", count: 2 },
-  { name: "Mídia paga", icon: Target, desc: "Google Ads, Meta Ads, estrutura de conta, testes de criativos.", count: 2 },
-  { name: "Funil e analytics", icon: BarChart3, desc: "Atribuição que sobrevive às atualizações do iOS.", count: 1 },
-  { name: "Fundamentos", icon: BookOpen, desc: "O glossário em linguagem simples para quem está começando.", count: 1 },
+  { name: "IA para profissionais de marketing", icon: Bot, desc: "Prompts, automações e stacks que realmente economizam tempo.", count: 3, categoryFilter: "IA para Marketing" },
+  { name: "Mídia paga", icon: Target, desc: "Google Ads, Meta Ads, estrutura de conta, testes de criativos.", count: 5, categoryFilter: "Mídia Paga" },
+  { name: "Funil e analytics", icon: BarChart3, desc: "Atribuição que sobrevive às atualizações do iOS.", count: 2, categoryFilter: "Funil e Analytics" },
+  { name: "Fundamentos", icon: BookOpen, desc: "O glossário em linguagem simples para quem está começando.", count: 2, categoryFilter: "Fundamentos" },
 ]
 
 function ArticleCard({ article, onClick }: { article: typeof ARTICLES[0]; onClick: () => void }) {
@@ -467,6 +828,11 @@ function ArticleReader({ article, onBack }: { article: typeof ARTICLES[0]; onBac
 
 export default function ContentPage() {
   const [selectedArticle, setSelectedArticle] = useState<typeof ARTICLES[0] | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+
+  const filteredArticles = selectedCategory
+    ? ARTICLES.filter((a) => a.category === selectedCategory)
+    : ARTICLES
 
   if (selectedArticle) {
     return (
@@ -524,14 +890,26 @@ export default function ContentPage() {
               <div className="wa-section-eyebrow" style={{ marginBottom: 12 }}>
                 <span className="wa-section-eyebrow-dot" /> Últimos playbooks
               </div>
-              <h2 className="wa-section-h2">Novidades da semana</h2>
+              <h2 className="wa-section-h2">
+                {selectedCategory ? selectedCategory : "Novidades da semana"}
+              </h2>
             </div>
-            <a href="#" style={{ color: "var(--wa-blue-500)", fontSize: 14, fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>
-              Ver todos <ArrowRight style={{ width: 14, height: 14 }} />
-            </a>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              {selectedCategory && (
+                <button
+                  onClick={() => setSelectedCategory(null)}
+                  style={{ fontSize: 13, color: "var(--fg-3)", background: "var(--bg-2)", border: "1px solid var(--wa-border)", borderRadius: 8, padding: "6px 14px", cursor: "pointer", fontFamily: "inherit" }}
+                >
+                  Todos
+                </button>
+              )}
+              <a href="#" style={{ color: "var(--wa-blue-500)", fontSize: 14, fontWeight: 500, display: "inline-flex", alignItems: "center", gap: 4 }}>
+                Ver todos <ArrowRight style={{ width: 14, height: 14 }} />
+              </a>
+            </div>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(320px,1fr))", gap: 24 }}>
-            {ARTICLES.map((a) => <ArticleCard key={a.id} article={a} onClick={() => { setSelectedArticle(a); window.scrollTo(0, 0) }} />)}
+            {filteredArticles.map((a) => <ArticleCard key={a.id} article={a} onClick={() => { setSelectedArticle(a); window.scrollTo(0, 0) }} />)}
           </div>
         </section>
 
@@ -545,7 +923,21 @@ export default function ContentPage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", gap: 20 }}>
             {TOPICS.map((t) => (
-              <div key={t.name} style={{ background: "var(--bg-2)", border: "1px solid var(--wa-border)", borderRadius: 12, padding: 24, cursor: "pointer", display: "flex", flexDirection: "column", gap: 12 }}>
+              <div
+                key={t.name}
+                onClick={() => setSelectedCategory(selectedCategory === t.categoryFilter ? null : t.categoryFilter)}
+                style={{
+                  background: "var(--bg-2)",
+                  border: selectedCategory === t.categoryFilter ? "2px solid var(--wa-blue-500)" : "1px solid var(--wa-border)",
+                  borderRadius: 12,
+                  padding: 24,
+                  cursor: "pointer",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 12,
+                  transition: "border-color 0.15s",
+                }}
+              >
                 <div style={{ width: 40, height: 40, background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--wa-blue-300)" }}>
                   <t.icon style={{ width: 20, height: 20 }} />
                 </div>
