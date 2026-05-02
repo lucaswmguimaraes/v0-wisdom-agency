@@ -20,7 +20,7 @@ const SERVICES = [
     icon: <Target className="h-6 w-6" />,
     title: "Gestão de mídia paga",
     desc:
-      "Google, Meta, LinkedIn e TikTok. Estrutura de conta, teste de criativo, estratégia de lance e pacing — com acompanhamento pelo WhatsApp com suporte a qualquer momento.",
+      "Google, Meta, LinkedIn e TikTok. Estrutura de conta, sistema de criativo, estratégia de lance e pacing — com acompanhamento direto, sem intermediário.",
     bullets: ["R$20M+ em mídia gerenciada", "ROAS médio 4x+", "Relatórios com insights, não planilhas"],
   },
   {
@@ -154,10 +154,11 @@ export default function LandingPage() {
                     marginTop: 20,
                   }}
                 >
-                  Mídia paga e{" "}
-                  <em style={{ fontStyle: "italic", color: "var(--fg-2)" }}>IA aplicada</em>,
+                  Mídia paga com{" "}
+                  <em style={{ fontStyle: "italic", color: "var(--fg-2)" }}>dado real</em>{" "}
+                  —
                   <br />
-                  <span className="wa-grad">feitas para crescer.</span>
+                  <span className="wa-grad">e tudo que ela precisa para funcionar.</span>
                 </h1>
 
                 {/* Lead */}
@@ -172,9 +173,8 @@ export default function LandingPage() {
                     maxWidth: 520,
                   }}
                 >
-                  Já gerenciei mais de{" "}
-                  <strong style={{ color: "var(--fg-1)" }}>R$20M em mídia paga</strong> para marcas B2B e DTC.
-                  Sem hand-off de júnior, sem 40 slides de deck. Apenas retornos que compõem.
+                  <strong style={{ color: "var(--fg-1)" }}>R$20M+</strong> em mídia paga gerenciados para marcas B2B e DTC.
+                  Anúncio sozinho não escala — estruturamos oferta, landing, criativo e atribuição de ponta a ponta.
                 </p>
 
                 {/* CTAs */}
@@ -256,11 +256,12 @@ export default function LandingPage() {
                 Serviços
               </div>
               <h2 className="wa-section-h2" style={{ marginTop: 16 }}>
-                Três coisas. <span className="wa-grad">Feitas muito bem.</span>
+                Mídia paga no centro.{" "}
+                <span className="wa-grad">O resto em torno disso.</span>
               </h2>
               <p style={{ marginTop: 16, fontSize: 17, color: "var(--fg-2)", maxWidth: 520 }}>
-                A gente não faz SEO, social media, influencer ou PR — de propósito. É o que mantém
-                nosso time afiado.
+                Focamos em performance com mídia paga. Quando precisar de brand guide, landing page ou estratégia
+                full-funnel, fazemos — mas sempre a serviço do resultado em mídia.
               </p>
             </div>
 
