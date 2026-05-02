@@ -18,7 +18,6 @@ const PLATFORMS = [
   { name: "Looker Studio", color: "#4285F4" },
   { name: "Apps Script", color: "#34A853" },
   { name: "Claude", color: "#CC785C" },
-  { name: "n8n", color: "#EA4B71" },
 ]
 
 const LOOP = [...PLATFORMS, ...PLATFORMS]
