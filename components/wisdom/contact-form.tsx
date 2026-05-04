@@ -46,9 +46,9 @@ export function ContactForm() {
         <div>
           <p className="text-foreground font-medium">Mensagem recebida.</p>
           <p className="text-sm text-muted-foreground mt-1">
-            Resposta em até 24h. Enquanto isso, você pode me seguir no{" "}
+            Resposta em até 24h. Enquanto isso, você pode nos seguir no{" "}
             <a
-              href="https://www.linkedin.com/in/lucas-william-martins-guimaraes/"
+              href="https://www.linkedin.com/company/wisdom-agency"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
@@ -86,6 +86,7 @@ export function ContactForm() {
             name="name"
             type="text"
             required
+            maxLength={100}
             placeholder="Seu nome"
             className="input-field w-full"
           />
@@ -99,6 +100,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
+            maxLength={200}
             placeholder="voce@empresa.com"
             className="input-field w-full"
           />
@@ -114,6 +116,7 @@ export function ContactForm() {
           id="company"
           name="company"
           type="text"
+          maxLength={200}
           placeholder="Acme Inc. ou acme.com"
           className="input-field w-full"
         />
@@ -141,6 +144,7 @@ export function ContactForm() {
           id="message"
           name="message"
           rows={3}
+          maxLength={2000}
           placeholder="CPA subiu 40% desde a última atualização, Performance Max está comendo busca de marca..."
           style={{
             width: "100%",
