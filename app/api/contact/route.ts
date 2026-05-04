@@ -19,9 +19,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email inválido" }, { status: 400 })
     }
 
+    if (String(name).length > 100 || String(email).length > 200) {
+      return NextResponse.json({ error: "Dados inválidos" }, { status: 400 })
+    }
+
+    if (company && String(company).length > 200) {
+      return NextResponse.json({ error: "Dados inválidos" }, { status: 400 })
+    }
+
+    if (message && String(message).length > 2000) {
+      return NextResponse.json({ error: "Dados inválidos" }, { status: 400 })
+    }
+
     const { error } = await supabase
       .from("leads")
-      .insert([{ name, email, company: company || null, spend: spend || null, message: message || null }])
+      .insert([{
+        name: String(name).trim(),
+        email: String(email).trim().toLowerCase(),
+        company: company ? String(company).trim() : null,
+        spend: spend || null,
+        message: message ? String(message).trim() : null,
+      }])
 
     if (error) {
       console.error("[contact] supabase error:", error)
