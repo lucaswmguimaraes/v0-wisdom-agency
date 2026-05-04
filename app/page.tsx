@@ -35,7 +35,7 @@ const SERVICES = [
     title: "Estratégia full-funnel",
     desc:
       "Anúncio é o último metro. Mapeamos oferta, landing, lifecycle e atribuição — para que mídia paga componha resultado.",
-    bullets: ["Auditoria em 7 dias", "Roadmap trimestral", "Atribuição fim-a-fim"],
+    bullets: ["Auditoria em 7 dias", "Roadmap trimestral", "Atribuição end-to-end"],
   },
 ]
 
