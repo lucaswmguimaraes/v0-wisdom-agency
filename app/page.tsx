@@ -449,7 +449,7 @@ export default function LandingPage() {
               Disponível para novos projetos
             </div>
             <h2 style={{ marginTop: 24 }}>
-              Pronto pra parar de{" "}
+              Pronto para parar de{" "}
               <em style={{ fontStyle: "italic", color: "var(--fg-2)" }}>achar</em>
               <br />
               e começar a{" "}
@@ -464,8 +464,7 @@ export default function LandingPage() {
                 lineHeight: 1.65,
               }}
             >
-              Conte sobre sua conta. Se fizer sentido, mando uma proposta em até 48h. Se não,
-              indico alguém que faz.
+              Conte sobre sua conta. Se fizer sentido, mando uma proposta em até 48h.
             </p>
             <div
               style={{
