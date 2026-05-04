@@ -16,12 +16,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Wisdom Agency — Performance Marketing & IA Aplicada',
-  description: 'Gestão de mídia paga para empresas B2B e DTC. R$1M+/mês gerenciados. Cases reais: +329% leads, +85% receita. Lucas Guimarães — Growth Marketing Specialist.',
+  description: 'Gestão de mídia paga para empresas B2B e DTC. R$20M+ gerenciados ao longo da carreira. Cases reais: +329% leads, +85% receita. Lucas Guimarães — Growth Marketing Specialist.',
   openGraph: {
     title: 'Wisdom Agency — Performance Marketing & IA Aplicada',
-    description: 'Gestão de mídia paga para empresas B2B e DTC. R$1M+/mês gerenciados.',
+    description: 'Gestão de mídia paga para empresas B2B e DTC. R$20M+ gerenciados.',
     type: 'website',
     locale: 'pt_BR',
+    url: 'https://wisdomagency.com.br',
     images: [{
       url: '/og-image.png',
       width: 1200,
