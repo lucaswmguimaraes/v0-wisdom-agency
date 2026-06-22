@@ -42,8 +42,11 @@ export async function POST(req: NextRequest) {
       }])
 
     if (error) {
-      console.error("[contact] supabase error:", error)
-      return NextResponse.json({ error: "Erro ao salvar lead" }, { status: 500 })
+      console.error("[contact] supabase error code:", error.code)
+      console.error("[contact] supabase error message:", error.message)
+      console.error("[contact] supabase error details:", error.details)
+      console.error("[contact] supabase error hint:", error.hint)
+      return NextResponse.json({ error: "Erro ao salvar lead", detail: error.message, code: error.code }, { status: 500 })
     }
 
     return NextResponse.json({ ok: true })
