@@ -1,13 +1,18 @@
 import { NextRequest, NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
-
 export async function POST(req: NextRequest) {
   try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error("[contact] missing env vars — url:", !!supabaseUrl, "key:", !!supabaseKey)
+      return NextResponse.json({ error: "Configuração do servidor incompleta" }, { status: 500 })
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
     const { name, email, company, spend, message } = await req.json()
 
     if (!name || !email) {
@@ -42,15 +47,22 @@ export async function POST(req: NextRequest) {
       }])
 
     if (error) {
-      console.error("[contact] supabase error code:", error.code)
       console.error("[contact] supabase error message:", error.message)
+      console.error("[contact] supabase error code:", error.code)
       console.error("[contact] supabase error details:", error.details)
       console.error("[contact] supabase error hint:", error.hint)
-      return NextResponse.json({ error: "Erro ao salvar lead", detail: error.message, code: error.code }, { status: 500 })
+      return NextResponse.json({
+        error: "Erro ao salvar lead",
+        detail: error.message,
+        code: error.code,
+        hint: error.hint,
+      }, { status: 500 })
     }
 
     return NextResponse.json({ ok: true })
-  } catch {
-    return NextResponse.json({ error: "Erro interno" }, { status: 500 })
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e)
+    console.error("[contact] caught exception:", msg)
+    return NextResponse.json({ error: "Erro interno", detail: msg }, { status: 500 })
   }
 }
