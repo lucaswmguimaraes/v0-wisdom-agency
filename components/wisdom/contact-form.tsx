@@ -1,10 +1,22 @@
 "use client"
 
 import { useState } from "react"
+
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[]
+  }
+}
 import { ArrowRight, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 type FormState = "idle" | "loading" | "success" | "error"
+
+function getCookie(name: string): string | undefined {
+  if (typeof document === "undefined") return undefined
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"))
+  return match ? match[2] : undefined
+}
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle")
@@ -32,6 +44,32 @@ export function ContactForm() {
       })
 
       if (!res.ok) throw new Error("Erro no envio")
+
+      // Push rich dataLayer event
+      window.dataLayer = window.dataLayer || []
+      window.dataLayer.push({
+        event: "wisdom_form_submit",
+        lead_name: data.name,
+        lead_email: data.email,
+        lead_company: data.company || undefined,
+        lead_spend: data.spend,
+      })
+
+      // Fire Meta CAPI server-side (non-blocking)
+      fetch("/api/meta-capi", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          spend: data.spend,
+          sourceUrl: window.location.href,
+          clientUserAgent: navigator.userAgent,
+          fbp: getCookie("_fbp"),
+          fbc: getCookie("_fbc"),
+        }),
+      }).catch((err) => console.warn("[meta-capi] client error:", err))
+
       setState("success")
     } catch {
       setState("error")
