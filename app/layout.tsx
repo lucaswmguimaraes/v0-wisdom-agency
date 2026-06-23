@@ -43,8 +43,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable} bg-background`}>
+      <head>
+        {/* GTM — head snippet (inline para garantir carregamento síncrono) */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZQ7KGTK');` }} />
+      </head>
       <body className="font-sans antialiased">
-        {/* GTM_PLACEHOLDER: adicionar script do GTM aqui quando criar a conta */}
+        {/* GTM — noscript fallback */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NZQ7KGTK"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <CustomCursor />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
