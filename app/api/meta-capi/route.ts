@@ -10,7 +10,7 @@ function sha256(value: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, spend, sourceUrl, clientIp, clientUserAgent, fbp, fbc } = await req.json()
+    const { eventName = "Lead", name, email, spend, sourceUrl, clientIp, clientUserAgent, fbp, fbc } = await req.json()
 
     if (!email) {
       return NextResponse.json({ error: "email obrigatório" }, { status: 400 })
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     const payload = {
       data: [
         {
-          event_name: "Lead",
+          event_name: eventName,
           event_time: Math.floor(Date.now() / 1000),
           event_source_url: sourceUrl || "https://wisdomagency.com.br",
           action_source: "website",

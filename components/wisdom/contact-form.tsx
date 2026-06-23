@@ -21,6 +21,7 @@ function getCookie(name: string): string | undefined {
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle")
   const [errorMsg, setErrorMsg] = useState("")
+  const [leadData, setLeadData] = useState<{ name: string; email: string; company: string; spend: string } | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -45,6 +46,9 @@ export function ContactForm() {
 
       if (!res.ok) throw new Error("Erro no envio")
 
+      // Salva dados do lead para reusar no clique do WhatsApp
+      setLeadData({ name: data.name, email: data.email, company: data.company, spend: data.spend })
+
       // Push rich dataLayer event
       window.dataLayer = window.dataLayer || []
       window.dataLayer.push({
@@ -55,11 +59,12 @@ export function ContactForm() {
         lead_spend: data.spend,
       })
 
-      // Fire Meta CAPI server-side (non-blocking)
+      // Fire Meta CAPI — Lead (non-blocking)
       fetch("/api/meta-capi", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          eventName: "Lead",
           name: data.name,
           email: data.email,
           spend: data.spend,
@@ -75,6 +80,36 @@ export function ContactForm() {
       setState("error")
       setErrorMsg("Algo deu errado. Tente novamente ou me chame no LinkedIn.")
     }
+  }
+
+  function handleWhatsAppClick() {
+    if (!leadData) return
+
+    // Push dataLayer com dados do lead no clique do WhatsApp
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({
+      event: "wisdom_whatsapp_click",
+      lead_name: leadData.name,
+      lead_email: leadData.email,
+      lead_company: leadData.company || undefined,
+      lead_spend: leadData.spend,
+    })
+
+    // Fire Meta CAPI — Contact (non-blocking)
+    fetch("/api/meta-capi", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        eventName: "Contact",
+        name: leadData.name,
+        email: leadData.email,
+        spend: leadData.spend,
+        sourceUrl: window.location.href,
+        clientUserAgent: navigator.userAgent,
+        fbp: getCookie("_fbp"),
+        fbc: getCookie("_fbc"),
+      }),
+    }).catch((err) => console.warn("[meta-capi] whatsapp error:", err))
   }
 
   if (state === "success") {
@@ -109,6 +144,7 @@ export function ContactForm() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium text-white w-fit transition-opacity hover:opacity-90"
             style={{ backgroundColor: "#25D366" }}
           >
