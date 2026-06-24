@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { href: "/portfolio", label: "Serviços" },
-  { href: "/portfolio#cases", label: "Cases" },
+  { href: "/#servicos", label: "Serviços" },
+  { href: "/#cases", label: "Cases" },
   { href: "/content", label: "Conteúdo" },
-  { href: "/portfolio#contact", label: "Contato" },
+  { href: "/#contact", label: "Contato" },
 ]
 
 export function Header() {
@@ -45,7 +45,7 @@ export function Header() {
 
           <div className="hidden md:flex items-center gap-4">
             <Button asChild size="sm">
-              <Link href="/portfolio#contact">
+              <Link href="/#contact">
                 Agendar call
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -79,7 +79,7 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild size="sm" className="mt-2">
-                <Link href="/portfolio#contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
                   Agendar call
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

@@ -1,6 +1,10 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="180" height="180" rx="37" fill="#0B0F14"/>
   <rect x="1.5" y="1.5" width="177" height="177" rx="36" stroke="#2A3340"/>
+  <!-- W ocupa x=8..32, V ocupa x=32..40 → conjunto x=8..40 (32u wide, 24u tall: y=12..36) -->
+  <!-- scale=3.35 → 32*3.35=107px wide, 24*3.35=80px tall -->
+  <!-- centerX = (180 - 107) / 2 - 8*3.35 = 36.5 - 26.8 = 9.7 → translateX=10 -->
+  <!-- centerY = (180 - 80) / 2 - 12*3.35 = 50 - 40.2 = 9.8 → translateY=10 -->
   <g transform="translate(10, 10) scale(3.35)">
     <path
       d="M8 12L15 36L21 21L26 36L32 12"
