@@ -265,13 +265,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: 24,
-              }}
-            >
+            <div className="wa-services-grid">
               {SERVICES.map((s) => (
                 <ServiceV3Card key={s.title} {...s} />
               ))}

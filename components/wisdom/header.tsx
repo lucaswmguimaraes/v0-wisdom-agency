@@ -54,7 +54,7 @@ export function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground"
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground min-h-[44px] min-w-[44px] flex items-center justify-center ml-auto"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -70,7 +70,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-foreground px-2 py-1",
+                    "text-sm font-medium transition-colors hover:text-foreground px-2 py-3 min-h-[44px] flex items-center",
                     pathname === item.href ? "text-foreground" : "text-muted-foreground"
                   )}
                   onClick={() => setMobileMenuOpen(false)}

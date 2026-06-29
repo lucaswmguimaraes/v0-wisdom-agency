@@ -160,13 +160,13 @@ export function ContactForm() {
 
   const selectStyle: React.CSSProperties = {
     width: "100%",
-    height: 40,
+    minHeight: 44,
     borderRadius: 6,
     border: "1px solid var(--wa-border)",
     background: "#10151C",
     color: "#F7F9FC",
     padding: "0 12px",
-    fontSize: 14,
+    fontSize: 15,
     cursor: "pointer",
     appearance: "auto" as const,
   }

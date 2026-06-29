@@ -127,7 +127,7 @@ function ServiceV3Card({ icon, title, desc, bullets }: { icon: React.ReactNode; 
 
 function CaseDetail({ c, onBack }: { c: (typeof CASES)[0]; onBack: () => void }) {
   return (
-    <article style={{ maxWidth: 800, margin: "0 auto", padding: "48px 32px" }}>
+    <article style={{ maxWidth: 800, margin: "0 auto", padding: "48px clamp(16px, 5vw, 32px)" }}>
       <button
         onClick={onBack}
         style={{
@@ -166,7 +166,7 @@ function CaseDetail({ c, onBack }: { c: (typeof CASES)[0]; onBack: () => void })
       </div>
 
       {/* Metrics */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 48 }}>
+      <div className="wa-case-detail-metrics">
         {c.metrics.map(([val, lbl]) => (
           <div key={lbl} style={{ background: "var(--wa-surface-1)", border: "1px solid var(--wa-border)", borderRadius: 12, padding: "20px 16px", textAlign: "center" }}>
             <div className="wa-stat-value-big" style={{ fontSize: "clamp(28px,3vw,40px)" }}>{val}</div>
@@ -224,13 +224,13 @@ function PortfolioContactForm() {
 
   const selectStyle: React.CSSProperties = {
     width: "100%",
-    height: 40,
+    minHeight: 44,
     borderRadius: 6,
     border: "1px solid var(--wa-border)",
     background: "#10151C",
     color: "#F7F9FC",
     padding: "0 12px",
-    fontSize: 14,
+    fontSize: 15,
     cursor: "pointer",
     appearance: "auto" as const,
   }
@@ -423,11 +423,7 @@ export default function PortfolioPage() {
             </div>
 
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-                gap: 24,
-              }}
+              className="wa-portfolio-cases-grid"
             >
               {CASES.map((c) => (
                 <button
@@ -478,7 +474,7 @@ export default function PortfolioPage() {
                 Três coisas. <span className="wa-grad">Feitas muito bem.</span>
               </h2>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+            <div className="wa-services-grid">
               {SERVICES.map((s) => <ServiceV3Card key={s.title} {...s} />)}
             </div>
           </div>
@@ -530,7 +526,7 @@ export default function PortfolioPage() {
         {/* ── Contact ── */}
         <section id="contact" className="py-20 border-t border-border">
           <div className="mx-auto max-w-[1200px] px-8">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "start" }}>
+            <div className="wa-contact-grid">
               <div>
                 <div className="wa-section-eyebrow">
                   <span className="wa-section-eyebrow-dot" />
