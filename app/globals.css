@@ -269,6 +269,13 @@
   transform: translateY(0);
 }
 
+/* Sticky bar é padrão mobile (zona do polegar) — desktop tem o CTA fixo do header */
+@media (min-width: 768px) {
+  .wa-sticky-cta {
+    display: none;
+  }
+}
+
 /* ─── SERVICE CARDS ─── */
 .service-card {
   transform-style: preserve-3d;
