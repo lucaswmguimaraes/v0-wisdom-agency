@@ -241,6 +241,34 @@
   50%       { opacity: 1; }
 }
 
+/* Mobile: pausa animações decorativas infinitas — webview de Instagram em
+   Android low-end paga compositor/bateria por elas sem ganho perceptível */
+@media (max-width: 767px) {
+  .aurora-v2 { animation: none; opacity: 0.9; }
+  .magnetic-btn::before { animation: none; opacity: 0.7; }
+}
+
+/* ─── STICKY CTA BAR (mobile) ─── */
+.wa-sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  gap: 10px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(11, 15, 20, 0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--wa-border);
+  transform: translateY(110%);
+  transition: transform 240ms var(--ease-standard);
+}
+
+.wa-sticky-cta.is-visible {
+  transform: translateY(0);
+}
+
 /* ─── SERVICE CARDS ─── */
 .service-card {
   transform-style: preserve-3d;

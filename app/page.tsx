@@ -7,6 +7,7 @@ import { Header } from "@/components/wisdom/header"
 import { Footer } from "@/components/wisdom/footer"
 import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/wisdom/contact-form"
+import { MobileStickyCta } from "@/components/wisdom/mobile-sticky-cta"
 import { FloatingDashboard } from "@/components/wisdom/floating-dashboard"
 import { IsoGrid } from "@/components/wisdom/iso-grid"
 import { Marquee } from "@/components/wisdom/marquee"
@@ -559,6 +560,7 @@ export default function LandingPage() {
       </main>
 
       <Footer />
+      <MobileStickyCta />
     </div>
   )
 }
