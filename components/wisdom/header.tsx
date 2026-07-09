@@ -7,6 +7,7 @@ import { useState } from "react"
 import { Logo } from "./logo"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { bookingHref, bookingCtaLabels, isBookingExternal, trackBookingClick } from "@/lib/site-config"
 
 const navItems = [
   { href: "/#servicos", label: "Serviços" },
@@ -45,8 +46,13 @@ export function Header() {
 
           <div className="hidden md:flex items-center gap-4">
             <Button asChild size="sm">
-              <Link href="/#contact">
-                Agendar call
+              <Link
+                href={bookingHref}
+                target={isBookingExternal ? "_blank" : undefined}
+                rel={isBookingExternal ? "noopener noreferrer" : undefined}
+                onClick={() => trackBookingClick("header")}
+              >
+                {bookingCtaLabels.header}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -79,8 +85,16 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild size="sm" className="mt-2">
-                <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
-                  Agendar call
+                <Link
+                  href={bookingHref}
+                  target={isBookingExternal ? "_blank" : undefined}
+                  rel={isBookingExternal ? "noopener noreferrer" : undefined}
+                  onClick={() => {
+                    trackBookingClick("header_mobile")
+                    setMobileMenuOpen(false)
+                  }}
+                >
+                  {bookingCtaLabels.header}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

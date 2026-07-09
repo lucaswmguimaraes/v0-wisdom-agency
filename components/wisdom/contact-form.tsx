@@ -223,7 +223,8 @@ export function ContactForm() {
         <label htmlFor="spend" className="text-sm font-medium text-foreground">
           Investimento mensal em anúncios
         </label>
-        <select id="spend" name="spend" style={selectStyle}>
+        <select id="spend" name="spend" required defaultValue="" style={selectStyle}>
+          <option value="" disabled style={{ background: "#10151C", color: "#94A3B8" }}>Selecione uma faixa</option>
           <option value="Abaixo de R$20k" style={{ background: "#10151C", color: "#F7F9FC" }}>Abaixo de R$20k</option>
           <option value="R$20k – R$50k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$20k – R$50k</option>
           <option value="R$50k – R$250k" style={{ background: "#10151C", color: "#F7F9FC" }}>R$50k – R$250k</option>
