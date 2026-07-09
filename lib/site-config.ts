@@ -1,7 +1,7 @@
 // Configuração central de CTAs de conversão.
 // BOOKING_URL: link público da Booking Page do Google Calendar.
 // Enquanto vazio, os CTAs de agendamento caem no formulário (#contact).
-export const BOOKING_URL = ""
+export const BOOKING_URL = "https://calendar.app.google/gJQpUtKWw1Gr68iz5"
 
 export const isBookingExternal = BOOKING_URL.length > 0
 export const bookingHref = isBookingExternal ? BOOKING_URL : "/#contact"
