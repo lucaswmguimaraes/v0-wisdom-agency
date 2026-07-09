@@ -8,7 +8,7 @@ const supabase = createClient(
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, company, spend, message } = await req.json()
+    const { name, email, phone, company, spend, message } = await req.json()
 
     if (!name || !email) {
       return NextResponse.json({ error: "Nome e email são obrigatórios" }, { status: 400 })
@@ -31,11 +31,23 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Dados inválidos" }, { status: 400 })
     }
 
+    // Telefone é opcional; quando presente, precisa ter 10-11 dígitos (fixo/celular BR)
+    let phoneClean: string | null = null
+    if (phone) {
+      const digits = String(phone).replace(/\D/g, "")
+      if (digits.length < 10 || digits.length > 11) {
+        return NextResponse.json({ error: "Telefone inválido" }, { status: 400 })
+      }
+      phoneClean = digits
+    }
+
     const { error } = await supabase
       .from("leads")
       .insert([{
         name: String(name).trim(),
         email: String(email).trim().toLowerCase(),
+        // Chave só entra quando preenchido — envios sem telefone não dependem da coluna existir
+        ...(phoneClean ? { phone: phoneClean } : {}),
         company: company ? String(company).trim() : null,
         spend: spend || null,
         message: message ? String(message).trim() : null,

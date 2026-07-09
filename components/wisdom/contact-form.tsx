@@ -18,9 +18,20 @@ function getCookie(name: string): string | undefined {
   return match ? match[2] : undefined
 }
 
+// Máscara BR: (15) 99999-9999 — formata conforme digita, aceita fixo e celular
+function formatPhoneBR(value: string): string {
+  const d = value.replace(/\D/g, "").slice(0, 11)
+  if (d.length === 0) return ""
+  if (d.length <= 2) return `(${d}`
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`
+  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`
+}
+
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle")
   const [errorMsg, setErrorMsg] = useState("")
+  const [phone, setPhone] = useState("")
   const [leadData, setLeadData] = useState<{ name: string; email: string; company: string; spend: string } | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -32,6 +43,7 @@ export function ContactForm() {
     const data = {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: phone,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       spend: (form.elements.namedItem("spend") as HTMLSelectElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
@@ -67,6 +79,7 @@ export function ContactForm() {
           eventName: "Lead",
           name: data.name,
           email: data.email,
+          phone: data.phone || undefined,
           spend: data.spend,
           sourceUrl: window.location.href,
           clientUserAgent: navigator.userAgent,
@@ -202,6 +215,24 @@ export function ContactForm() {
             className="input-field w-full"
           />
         </div>
+      </div>
+
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="phone" className="text-sm font-medium text-foreground">
+          WhatsApp / telefone{" "}
+          <span className="text-muted-foreground font-normal">(opcional)</span>
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          value={phone}
+          onChange={(e) => setPhone(formatPhoneBR(e.target.value))}
+          placeholder="(15) 99999-9999"
+          className="input-field w-full"
+        />
       </div>
 
       <div className="flex flex-col gap-1.5">

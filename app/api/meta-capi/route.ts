@@ -10,7 +10,7 @@ function sha256(value: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { eventName = "Lead", name, email, spend, sourceUrl, clientIp, clientUserAgent, fbp, fbc } = await req.json()
+    const { eventName = "Lead", name, email, phone, spend, sourceUrl, clientIp, clientUserAgent, fbp, fbc } = await req.json()
 
     if (!email) {
       return NextResponse.json({ error: "email obrigatório" }, { status: 400 })
@@ -22,6 +22,13 @@ export async function POST(req: NextRequest) {
 
     const userData: Record<string, string> = {
       em: sha256(email),
+    }
+    // Telefone melhora o match quality do evento no Meta — normaliza para E.164 BR (55 + DDD + número)
+    if (phone) {
+      const digits = String(phone).replace(/\D/g, "")
+      if (digits.length >= 10 && digits.length <= 11) {
+        userData.ph = sha256(`55${digits}`)
+      }
     }
     if (firstName) userData.fn = sha256(firstName)
     if (lastName) userData.ln = sha256(lastName)
