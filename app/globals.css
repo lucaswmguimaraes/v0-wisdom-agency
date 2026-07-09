@@ -900,7 +900,7 @@ button:hover .arrow-slide { transform: translateX(4px); }
 /* ─── CASES ─── */
 .wa-cases-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: 20px;
 }
 

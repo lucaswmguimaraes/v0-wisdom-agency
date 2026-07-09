@@ -460,6 +460,44 @@ export default function LandingPage() {
                   </div>
                 </div>
               </Link>
+
+              {/* Case 3 — Instituição de ensino */}
+              <Link href="/portfolio" className="wa-case-card">
+                <div className="wa-case-cover wa-case-cover-3" style={{ position: "relative" }}>
+                  <span className="wa-case-tag">Educação superior · Google + Meta + Organic</span>
+                  <div style={{ position: "absolute", right: 16, top: "50%", transform: "translateY(-60%)", opacity: 0.25, pointerEvents: "none" }}>
+                    <svg width="76" height="72" viewBox="0 0 76 72" fill="none">
+                      <path d="M38 6 L72 20 L38 34 L4 20 Z" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+                      <path d="M18 27 V44 C18 50 28 55 38 55 C48 55 58 50 58 44 V27" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                      <path d="M72 20 V38" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                      <circle cx="72" cy="42" r="3" fill="white" />
+                    </svg>
+                  </div>
+                  <div className="wa-case-cover-chart">
+                    <svg viewBox="0 0 300 90" preserveAspectRatio="none" style={{ width: "100%", height: "100%" }}>
+                      <defs>
+                        <linearGradient id="cg3" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0%" stopColor="white" stopOpacity="0.35" />
+                          <stop offset="100%" stopColor="white" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 78 L60 68 L110 55 L160 36 L210 20 L260 10 L300 4" fill="none" stroke="white" strokeOpacity="0.85" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M0 78 L60 68 L110 55 L160 36 L210 20 L260 10 L300 4 L300 90 L0 90 Z" fill="url(#cg3)" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="wa-case-body">
+                  <h3>Instituição de ensino: +30.000 leads/mês integrando paid, orgânico e lançamentos.</h3>
+                  <p style={{ marginTop: 8, fontSize: 14, color: "var(--fg-3)", lineHeight: 1.6 }}>
+                    Coordenação de aquisição no lançamento simultâneo de 3 cursos de pós-graduação. Captação recorde com mídia paga, orgânico e comercial medindo e otimizando pelo mesmo funil.
+                  </p>
+                  <div className="wa-case-metrics">
+                    <div><strong>+30k</strong><span>Leads/mês</span></div>
+                    <div><strong>3</strong><span>Cursos lançados</span></div>
+                    <div><strong>Recorde</strong><span>Captação</span></div>
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -523,8 +561,8 @@ export default function LandingPage() {
         {/* ── Contact form ── */}
         <section id="contact" className="py-20 border-t border-border">
           <div className="mx-auto max-w-[1200px] px-8">
-            <div className="max-w-xl">
-              <div className="wa-section-eyebrow">
+            <div className="max-w-xl mx-auto" style={{ textAlign: "center" }}>
+              <div className="wa-section-eyebrow" style={{ justifyContent: "center" }}>
                 <span className="wa-section-eyebrow-dot" />
                 Próximo passo
               </div>
@@ -551,7 +589,7 @@ export default function LandingPage() {
               <p style={{ marginTop: 24, fontSize: 14, color: "var(--fg-3)" }}>
                 Ou, se preferir, deixe seu contexto que eu respondo em até 24h:
               </p>
-              <div style={{ marginTop: 16 }}>
+              <div style={{ marginTop: 16, textAlign: "left" }}>
                 <ContactForm />
               </div>
             </div>
