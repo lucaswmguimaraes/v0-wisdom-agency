@@ -131,7 +131,7 @@ export default function LandingPage() {
   useMagnetic(ctaRef, 0.2, 100)
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-20 md:pb-0">
       <Header />
 
       <main className="flex-1">
